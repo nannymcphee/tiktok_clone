@@ -7,15 +7,22 @@
 
 import UIKit
 import XCoordinator
+import RxSwift
 
 class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
     // MARK: Stored properties
-
+    private var homeCoordinator: HomeCoordinator?
+    private var searchCoordinator: SearchCoordinator?
+    private var videoUploadCoordinator: VideoUploadCoordinator?
+    private var chatCoordinator: ChatCoordinator?
+    private var myProfileCoordinator: MyProfileCoordinator?
+    
     private let homeRouter: StrongRouter<HomeRoute>
     private let searchRouter: StrongRouter<SearchRoute>
     private let videoUploadRouter: StrongRouter<VideoUploadRoute>
     private let chatRouter: StrongRouter<ChatRoute>
     private let myProfileRouter: StrongRouter<MyProfileRoute>
+    private let disposeBag = DisposeBag()
     
     // MARK: Initialization
     convenience init() {
@@ -42,6 +49,13 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
                   videoUploadRouter: videoUploadCoordinator.strongRouter,
                   chatRouter: chatCoordinator.strongRouter,
                   myProfileRouter: myProfileCoordinator.strongRouter)
+        
+        self.homeCoordinator = homeCoordinator
+        self.searchCoordinator = searchCoordinator
+        self.videoUploadCoordinator = videoUploadCoordinator
+        self.chatCoordinator = chatCoordinator
+        self.myProfileCoordinator = myProfileCoordinator
+        self.handleEvents()
     }
 
     init(homeRouter: StrongRouter<HomeRoute>,
@@ -71,5 +85,16 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
         case .myProfile:
             return .select(myProfileRouter)
         }
+    }
+    
+    private func handleEvents() {
+        myProfileCoordinator?.eventPublisher
+            .subscribe(with: self, onNext: { owner, event in
+                switch event {
+                case .loginSuccess:
+                    owner.trigger(.home)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }

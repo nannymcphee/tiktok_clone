@@ -18,8 +18,8 @@ class RegisterMethodCell: TableViewCell {
         lbTitle.font = R.font.milliardMedium(size: 14)
         lbTitle.textColor = .white
 
-        vContent.backgroundColor = AppColors.black2
-        vContent.customBorder(cornerRadius: 4, borderWidth: 1, color: .clear)
+        vContent.backgroundColor = AppColors.secondaryBackground
+        vContent.customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
     }
     
     override func reset() {

@@ -14,11 +14,18 @@ enum MyProfileRoute: Route {
     case register
 }
 
-class MyProfileCoordinator: NavigationCoordinator<MyProfileRoute> {
+class MyProfileCoordinator: NavigationCoordinator<MyProfileRoute>, EventPublisherType {
     private let disposeBag = DisposeBag()
     private var myProfileVM: MyProfileVM?
     
-    // MARK: Initialization
+    // MARK: - Event
+    enum Event {
+        case loginSuccess
+    }
+    
+    let eventPublisher = PublishSubject<Event>()
+    
+    // MARK: - Initialization
     init() {
         super.init(initialRoute: .main)
     }
@@ -52,9 +59,8 @@ class MyProfileCoordinator: NavigationCoordinator<MyProfileRoute> {
                     switch event {
                     case .dismiss:
                         vc.dismiss(animated: true, completion: nil)
-                    case .loginSuccess(let user):
-                        Logger.i("User: \(user)")
-                        owner.myProfileVM?.currentUserRelay.accept(user)
+                    case .loginSuccess:
+                        owner.eventPublisher.onNext(.loginSuccess)
                     }
                 })
                 .disposed(by: disposeBag)

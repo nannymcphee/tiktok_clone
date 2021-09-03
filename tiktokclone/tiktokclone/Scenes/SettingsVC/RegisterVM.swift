@@ -38,7 +38,7 @@ final class RegisterVM: BaseVM, ViewModelTransformable, EventPublisherType, View
     let kIntialVisibleMethods: CGFloat = 4
     let eventPublisher = PublishSubject<Event>()
 
-    @Injected private var authService: AuthUseCase
+    @Injected private var userRepo: UserRepo
     
     private let methodsRelay = BehaviorRelay<[UtilityModel]>(value: [
         UtilityModel(iconName: R.image.ic_user.name,        title: Text.usePhoneNumberOrEmail,  tag: 0),
@@ -89,7 +89,7 @@ private extension RegisterVM {
         switch tag {
         case 3:
             guard let vc = presentingViewController else { return }
-            authService.signInWithGoogle(presenting: vc)
+            userRepo.signInWithGoogle(presenting: vc)
                 .trackError(errorTracker, action: .alert)
                 .trackActivity(loadingIndicator)
                 .subscribe(with: self, onNext: { viewModel, user in

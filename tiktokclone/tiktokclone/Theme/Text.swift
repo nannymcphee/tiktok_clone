@@ -31,4 +31,8 @@ class Text {
     static var registerTermText = "By continuing, you are agreed with our Terms of service and admit that you have read the Privacy Policies to understand how we collect, use and share your personal data."
     static var alreadyHaveAccountLogin = "Already have an account? Login"
     static var login = "Login"
+    static var following = "Following"
+    static var followers = "Followers"
+    static var likes = "Likes"
+    static var editProfile = "Edit profile"
 }

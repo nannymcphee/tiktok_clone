@@ -106,6 +106,16 @@
 		E19FF0BC26E1433F00C96C38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19FF0BA26E1433F00C96C38 /* Main.storyboard */; };
 		E19FF0BE26E1434100C96C38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19FF0BD26E1434100C96C38 /* Assets.xcassets */; };
 		E19FF0C126E1434100C96C38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19FF0BF26E1434100C96C38 /* LaunchScreen.storyboard */; };
+		E1D21D1026E234420083C70E /* KeyValueStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D0F26E234420083C70E /* KeyValueStorageType.swift */; };
+		E1D21D1226E235240083C70E /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D1126E235240083C70E /* UserRepo.swift */; };
+		E1D21D1526E256D20083C70E /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D1426E256D20083C70E /* Encodable+Ext.swift */; };
+		E1D21D1826E269ED0083C70E /* NavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D1726E269ED0083C70E /* NavigationHeader.swift */; };
+		E1D21D1A26E26A3C0083C70E /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D1926E26A3C0083C70E /* NibLoadable.swift */; };
+		E1D21D1C26E26B8B0083C70E /* NavigationHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D21D1B26E26B8B0083C70E /* NavigationHeader.xib */; };
+		E1D21D1F26E26DBB0083C70E /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D1E26E26DBB0083C70E /* UserInfoView.swift */; };
+		E1D21D2126E26DC90083C70E /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D21D2026E26DC90083C70E /* UserInfoView.xib */; };
+		E1D21D2726E282F70083C70E /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D2626E282F70083C70E /* UINavigationController+Ext.swift */; };
+		E1D21D2926E285730083C70E /* MyProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D2826E285730083C70E /* MyProfileVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +222,16 @@
 		E19FF0BD26E1434100C96C38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19FF0C026E1434100C96C38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E19FF0C226E1434100C96C38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1D21D0F26E234420083C70E /* KeyValueStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorageType.swift; sourceTree = "<group>"; };
+		E1D21D1126E235240083C70E /* UserRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
+		E1D21D1426E256D20083C70E /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
+		E1D21D1726E269ED0083C70E /* NavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeader.swift; sourceTree = "<group>"; };
+		E1D21D1926E26A3C0083C70E /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		E1D21D1B26E26B8B0083C70E /* NavigationHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationHeader.xib; sourceTree = "<group>"; };
+		E1D21D1E26E26DBB0083C70E /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		E1D21D2026E26DC90083C70E /* UserInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
+		E1D21D2626E282F70083C70E /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
+		E1D21D2826E285730083C70E /* MyProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +258,8 @@
 		E175809326E1E6D40059A79B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E1D21D1D26E26DA50083C70E /* UserInfoView */,
+				E1D21D1626E269E30083C70E /* NavigationHeader */,
 				E175809426E1E6E80059A79B /* NonLoginView.swift */,
 			);
 			path = CustomViews;
@@ -333,6 +355,8 @@
 				E19F5BF926E1B97E00E9B5D0 /* WKWebView+Ext.swift */,
 				E19F5BF626E1B97E00E9B5D0 /* XCoordinator+Ext.swift */,
 				E19F5C5B26E1C8DF00E9B5D0 /* Optional+Ext.swift */,
+				E1D21D1426E256D20083C70E /* Encodable+Ext.swift */,
+				E1D21D2626E282F70083C70E /* UINavigationController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +377,8 @@
 				E175808D26E1E0120059A79B /* ErrorHandler.swift */,
 				E175809126E1E6860059A79B /* Device.swift */,
 				E17580A026E1FD8F0059A79B /* UITableView+Reusable.swift */,
+				E1D21D0F26E234420083C70E /* KeyValueStorageType.swift */,
+				E1D21D1926E26A3C0083C70E /* NibLoadable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -433,6 +459,7 @@
 			children = (
 				E19F5BED26E1B8B200E9B5D0 /* MyProfileVC.swift */,
 				E19F5BEE26E1B8B200E9B5D0 /* MyProfileVC.xib */,
+				E1D21D2826E285730083C70E /* MyProfileVM.swift */,
 			);
 			path = MyProfileVC;
 			sourceTree = "<group>";
@@ -595,6 +622,7 @@
 		E19FF0B326E1433F00C96C38 /* tiktokclone */ = {
 			isa = PBXGroup;
 			children = (
+				E1D21D1326E237470083C70E /* Repos */,
 				E17580AE26E227AF0059A79B /* UseCases */,
 				E19F5C1726E1BD8400E9B5D0 /* Resources */,
 				E19F5C1126E1BB4800E9B5D0 /* Theme */,
@@ -613,6 +641,32 @@
 				E175808926E1D9990059A79B /* GoogleService-Info.plist */,
 			);
 			path = tiktokclone;
+			sourceTree = "<group>";
+		};
+		E1D21D1326E237470083C70E /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				E1D21D1126E235240083C70E /* UserRepo.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
+		E1D21D1626E269E30083C70E /* NavigationHeader */ = {
+			isa = PBXGroup;
+			children = (
+				E1D21D1726E269ED0083C70E /* NavigationHeader.swift */,
+				E1D21D1B26E26B8B0083C70E /* NavigationHeader.xib */,
+			);
+			path = NavigationHeader;
+			sourceTree = "<group>";
+		};
+		E1D21D1D26E26DA50083C70E /* UserInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				E1D21D1E26E26DBB0083C70E /* UserInfoView.swift */,
+				E1D21D2026E26DC90083C70E /* UserInfoView.xib */,
+			);
+			path = UserInfoView;
 			sourceTree = "<group>";
 		};
 		F83940BBD61E0F9A502DABE0 /* Frameworks */ = {
@@ -701,10 +755,12 @@
 				E19F5BD826E1B86C00E9B5D0 /* TabBarVC.xib in Resources */,
 				E19F5C3D26E1BF5B00E9B5D0 /* Milliard-SemiBold-Italic.otf in Resources */,
 				E19F5C3026E1BF5B00E9B5D0 /* Milliard-ExtraLight.otf in Resources */,
+				E1D21D2126E26DC90083C70E /* UserInfoView.xib in Resources */,
 				E19FF0BE26E1434100C96C38 /* Assets.xcassets in Resources */,
 				E19F5C3E26E1BF5B00E9B5D0 /* Milliard-Heavy.otf in Resources */,
 				E175809F26E1FC4B0059A79B /* RegisterMethodCell.xib in Resources */,
 				E19FF0BC26E1433F00C96C38 /* Main.storyboard in Resources */,
+				E1D21D1C26E26B8B0083C70E /* NavigationHeader.xib in Resources */,
 				E175809A26E1EECF0059A79B /* RegisterVC.xib in Resources */,
 				E19F5C3B26E1BF5B00E9B5D0 /* Milliard-Bold-Italic.otf in Resources */,
 				E19F5C4326E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf in Resources */,
@@ -801,10 +857,13 @@
 				E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */,
 				E17580A926E20CA20059A79B /* ViewModelTrackable.swift in Sources */,
 				E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */,
+				E1D21D1526E256D20083C70E /* Encodable+Ext.swift in Sources */,
 				E19FF0B526E1433F00C96C38 /* AppDelegate.swift in Sources */,
 				E19F5BDB26E1B87600E9B5D0 /* HomeVC.swift in Sources */,
 				E19F5C0426E1B97F00E9B5D0 /* Int+Ext.swift in Sources */,
+				E1D21D2926E285730083C70E /* MyProfileVM.swift in Sources */,
 				E19F5BC726E1B78500E9B5D0 /* BaseViewController.swift in Sources */,
+				E1D21D1226E235240083C70E /* UserRepo.swift in Sources */,
 				E19F5C0326E1B97F00E9B5D0 /* WKWebView+Ext.swift in Sources */,
 				E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */,
 				E175809526E1E6E80059A79B /* NonLoginView.swift in Sources */,
@@ -818,7 +877,9 @@
 				E17580B026E227B60059A79B /* AuthUseCase.swift in Sources */,
 				E19F5C0526E1B97F00E9B5D0 /* UIImageView+Ext.swift in Sources */,
 				E19F5C5C26E1C8DF00E9B5D0 /* Optional+Ext.swift in Sources */,
+				E1D21D2726E282F70083C70E /* UINavigationController+Ext.swift in Sources */,
 				E19F5C5226E1C5A800E9B5D0 /* VideoUploadCoordinator.swift in Sources */,
+				E1D21D1A26E26A3C0083C70E /* NibLoadable.swift in Sources */,
 				E19F5C5826E1C62200E9B5D0 /* SettingsCoordinator.swift in Sources */,
 				E17580B226E227E40059A79B /* TTUser.swift in Sources */,
 				E175808C26E1DE850059A79B /* ErrorTracker.swift in Sources */,
@@ -827,6 +888,7 @@
 				E19F5BE726E1B89C00E9B5D0 /* ChatListVC.swift in Sources */,
 				E19F5BDF26E1B88200E9B5D0 /* SearchVC.swift in Sources */,
 				E19F5C0226E1B97F00E9B5D0 /* String+Ext.swift in Sources */,
+				E1D21D1826E269ED0083C70E /* NavigationHeader.swift in Sources */,
 				E19F5C0626E1B97F00E9B5D0 /* Observable+Operators.swift in Sources */,
 				E17580A526E1FDC60059A79B /* CollectionViewCell.swift in Sources */,
 				E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */,
@@ -843,8 +905,10 @@
 				E19F5C0726E1B97F00E9B5D0 /* Localize+Ext.swift in Sources */,
 				E19F5BD726E1B86C00E9B5D0 /* TabBarVC.swift in Sources */,
 				E19F5C5026E1C59C00E9B5D0 /* MyProfileCoordinator.swift in Sources */,
+				E1D21D1026E234420083C70E /* KeyValueStorageType.swift in Sources */,
 				E175809026E1E43B0059A79B /* BaseView.swift in Sources */,
 				E19F5BF326E1B8BF00E9B5D0 /* SettingsVC.swift in Sources */,
+				E1D21D1F26E26DBB0083C70E /* UserInfoView.swift in Sources */,
 				E175808626E1D61A0059A79B /* R.generated.swift in Sources */,
 				E19F5C4A26E1C2D300E9B5D0 /* HomeCoordinator.swift in Sources */,
 				E19F5C1326E1BB5000E9B5D0 /* AppColors.swift in Sources */,

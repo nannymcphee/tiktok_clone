@@ -20,6 +20,8 @@ protocol AuthUseCase {
     
     func signInWithGoogle(presenting: UIViewController) -> Single<TTUser>
     func signOut() -> Single<Void>
+    func saveUserInfo(user: TTUser) -> Single<Void>
+    func getUserInfo(userId: String) -> Single<TTUser?>
 }
 
 final class AuthUseCaseImpl: AuthUseCase {
@@ -31,6 +33,7 @@ final class AuthUseCaseImpl: AuthUseCase {
     private var clientId: String? {
         return FirebaseApp.app()?.options.clientID
     }
+    private lazy var dbUser = Firestore.firestore().collection("Users")
     
     func signInWithGoogle(presenting: UIViewController) -> Single<TTUser> {
         return _signInWithGoogle(presenting: presenting)
@@ -39,6 +42,11 @@ final class AuthUseCaseImpl: AuthUseCase {
                 owner._signInWithFirebase(with: credential)
                     .asObservable()
             }
+            .flatMapLatest(weakObj: self, { owner, user -> Observable<TTUser> in
+                return owner.saveUserInfo(user: user)
+                    .flatMap { .just(user) }
+                    .asObservable()
+            })
             .asSingle()
     }
     
@@ -49,6 +57,37 @@ final class AuthUseCaseImpl: AuthUseCase {
                 single(.success(()))
             } catch {
                 single(.failure(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func saveUserInfo(user: TTUser) -> Single<Void> {
+        .create { [weak self] single in
+            guard let self = self else { return Disposables.create() }
+            let mergeFields: [Any] = ["username", "email", "profile_img"]
+            self.dbUser.document(user.id).setData(user.asDictionary(), mergeFields: mergeFields, completion: { error in
+                guard let error = error else {
+                    single(.success(()))
+                    return
+                }
+                single(.failure(error))
+            })
+            return Disposables.create()
+        }
+    }
+    
+    func getUserInfo(userId: String) -> Single<TTUser?> {
+        .create { [weak self] single in
+            guard let self = self else { return Disposables.create() }
+            self.dbUser.document(userId).getDocument { snapshot, error in
+                if let error = error {
+                    single(.failure(error))
+                }
+                
+                if let dict = snapshot?.data() {
+                    single(.success(TTUser(dictionary: dict)))
+                }
             }
             return Disposables.create()
         }
