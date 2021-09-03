@@ -20,4 +20,5 @@ target 'tiktokclone' do
   pod 'Firebase/Storage'
   pod 'Kingfisher', '6.3.1'
   pod 'Localize-Swift', '~> 3.2'
+  pod 'R.swift'
 end
