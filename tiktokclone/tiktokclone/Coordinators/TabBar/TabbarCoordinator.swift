@@ -8,34 +8,6 @@
 import UIKit
 import XCoordinator
 
-enum AppRoute: Route {
-    case tabBar
-}
-
-class AppCoordinator: NavigationCoordinator<AppRoute> {
-    // MARK: - Initialization
-    init() {
-        super.init(initialRoute: .tabBar)
-    }
-    
-    // MARK: Overrides
-    override func prepareTransition(for route: AppRoute) -> NavigationTransition {
-        switch route {
-        case .tabBar:
-            let tabBarRouter = TabbarCoordinator().strongRouter
-            return .presentFullScreen(tabBarRouter)
-        }
-    }
-}
-
-enum TabbarRoute: Route {
-    case home
-    case search
-    case videoUpload
-    case chat
-    case myProfile
-}
-
 class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
     // MARK: Stored properties
 
@@ -48,19 +20,22 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
     // MARK: Initialization
     convenience init() {
         let homeCoordinator = HomeCoordinator()
-        homeCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 0)
+        homeCoordinator.rootViewController.tabBarItem = UITabBarItem(title: Text.homeScreenTitle, image: R.image.ic_home(), tag: 0)
+        homeCoordinator.rootViewController.isNavigationBarHidden = true
 
         let searchCoordinator = SearchCoordinator()
-        searchCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        searchCoordinator.rootViewController.tabBarItem = UITabBarItem(title: Text.searchScreenTitle, image: R.image.ic_search(), tag: 1)
         
         let videoUploadCoordinator = VideoUploadCoordinator()
-        videoUploadCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+        let videoUploadTabItem = UITabBarItem(title: nil, image: R.image.ic_plus_square(), tag: 2)
+        videoUploadTabItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        videoUploadCoordinator.rootViewController.tabBarItem = videoUploadTabItem
         
         let chatCoordinator = ChatCoordinator()
-        chatCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 3)
+        chatCoordinator.rootViewController.tabBarItem = UITabBarItem(title: Text.chatListScreenTitle, image: R.image.ic_chat(), tag: 3)
         
         let myProfileCoordinator = MyProfileCoordinator()
-        myProfileCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
+        myProfileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: Text.myProfileScreenTitle, image: R.image.ic_user(), tag: 4)
 
         self.init(homeRouter: homeCoordinator.strongRouter,
                   searchRouter: searchCoordinator.strongRouter,
@@ -97,5 +72,4 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
             return .select(myProfileRouter)
         }
     }
-
 }

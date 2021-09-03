@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         router.setRoot(for: mainWindow)
         // Dependency Injection
         Resolver.registerAllServices()
+        UITabBar.appearance().tintColor = .white
         return true
     }
 }

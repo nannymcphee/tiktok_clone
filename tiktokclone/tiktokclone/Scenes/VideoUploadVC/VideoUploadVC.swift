@@ -20,7 +20,6 @@ class VideoUploadVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Video Upload"
     }
     
     
