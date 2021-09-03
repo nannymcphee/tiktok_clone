@@ -20,7 +20,7 @@ class SearchVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Search"
+        title = Text.searchScreenTitle
     }
     
     

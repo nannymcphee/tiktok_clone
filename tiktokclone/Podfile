@@ -7,18 +7,31 @@ target 'tiktokclone' do
 
   # Pods for tiktokclone
 
+  # UI Pods
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Kingfisher', '6.3.1'
+  pod 'Localize-Swift', '~> 3.2'
+
+  # Rx Pods
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
   pod 'RxSwiftExt', '~> 6'
   pod 'RxDataSources', '~> 5.0.0'
   pod 'RxGesture', '4.0.2'
+  
+  # Coordinator
   pod 'XCoordinator', '~> 2.0.7'
+  
+  # DI
   pod 'Resolver', '~> 1.4.3'
+  
+  # Firebase
+  pod 'GoogleSignIn'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
-  pod 'Kingfisher', '6.3.1'
-  pod 'Localize-Swift', '~> 3.2'
+  
+  # Assets Generator
   pod 'R.swift'
+  
 end

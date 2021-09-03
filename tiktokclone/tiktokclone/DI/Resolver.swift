@@ -10,13 +10,19 @@ import Resolver
 extension Resolver: ResolverRegistering {
     // Inject all services
     public static func registerAllServices() {
-//        registerConfigService()
+        registerAuthService()
 //        registerNetworkService()
 //        registerEventsRepo()
     }
 }
 
 extension Resolver {
+    private static func registerAuthService() {
+        register { () -> AuthUseCase in
+            AuthUseCaseImpl() as AuthUseCase
+        }
+        .scope(.cached)
+    }
 //    // Inject server config
 //    private static func registerConfigService() {
 //        register { ServerConfig.testing as ServerConfigType }

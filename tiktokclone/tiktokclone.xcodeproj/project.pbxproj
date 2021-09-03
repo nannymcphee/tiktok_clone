@@ -10,6 +10,25 @@
 		69ED2275113DC74BF17DE4C4 /* Pods_tiktokclone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */; };
 		E175808626E1D61A0059A79B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808526E1D61A0059A79B /* R.generated.swift */; };
 		E175808826E1D6DB0059A79B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808726E1D6DB0059A79B /* ViewController.swift */; };
+		E175808A26E1D9990059A79B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E175808926E1D9990059A79B /* GoogleService-Info.plist */; };
+		E175808C26E1DE850059A79B /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808B26E1DE850059A79B /* ErrorTracker.swift */; };
+		E175808E26E1E0120059A79B /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808D26E1E0120059A79B /* ErrorHandler.swift */; };
+		E175809026E1E43B0059A79B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808F26E1E43B0059A79B /* BaseView.swift */; };
+		E175809226E1E6860059A79B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175809126E1E6860059A79B /* Device.swift */; };
+		E175809526E1E6E80059A79B /* NonLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175809426E1E6E80059A79B /* NonLoginView.swift */; };
+		E175809926E1EECF0059A79B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175809726E1EECE0059A79B /* RegisterVC.swift */; };
+		E175809A26E1EECF0059A79B /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E175809826E1EECF0059A79B /* RegisterVC.xib */; };
+		E175809E26E1FC4B0059A79B /* RegisterMethodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175809C26E1FC4B0059A79B /* RegisterMethodCell.swift */; };
+		E175809F26E1FC4B0059A79B /* RegisterMethodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E175809D26E1FC4B0059A79B /* RegisterMethodCell.xib */; };
+		E17580A126E1FD8F0059A79B /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580A026E1FD8F0059A79B /* UITableView+Reusable.swift */; };
+		E17580A326E1FDB90059A79B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580A226E1FDB90059A79B /* TableViewCell.swift */; };
+		E17580A526E1FDC60059A79B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580A426E1FDC60059A79B /* CollectionViewCell.swift */; };
+		E17580A726E20C870059A79B /* EventPublisherType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580A626E20C870059A79B /* EventPublisherType.swift */; };
+		E17580A926E20CA20059A79B /* ViewModelTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580A826E20CA20059A79B /* ViewModelTrackable.swift */; };
+		E17580AD26E20D1A0059A79B /* UtilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580AC26E20D1A0059A79B /* UtilityModel.swift */; };
+		E17580B026E227B60059A79B /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580AF26E227B60059A79B /* AuthUseCase.swift */; };
+		E17580B226E227E40059A79B /* TTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580B126E227E40059A79B /* TTUser.swift */; };
+		E17580B426E2280B0059A79B /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580B326E2280B0059A79B /* RegisterVM.swift */; };
 		E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */; };
 		E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */; };
 		E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */; };
@@ -73,8 +92,6 @@
 		E19F5C4226E1BF5B00E9B5D0 /* Milliard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2C26E1BF5B00E9B5D0 /* Milliard-Thin.otf */; };
 		E19F5C4326E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2D26E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf */; };
 		E19F5C4426E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2E26E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf */; };
-		E19F5C4626E1C0E400E9B5D0 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4526E1C0E400E9B5D0 /* AppFont.swift */; };
-		E19F5C4826E1C28700E9B5D0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4726E1C28700E9B5D0 /* FontManager.swift */; };
 		E19F5C4A26E1C2D300E9B5D0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4926E1C2D300E9B5D0 /* HomeCoordinator.swift */; };
 		E19F5C4C26E1C50800E9B5D0 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4B26E1C50800E9B5D0 /* SearchCoordinator.swift */; };
 		E19F5C5026E1C59C00E9B5D0 /* MyProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4F26E1C59C00E9B5D0 /* MyProfileCoordinator.swift */; };
@@ -97,6 +114,25 @@
 		DC4656C44A719FC2C61EBFA3 /* Pods-tiktokclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.debug.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.debug.xcconfig"; sourceTree = "<group>"; };
 		E175808526E1D61A0059A79B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E175808726E1D6DB0059A79B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E175808926E1D9990059A79B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E175808B26E1DE850059A79B /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		E175808D26E1E0120059A79B /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		E175808F26E1E43B0059A79B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		E175809126E1E6860059A79B /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		E175809426E1E6E80059A79B /* NonLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonLoginView.swift; sourceTree = "<group>"; };
+		E175809726E1EECE0059A79B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		E175809826E1EECF0059A79B /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
+		E175809C26E1FC4B0059A79B /* RegisterMethodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMethodCell.swift; sourceTree = "<group>"; };
+		E175809D26E1FC4B0059A79B /* RegisterMethodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterMethodCell.xib; sourceTree = "<group>"; };
+		E17580A026E1FD8F0059A79B /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		E17580A226E1FDB90059A79B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		E17580A426E1FDC60059A79B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E17580A626E20C870059A79B /* EventPublisherType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPublisherType.swift; sourceTree = "<group>"; };
+		E17580A826E20CA20059A79B /* ViewModelTrackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTrackable.swift; sourceTree = "<group>"; };
+		E17580AC26E20D1A0059A79B /* UtilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityModel.swift; sourceTree = "<group>"; };
+		E17580AF26E227B60059A79B /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
+		E17580B126E227E40059A79B /* TTUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTUser.swift; sourceTree = "<group>"; };
+		E17580B326E2280B0059A79B /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelTransformable.swift; sourceTree = "<group>"; };
 		E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxBaseViewController.swift; sourceTree = "<group>"; };
@@ -160,8 +196,6 @@
 		E19F5C2C26E1BF5B00E9B5D0 /* Milliard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Thin.otf"; sourceTree = "<group>"; };
 		E19F5C2D26E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-ExtraBold.otf"; sourceTree = "<group>"; };
 		E19F5C2E26E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Light-Italic.otf"; sourceTree = "<group>"; };
-		E19F5C4526E1C0E400E9B5D0 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
-		E19F5C4726E1C28700E9B5D0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		E19F5C4926E1C2D300E9B5D0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		E19F5C4B26E1C50800E9B5D0 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		E19F5C4F26E1C59C00E9B5D0 /* MyProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCoordinator.swift; sourceTree = "<group>"; };
@@ -201,6 +235,57 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E175809326E1E6D40059A79B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E175809426E1E6E80059A79B /* NonLoginView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E175809626E1EEB00059A79B /* RegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				E175809B26E1FC2B0059A79B /* Cells */,
+				E175809726E1EECE0059A79B /* RegisterVC.swift */,
+				E175809826E1EECF0059A79B /* RegisterVC.xib */,
+			);
+			path = RegisterVC;
+			sourceTree = "<group>";
+		};
+		E175809B26E1FC2B0059A79B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E175809C26E1FC4B0059A79B /* RegisterMethodCell.swift */,
+				E175809D26E1FC4B0059A79B /* RegisterMethodCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E17580AA26E20D0D0059A79B /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				E17580AC26E20D1A0059A79B /* UtilityModel.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		E17580AB26E20D120059A79B /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				E17580B126E227E40059A79B /* TTUser.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		E17580AE26E227AF0059A79B /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				E17580AF26E227B60059A79B /* AuthUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		E19F5BAC26E1B71400E9B5D0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +293,11 @@
 				E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */,
 				E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */,
 				E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */,
+				E175808F26E1E43B0059A79B /* BaseView.swift */,
+				E17580A226E1FDB90059A79B /* TableViewCell.swift */,
+				E17580A426E1FDC60059A79B /* CollectionViewCell.swift */,
+				E17580A626E20C870059A79B /* EventPublisherType.swift */,
+				E17580A826E20CA20059A79B /* ViewModelTrackable.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -223,6 +313,8 @@
 		E19F5BB426E1B74700E9B5D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E17580AB26E20D120059A79B /* Remote */,
+				E17580AA26E20D0D0059A79B /* Local */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +349,10 @@
 				E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */,
 				E19F5BBC26E1B78400E9B5D0 /* VideoCapture.swift */,
 				E19F5BBD26E1B78400E9B5D0 /* VideoProcessor.swift */,
+				E175808B26E1DE850059A79B /* ErrorTracker.swift */,
+				E175808D26E1E0120059A79B /* ErrorHandler.swift */,
+				E175809126E1E6860059A79B /* Device.swift */,
+				E17580A026E1FD8F0059A79B /* UITableView+Reusable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,6 +360,8 @@
 		E19F5BCC26E1B7BA00E9B5D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E175809326E1E6D40059A79B /* CustomViews */,
+				E175809626E1EEB00059A79B /* RegisterVC */,
 				E19F5BD426E1B82100E9B5D0 /* SettingsVC */,
 				E19F5BD326E1B81700E9B5D0 /* MyProfileVC */,
 				E19F5BD226E1B81200E9B5D0 /* ChatVC */,
@@ -344,6 +442,7 @@
 			children = (
 				E19F5BF126E1B8BF00E9B5D0 /* SettingsVC.swift */,
 				E19F5BF226E1B8BF00E9B5D0 /* SettingsVC.xib */,
+				E17580B326E2280B0059A79B /* RegisterVM.swift */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -424,8 +523,6 @@
 			children = (
 				E19F5C1226E1BB5000E9B5D0 /* AppColors.swift */,
 				E19F5C1426E1BB8600E9B5D0 /* Text.swift */,
-				E19F5C4526E1C0E400E9B5D0 /* AppFont.swift */,
-				E19F5C4726E1C28700E9B5D0 /* FontManager.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -498,6 +595,7 @@
 		E19FF0B326E1433F00C96C38 /* tiktokclone */ = {
 			isa = PBXGroup;
 			children = (
+				E17580AE26E227AF0059A79B /* UseCases */,
 				E19F5C1726E1BD8400E9B5D0 /* Resources */,
 				E19F5C1126E1BB4800E9B5D0 /* Theme */,
 				E19F5BB626E1B75100E9B5D0 /* Utils */,
@@ -512,6 +610,7 @@
 				E19FF0BF26E1434100C96C38 /* LaunchScreen.storyboard */,
 				E175808726E1D6DB0059A79B /* ViewController.swift */,
 				E19FF0C226E1434100C96C38 /* Info.plist */,
+				E175808926E1D9990059A79B /* GoogleService-Info.plist */,
 			);
 			path = tiktokclone;
 			sourceTree = "<group>";
@@ -604,13 +703,16 @@
 				E19F5C3026E1BF5B00E9B5D0 /* Milliard-ExtraLight.otf in Resources */,
 				E19FF0BE26E1434100C96C38 /* Assets.xcassets in Resources */,
 				E19F5C3E26E1BF5B00E9B5D0 /* Milliard-Heavy.otf in Resources */,
+				E175809F26E1FC4B0059A79B /* RegisterMethodCell.xib in Resources */,
 				E19FF0BC26E1433F00C96C38 /* Main.storyboard in Resources */,
+				E175809A26E1EECF0059A79B /* RegisterVC.xib in Resources */,
 				E19F5C3B26E1BF5B00E9B5D0 /* Milliard-Bold-Italic.otf in Resources */,
 				E19F5C4326E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf in Resources */,
 				E19F5C4226E1BF5B00E9B5D0 /* Milliard-Thin.otf in Resources */,
 				E19F5BE826E1B89C00E9B5D0 /* ChatListVC.xib in Resources */,
 				E19F5C3C26E1BF5B00E9B5D0 /* Milliard-Heavy-Italic.otf in Resources */,
 				E19F5C3F26E1BF5B00E9B5D0 /* Milliard-Book-Italic.otf in Resources */,
+				E175808A26E1D9990059A79B /* GoogleService-Info.plist in Resources */,
 				E19F5BF426E1B8BF00E9B5D0 /* SettingsVC.xib in Resources */,
 				E19F5C3526E1BF5B00E9B5D0 /* Milliard-ExtraLight-Italic.otf in Resources */,
 				E19F5C3226E1BF5B00E9B5D0 /* Milliard-Hairline-Italic.otf in Resources */,
@@ -695,7 +797,9 @@
 				E19F5BC926E1B78500E9B5D0 /* SwipeBackNavigationController.swift in Sources */,
 				E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */,
 				E19F5C0126E1B97F00E9B5D0 /* Dictionary+Ext.swift in Sources */,
+				E175809226E1E6860059A79B /* Device.swift in Sources */,
 				E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */,
+				E17580A926E20CA20059A79B /* ViewModelTrackable.swift in Sources */,
 				E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */,
 				E19FF0B526E1433F00C96C38 /* AppDelegate.swift in Sources */,
 				E19F5BDB26E1B87600E9B5D0 /* HomeVC.swift in Sources */,
@@ -703,37 +807,49 @@
 				E19F5BC726E1B78500E9B5D0 /* BaseViewController.swift in Sources */,
 				E19F5C0326E1B97F00E9B5D0 /* WKWebView+Ext.swift in Sources */,
 				E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */,
+				E175809526E1E6E80059A79B /* NonLoginView.swift in Sources */,
 				E19F5BC326E1B78500E9B5D0 /* LoadingView.swift in Sources */,
 				E19F5BEF26E1B8B200E9B5D0 /* MyProfileVC.swift in Sources */,
+				E17580AD26E20D1A0059A79B /* UtilityModel.swift in Sources */,
+				E17580A126E1FD8F0059A79B /* UITableView+Reusable.swift in Sources */,
+				E175809926E1EECF0059A79B /* RegisterVC.swift in Sources */,
 				E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */,
 				E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */,
+				E17580B026E227B60059A79B /* AuthUseCase.swift in Sources */,
 				E19F5C0526E1B97F00E9B5D0 /* UIImageView+Ext.swift in Sources */,
 				E19F5C5C26E1C8DF00E9B5D0 /* Optional+Ext.swift in Sources */,
 				E19F5C5226E1C5A800E9B5D0 /* VideoUploadCoordinator.swift in Sources */,
 				E19F5C5826E1C62200E9B5D0 /* SettingsCoordinator.swift in Sources */,
+				E17580B226E227E40059A79B /* TTUser.swift in Sources */,
+				E175808C26E1DE850059A79B /* ErrorTracker.swift in Sources */,
 				E19F5BFF26E1B97F00E9B5D0 /* UIView+Ext.swift in Sources */,
+				E17580A726E20C870059A79B /* EventPublisherType.swift in Sources */,
 				E19F5BE726E1B89C00E9B5D0 /* ChatListVC.swift in Sources */,
 				E19F5BDF26E1B88200E9B5D0 /* SearchVC.swift in Sources */,
 				E19F5C0226E1B97F00E9B5D0 /* String+Ext.swift in Sources */,
 				E19F5C0626E1B97F00E9B5D0 /* Observable+Operators.swift in Sources */,
+				E17580A526E1FDC60059A79B /* CollectionViewCell.swift in Sources */,
 				E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */,
 				E19F5C0826E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift in Sources */,
 				E19F5BEB26E1B8A700E9B5D0 /* ChatVC.swift in Sources */,
 				E19F5C0026E1B97F00E9B5D0 /* XCoordinator+Ext.swift in Sources */,
+				E17580A326E1FDB90059A79B /* TableViewCell.swift in Sources */,
+				E175808E26E1E0120059A79B /* ErrorHandler.swift in Sources */,
 				E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */,
 				E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */,
+				E17580B426E2280B0059A79B /* RegisterVM.swift in Sources */,
 				E19F5C5A26E1C69C00E9B5D0 /* TabbarCoordinator.swift in Sources */,
 				E175808826E1D6DB0059A79B /* ViewController.swift in Sources */,
 				E19F5C0726E1B97F00E9B5D0 /* Localize+Ext.swift in Sources */,
 				E19F5BD726E1B86C00E9B5D0 /* TabBarVC.swift in Sources */,
 				E19F5C5026E1C59C00E9B5D0 /* MyProfileCoordinator.swift in Sources */,
+				E175809026E1E43B0059A79B /* BaseView.swift in Sources */,
 				E19F5BF326E1B8BF00E9B5D0 /* SettingsVC.swift in Sources */,
 				E175808626E1D61A0059A79B /* R.generated.swift in Sources */,
 				E19F5C4A26E1C2D300E9B5D0 /* HomeCoordinator.swift in Sources */,
 				E19F5C1326E1BB5000E9B5D0 /* AppColors.swift in Sources */,
+				E175809E26E1FC4B0059A79B /* RegisterMethodCell.swift in Sources */,
 				E19F5C4C26E1C50800E9B5D0 /* SearchCoordinator.swift in Sources */,
-				E19F5C4826E1C28700E9B5D0 /* FontManager.swift in Sources */,
-				E19F5C4626E1C0E400E9B5D0 /* AppFont.swift in Sources */,
 				E19F5C5426E1C5CE00E9B5D0 /* ChatCoordinator.swift in Sources */,
 				E19F5BCA26E1B78500E9B5D0 /* AppDialog.swift in Sources */,
 				E19F5C6126E1CCB200E9B5D0 /* AppCoordinator.swift in Sources */,

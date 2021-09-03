@@ -54,7 +54,7 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
         self.videoUploadRouter = videoUploadRouter
         self.chatRouter = chatRouter
         self.myProfileRouter = myProfileRouter
-        super.init(tabs: [homeRouter, searchRouter, videoUploadRouter, chatRouter, myProfileRouter], select: homeRouter)
+        super.init(tabs: [homeRouter, searchRouter, videoUploadRouter, chatRouter, myProfileRouter], select: myProfileRouter)
     }
 
     // MARK: Overrides
