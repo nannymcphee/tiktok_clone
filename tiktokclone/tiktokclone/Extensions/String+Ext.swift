@@ -24,4 +24,34 @@ extension String {
     func replace(_ target: String, withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
+    
+    func createAttributedString(textToStyle: String, attributes: [NSAttributedString.Key : Any], styledAttributes: [NSAttributedString.Key : Any]) -> NSMutableAttributedString {
+        let attributedResultText = NSMutableAttributedString(string: self, attributes: attributes)
+        let range = (self as NSString).range(of: textToStyle)
+        attributedResultText.addAttributes(styledAttributes, range: range)
+        return attributedResultText
+    }
+}
+
+extension NSMutableAttributedString {
+    @discardableResult
+    func customAddAttributes(_ attributes: [NSAttributedString.Key: Any], text: String) -> [NSRange] {
+        var searchRange = NSRange(location: 0, length: self.string.utf16.count)
+        var foundRange = NSRange()
+        var foundRanges = [NSRange]()
+        while searchRange.location < self.string.utf16.count {
+            searchRange.length = self.string.utf16.count - searchRange.location
+            foundRange = (self.string as NSString).range(of: text, options: NSString.CompareOptions.caseInsensitive, range: searchRange)
+            if foundRange.location != NSNotFound {
+                // found an occurrence of the substring! do stuff here
+                searchRange.location = foundRange.location + foundRange.length
+                self.addAttributes(attributes, range: foundRange)
+                foundRanges.append(foundRange)
+            } else {
+                // no more substring to find
+                break
+            }
+        }
+        return foundRanges
+    }
 }

@@ -13,6 +13,13 @@ class RxBaseViewController<T: ViewModelTransformable>: BaseViewController {
     
     let viewModel: T
     let disposeBag = DisposeBag()
+    let refreshControl = UIRefreshControl()
+    let refreshTrigger = PublishSubject<Void>()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initRefreshControl()
+    }
     
     init(viewModel: T, nibName: String? = nil) {
         self.viewModel = viewModel
@@ -21,5 +28,13 @@ class RxBaseViewController<T: ViewModelTransformable>: BaseViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func initRefreshControl() {
+        refreshControl.rx
+            .controlEvent(.valueChanged)
+            .asObservable()
+            .bind(to: refreshTrigger)
+            .disposed(by: disposeBag)
     }
 }
