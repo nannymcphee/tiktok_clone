@@ -44,7 +44,7 @@ final class RegisterVC: RxBaseViewController<RegisterVM> {
         lbSubtitle.textColor = AppColors.lightGray
         tvTerms.textColor = AppColors.lightGray
         vTextViewContainer.backgroundColor = AppColors.black1
-        vBottom.backgroundColor = AppColors.black2
+        vBottom.backgroundColor = AppColors.secondaryBackground
     }
     
     

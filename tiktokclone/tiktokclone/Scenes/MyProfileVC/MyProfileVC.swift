@@ -7,73 +7,17 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
-import Resolver
-
-final class MyProfileVM: BaseVM, ViewModelTransformable, EventPublisherType, ViewModelTrackable {
-    // MARK: - Input
-    struct Input {
-        let viewDidLoadTrigger: Observable<Void>
-        let logOutTrigger: Observable<Void>
-        let registerTrigger: Observable<Void>
-    }
-    
-    // MARK: - Output
-    struct Output {
-        let currentUser: Driver<TTUser>
-        let isAuthenticated: Driver<Bool>
-    }
-    
-    // MARK: - Event
-    enum Event {
-        case navigateToRegister
-    }
-    
-    // MARK: - Variables
-    let loadingIndicator = ActivityIndicator()
-    let errorTracker = ErrorTracker()
-    let eventPublisher = PublishSubject<Event>()
-    let currentUserRelay = BehaviorRelay<TTUser?>(value: nil)
-    
-    @Injected private var authService: AuthUseCase
-    
-    // MARK: - Public functions
-    func transform(input: Input) -> Output {
-        // Logout trigger
-        input.logOutTrigger
-            .flatMapLatest(weakObj: self) { viewModel, _ in
-                viewModel.authService.signOut()
-                    .trackError(viewModel.errorTracker, action: .alert)
-                    .trackActivity(viewModel.loadingIndicator)
-            }
-            .subscribe(with: self, onNext: { viewModel, _ in
-                viewModel.currentUserRelay.accept(nil)
-            })
-            .disposed(by: disposeBag)
-        
-        // Register trigger
-        input.registerTrigger
-            .map { Event.navigateToRegister }
-            .bind(to: eventPublisher)
-            .disposed(by: disposeBag)
-        
-        // Is authenticated
-        let isAuthenticated = currentUserRelay
-            .map { $0 != nil }
-            .asDriverOnErrorJustComplete()
-        
-        return Output(currentUser: currentUserRelay.unwrap().asDriverOnErrorJustComplete(),
-                      isAuthenticated: isAuthenticated)
-    }
-}
-
-// MARK: - Private functions
-private extension MyProfileVM {
-    
-}
 
 final class MyProfileVC: RxBaseViewController<MyProfileVM> {
     // MARK: - IBOutlets
+    @IBOutlet weak var scvContent: UIScrollView!
+    @IBOutlet weak var vUserInfoContainer: UIView!
+    @IBOutlet weak var tbContent: UITableView!
+    
+    private lazy var vUserInfo: UserInfoView = {
+        let view = UserInfoView.loadFromNib()
+        return view
+    }()
     
     private lazy var vNonLogin: NonLoginView = {
         let view = NonLoginView(frame: CGRect(x: 0, y: 0,
@@ -95,9 +39,8 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
     }
     
     override func setUpColors() {
-        
+        view.backgroundColor = AppColors.primaryBackground
     }
-    
     
     // MARK: - Private functions
     private func bindViewModel() {
@@ -108,18 +51,37 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
         
         // Is authenticated
         output.isAuthenticated
-            .drive(vNonLogin.rx.isHidden)
+            .drive(with: self, onNext: { viewController, isAuthenticated in
+                viewController.vNonLogin.isHidden = isAuthenticated
+                viewController.scvContent.isHidden = !isAuthenticated
+            })
+            .disposed(by: disposeBag)
+        
+        // User info
+        output.currentUser
+            .drive(with: self, onNext: {
+                $0.vUserInfo.populateData(with: $1)
+            })
             .disposed(by: disposeBag)
         
         viewDidLoadTrigger.onNext(())
     }
     
     private func bindingUI() {
-        
+        // Scrollview didScroll
+        scvContent.rx.didScroll
+            .withLatestFrom(scvContent.rx.contentOffset)
+            .map { $0.y > 0 ? AppColors.secondaryBackground : AppColors.primaryBackground }
+            .asDriverOnErrorJustComplete()
+            .drive(with: self, onNext: { viewController, color in
+                viewController.navigationController?.backgroundColor(color)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setUpUI() {
         setUpNonLoginView()
+        setUpUserInfoView()
         
         title = Text.myProfileScreenTitle
         let btnLogout = getIconBarButtonItem(icon: R.image.ic_close())
@@ -136,6 +98,14 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
         vNonLogin.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    private func setUpUserInfoView() {
+        vUserInfoContainer.addSubview(vUserInfo)
+        vUserInfo.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        vUserInfoContainer.changeHeight(to: vUserInfo.kDefaultHeight)
     }
 }
 

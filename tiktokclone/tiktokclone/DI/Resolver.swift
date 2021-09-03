@@ -11,55 +11,30 @@ extension Resolver: ResolverRegistering {
     // Inject all services
     public static func registerAllServices() {
         registerAuthService()
-//        registerNetworkService()
-//        registerEventsRepo()
+        registerKeyValueStoreService()
+        registerUserRepo()
     }
 }
 
 extension Resolver {
     private static func registerAuthService() {
-        register { () -> AuthUseCase in
+        register {
             AuthUseCaseImpl() as AuthUseCase
         }
         .scope(.cached)
     }
-//    // Inject server config
-//    private static func registerConfigService() {
-//        register { ServerConfig.testing as ServerConfigType }
-//            .scope(.cached)
-//    }
-//
-//    // Inject NetworkPlatform
-//    private static func registerNetworkService() {
-//        // Register UseCaseProvider
-//        register {
-//            FTNetworkPlatform.UseCaseProviderImpl(
-//                config: resolve() as ServerConfigType
-//            )  as FTNetworkPlatform.UseCaseProvider
-//        }
-//        .scope(.cached)
-//
-//        // Register EventUseCase
-//        register { () -> FTNetworkPlatform.EventUseCase in
-//            let network = resolve() as FTNetworkPlatform.UseCaseProvider
-//
-//            return network.makeEventUseCase()
-//        }
-//        .scope(.cached)
-//    }
-//
-//    // Register EventsRepo
-//    private static func registerEventsRepo() {
-//        register {
-//            EventsRepoImpl() as EventsRepo
-//        }.scope(.cached)
-//    }
+    
+    private static func registerKeyValueStoreService() {
+        register {
+            UserDefaults.instance() as KeyValueStoreType
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerUserRepo() {
+        register {
+            UserRepoImpl() as UserRepo
+        }
+        .scope(.cached)
+    }
 }
-
-// MARK: Utils
-//extension FTNetworkPlatform.UseCaseProviderImpl {
-//    convenience init(config: ServerConfigType) {
-//        self.init(config: BuildConfig(baseURL: config.serverUrl,
-//                                      detailURL: config.detailURL))
-//    }
-//}
