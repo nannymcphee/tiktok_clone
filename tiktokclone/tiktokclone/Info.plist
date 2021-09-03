@@ -2,8 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+        <string>Milliard-Light.otf</string>
+        <string>Milliard-Medium.otf</string>
+        <string>Milliard-SemiBold.otf</string>
+        <string>Milliard-Thin.otf</string>
+		<string>Milliard-Black.otf</string>
+        <string>Milliard-Bold.otf</string>
+        <string>Milliard-Book.otf</string>
+        <string>Milliard-ExtraBold.otf</string>
+        <string>Milliard-ExtraLight.otf</string>
+        <string>Milliard-Hairline.otf</string>
+        <string>Milliard-Heavy.otf</string>
+        <string>Milliard-Thin-Italic.otf</string>
+        <string>Milliard-Black-Italic.otf</string>
+        <string>Milliard-Bold-Italic.otf</string>
+        <string>Milliard-ExtraBold-Italic.otf</string>
+        <string>Milliard-ExtraLight-Italic.otf</string>
+        <string>Milliard-Hairline-Italic.otf</string>
+        <string>Milliard-Heavy-Italic.otf</string>
+        <string>Milliard-Light-Italic.otf</string>
+        <string>Milliard-Medium-Italic.otf</string>
+        <string>Milliard-SemiBold-Italic.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,24 +46,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIApplicationSceneManifest</key>
+	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
@@ -52,8 +64,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

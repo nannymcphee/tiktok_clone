@@ -1,0 +1,31 @@
+//
+//  TabBarVC.swift
+//  tiktokclone
+//
+//  Created by Duy Nguyen on 03/09/2021.
+//
+
+import UIKit
+
+class TabBarVC: BaseViewController {
+    // MARK: - IBOutlets
+    
+    
+    
+    // MARK: - Variables
+    
+    
+    
+    // MARK: - OVERRIDES
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    
+    // MARK: - Private functions
+    
+
+}
+
+// MARK: - Extensions

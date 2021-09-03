@@ -13,6 +13,7 @@ target 'tiktokclone' do
   pod 'RxSwiftExt', '~> 6'
   pod 'RxDataSources', '~> 5.0.0'
   pod 'RxGesture', '4.0.2'
+  pod 'XCoordinator', '~> 2.0.7'
   pod 'Resolver', '~> 1.4.3'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

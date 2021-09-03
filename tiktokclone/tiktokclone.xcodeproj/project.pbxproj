@@ -3,14 +3,86 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		69ED2275113DC74BF17DE4C4 /* Pods_tiktokclone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */; };
+		E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */; };
+		E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */; };
+		E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */; };
+		E19F5BB826E1B76400E9B5D0 /* RxMediaPicker in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BB726E1B76400E9B5D0 /* RxMediaPicker */; };
+		E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BB926E1B78300E9B5D0 /* ActivityIndicator.swift */; };
+		E19F5BC326E1B78500E9B5D0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBA26E1B78400E9B5D0 /* LoadingView.swift */; };
+		E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */; };
+		E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBC26E1B78400E9B5D0 /* VideoCapture.swift */; };
+		E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBD26E1B78400E9B5D0 /* VideoProcessor.swift */; };
+		E19F5BC726E1B78500E9B5D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */; };
+		E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBF26E1B78400E9B5D0 /* Logger.swift */; };
+		E19F5BC926E1B78500E9B5D0 /* SwipeBackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BC026E1B78400E9B5D0 /* SwipeBackNavigationController.swift */; };
+		E19F5BCA26E1B78500E9B5D0 /* AppDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BC126E1B78500E9B5D0 /* AppDialog.swift */; };
+		E19F5BD726E1B86C00E9B5D0 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BD526E1B86C00E9B5D0 /* TabBarVC.swift */; };
+		E19F5BD826E1B86C00E9B5D0 /* TabBarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BD626E1B86C00E9B5D0 /* TabBarVC.xib */; };
+		E19F5BDB26E1B87600E9B5D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BD926E1B87600E9B5D0 /* HomeVC.swift */; };
+		E19F5BDC26E1B87600E9B5D0 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BDA26E1B87600E9B5D0 /* HomeVC.xib */; };
+		E19F5BDF26E1B88200E9B5D0 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BDD26E1B88200E9B5D0 /* SearchVC.swift */; };
+		E19F5BE026E1B88200E9B5D0 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BDE26E1B88200E9B5D0 /* SearchVC.xib */; };
+		E19F5BE326E1B89200E9B5D0 /* VideoUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BE126E1B89200E9B5D0 /* VideoUploadVC.swift */; };
+		E19F5BE426E1B89200E9B5D0 /* VideoUploadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BE226E1B89200E9B5D0 /* VideoUploadVC.xib */; };
+		E19F5BE726E1B89C00E9B5D0 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BE526E1B89C00E9B5D0 /* ChatListVC.swift */; };
+		E19F5BE826E1B89C00E9B5D0 /* ChatListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BE626E1B89C00E9B5D0 /* ChatListVC.xib */; };
+		E19F5BEB26E1B8A700E9B5D0 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BE926E1B8A700E9B5D0 /* ChatVC.swift */; };
+		E19F5BEC26E1B8A700E9B5D0 /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BEA26E1B8A700E9B5D0 /* ChatVC.xib */; };
+		E19F5BEF26E1B8B200E9B5D0 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BED26E1B8B200E9B5D0 /* MyProfileVC.swift */; };
+		E19F5BF026E1B8B200E9B5D0 /* MyProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BEE26E1B8B200E9B5D0 /* MyProfileVC.xib */; };
+		E19F5BF326E1B8BF00E9B5D0 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BF126E1B8BF00E9B5D0 /* SettingsVC.swift */; };
+		E19F5BF426E1B8BF00E9B5D0 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BF226E1B8BF00E9B5D0 /* SettingsVC.xib */; };
+		E19F5BFF26E1B97F00E9B5D0 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BF526E1B97E00E9B5D0 /* UIView+Ext.swift */; };
+		E19F5C0026E1B97F00E9B5D0 /* XCoordinator+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BF626E1B97E00E9B5D0 /* XCoordinator+Ext.swift */; };
+		E19F5C0126E1B97F00E9B5D0 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BF726E1B97E00E9B5D0 /* Dictionary+Ext.swift */; };
+		E19F5C0226E1B97F00E9B5D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BF826E1B97E00E9B5D0 /* String+Ext.swift */; };
+		E19F5C0326E1B97F00E9B5D0 /* WKWebView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BF926E1B97E00E9B5D0 /* WKWebView+Ext.swift */; };
+		E19F5C0426E1B97F00E9B5D0 /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BFA26E1B97E00E9B5D0 /* Int+Ext.swift */; };
+		E19F5C0526E1B97F00E9B5D0 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BFB26E1B97E00E9B5D0 /* UIImageView+Ext.swift */; };
+		E19F5C0626E1B97F00E9B5D0 /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BFC26E1B97E00E9B5D0 /* Observable+Operators.swift */; };
+		E19F5C0726E1B97F00E9B5D0 /* Localize+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BFD26E1B97F00E9B5D0 /* Localize+Ext.swift */; };
+		E19F5C0826E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BFE26E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift */; };
+		E19F5C1326E1BB5000E9B5D0 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C1226E1BB5000E9B5D0 /* AppColors.swift */; };
+		E19F5C1526E1BB8600E9B5D0 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C1426E1BB8600E9B5D0 /* Text.swift */; };
+		E19F5C2F26E1BF5B00E9B5D0 /* Milliard-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1926E1BF5900E9B5D0 /* Milliard-Hairline.otf */; };
+		E19F5C3026E1BF5B00E9B5D0 /* Milliard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1A26E1BF5900E9B5D0 /* Milliard-ExtraLight.otf */; };
+		E19F5C3126E1BF5B00E9B5D0 /* Milliard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1B26E1BF5900E9B5D0 /* Milliard-SemiBold.otf */; };
+		E19F5C3226E1BF5B00E9B5D0 /* Milliard-Hairline-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1C26E1BF5900E9B5D0 /* Milliard-Hairline-Italic.otf */; };
+		E19F5C3326E1BF5B00E9B5D0 /* Milliard-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1D26E1BF5900E9B5D0 /* Milliard-Book.otf */; };
+		E19F5C3426E1BF5B00E9B5D0 /* Milliard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1E26E1BF5900E9B5D0 /* Milliard-Light.otf */; };
+		E19F5C3526E1BF5B00E9B5D0 /* Milliard-ExtraLight-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C1F26E1BF5900E9B5D0 /* Milliard-ExtraLight-Italic.otf */; };
+		E19F5C3626E1BF5B00E9B5D0 /* Milliard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2026E1BF5A00E9B5D0 /* Milliard-Black.otf */; };
+		E19F5C3726E1BF5B00E9B5D0 /* Milliard-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2126E1BF5A00E9B5D0 /* Milliard-Medium-Italic.otf */; };
+		E19F5C3826E1BF5B00E9B5D0 /* Milliard-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2226E1BF5A00E9B5D0 /* Milliard-Black-Italic.otf */; };
+		E19F5C3926E1BF5B00E9B5D0 /* Milliard-ExtraBold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2326E1BF5A00E9B5D0 /* Milliard-ExtraBold-Italic.otf */; };
+		E19F5C3A26E1BF5B00E9B5D0 /* Milliard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2426E1BF5A00E9B5D0 /* Milliard-Medium.otf */; };
+		E19F5C3B26E1BF5B00E9B5D0 /* Milliard-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2526E1BF5A00E9B5D0 /* Milliard-Bold-Italic.otf */; };
+		E19F5C3C26E1BF5B00E9B5D0 /* Milliard-Heavy-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2626E1BF5A00E9B5D0 /* Milliard-Heavy-Italic.otf */; };
+		E19F5C3D26E1BF5B00E9B5D0 /* Milliard-SemiBold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2726E1BF5A00E9B5D0 /* Milliard-SemiBold-Italic.otf */; };
+		E19F5C3E26E1BF5B00E9B5D0 /* Milliard-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2826E1BF5A00E9B5D0 /* Milliard-Heavy.otf */; };
+		E19F5C3F26E1BF5B00E9B5D0 /* Milliard-Book-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2926E1BF5A00E9B5D0 /* Milliard-Book-Italic.otf */; };
+		E19F5C4026E1BF5B00E9B5D0 /* Milliard-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2A26E1BF5A00E9B5D0 /* Milliard-Thin-Italic.otf */; };
+		E19F5C4126E1BF5B00E9B5D0 /* Milliard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2B26E1BF5A00E9B5D0 /* Milliard-Bold.otf */; };
+		E19F5C4226E1BF5B00E9B5D0 /* Milliard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2C26E1BF5B00E9B5D0 /* Milliard-Thin.otf */; };
+		E19F5C4326E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2D26E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf */; };
+		E19F5C4426E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E19F5C2E26E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf */; };
+		E19F5C4626E1C0E400E9B5D0 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4526E1C0E400E9B5D0 /* AppFont.swift */; };
+		E19F5C4826E1C28700E9B5D0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4726E1C28700E9B5D0 /* FontManager.swift */; };
+		E19F5C4A26E1C2D300E9B5D0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4926E1C2D300E9B5D0 /* HomeCoordinator.swift */; };
+		E19F5C4C26E1C50800E9B5D0 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4B26E1C50800E9B5D0 /* SearchCoordinator.swift */; };
+		E19F5C5026E1C59C00E9B5D0 /* MyProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C4F26E1C59C00E9B5D0 /* MyProfileCoordinator.swift */; };
+		E19F5C5226E1C5A800E9B5D0 /* VideoUploadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C5126E1C5A800E9B5D0 /* VideoUploadCoordinator.swift */; };
+		E19F5C5426E1C5CE00E9B5D0 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C5326E1C5CE00E9B5D0 /* ChatCoordinator.swift */; };
+		E19F5C5826E1C62200E9B5D0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C5726E1C62200E9B5D0 /* SettingsCoordinator.swift */; };
+		E19F5C5A26E1C69C00E9B5D0 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C5926E1C69C00E9B5D0 /* TabbarCoordinator.swift */; };
+		E19F5C5C26E1C8DF00E9B5D0 /* Optional+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C5B26E1C8DF00E9B5D0 /* Optional+Ext.swift */; };
+		E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5C5D26E1C91600E9B5D0 /* Resolver.swift */; };
 		E19FF0B526E1433F00C96C38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19FF0B426E1433F00C96C38 /* AppDelegate.swift */; };
-		E19FF0B726E1433F00C96C38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19FF0B626E1433F00C96C38 /* SceneDelegate.swift */; };
-		E19FF0B926E1433F00C96C38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19FF0B826E1433F00C96C38 /* ViewController.swift */; };
 		E19FF0BC26E1433F00C96C38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19FF0BA26E1433F00C96C38 /* Main.storyboard */; };
 		E19FF0BE26E1434100C96C38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19FF0BD26E1434100C96C38 /* Assets.xcassets */; };
 		E19FF0C126E1434100C96C38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19FF0BF26E1434100C96C38 /* LaunchScreen.storyboard */; };
@@ -20,10 +92,82 @@
 		16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tiktokclone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1F36B5EF6D6B498979332F /* Pods-tiktokclone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.release.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.release.xcconfig"; sourceTree = "<group>"; };
 		DC4656C44A719FC2C61EBFA3 /* Pods-tiktokclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.debug.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.debug.xcconfig"; sourceTree = "<group>"; };
+		E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
+		E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelTransformable.swift; sourceTree = "<group>"; };
+		E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxBaseViewController.swift; sourceTree = "<group>"; };
+		E19F5BB726E1B76400E9B5D0 /* RxMediaPicker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RxMediaPicker; sourceTree = "<group>"; };
+		E19F5BB926E1B78300E9B5D0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		E19F5BBA26E1B78400E9B5D0 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
+		E19F5BBC26E1B78400E9B5D0 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		E19F5BBD26E1B78400E9B5D0 /* VideoProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProcessor.swift; sourceTree = "<group>"; };
+		E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E19F5BBF26E1B78400E9B5D0 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E19F5BC026E1B78400E9B5D0 /* SwipeBackNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBackNavigationController.swift; sourceTree = "<group>"; };
+		E19F5BC126E1B78500E9B5D0 /* AppDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDialog.swift; sourceTree = "<group>"; };
+		E19F5BD526E1B86C00E9B5D0 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		E19F5BD626E1B86C00E9B5D0 /* TabBarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarVC.xib; sourceTree = "<group>"; };
+		E19F5BD926E1B87600E9B5D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E19F5BDA26E1B87600E9B5D0 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		E19F5BDD26E1B88200E9B5D0 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		E19F5BDE26E1B88200E9B5D0 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		E19F5BE126E1B89200E9B5D0 /* VideoUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadVC.swift; sourceTree = "<group>"; };
+		E19F5BE226E1B89200E9B5D0 /* VideoUploadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoUploadVC.xib; sourceTree = "<group>"; };
+		E19F5BE526E1B89C00E9B5D0 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
+		E19F5BE626E1B89C00E9B5D0 /* ChatListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListVC.xib; sourceTree = "<group>"; };
+		E19F5BE926E1B8A700E9B5D0 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		E19F5BEA26E1B8A700E9B5D0 /* ChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatVC.xib; sourceTree = "<group>"; };
+		E19F5BED26E1B8B200E9B5D0 /* MyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
+		E19F5BEE26E1B8B200E9B5D0 /* MyProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProfileVC.xib; sourceTree = "<group>"; };
+		E19F5BF126E1B8BF00E9B5D0 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		E19F5BF226E1B8BF00E9B5D0 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
+		E19F5BF526E1B97E00E9B5D0 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BF626E1B97E00E9B5D0 /* XCoordinator+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCoordinator+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BF726E1B97E00E9B5D0 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BF826E1B97E00E9B5D0 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BF926E1B97E00E9B5D0 /* WKWebView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKWebView+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BFA26E1B97E00E9B5D0 /* Int+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BFB26E1B97E00E9B5D0 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BFC26E1B97E00E9B5D0 /* Observable+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
+		E19F5BFD26E1B97F00E9B5D0 /* Localize+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Localize+Ext.swift"; sourceTree = "<group>"; };
+		E19F5BFE26E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Ext.swift"; sourceTree = "<group>"; };
+		E19F5C1226E1BB5000E9B5D0 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		E19F5C1426E1BB8600E9B5D0 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		E19F5C1926E1BF5900E9B5D0 /* Milliard-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Hairline.otf"; sourceTree = "<group>"; };
+		E19F5C1A26E1BF5900E9B5D0 /* Milliard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-ExtraLight.otf"; sourceTree = "<group>"; };
+		E19F5C1B26E1BF5900E9B5D0 /* Milliard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-SemiBold.otf"; sourceTree = "<group>"; };
+		E19F5C1C26E1BF5900E9B5D0 /* Milliard-Hairline-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Hairline-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C1D26E1BF5900E9B5D0 /* Milliard-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Book.otf"; sourceTree = "<group>"; };
+		E19F5C1E26E1BF5900E9B5D0 /* Milliard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Light.otf"; sourceTree = "<group>"; };
+		E19F5C1F26E1BF5900E9B5D0 /* Milliard-ExtraLight-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-ExtraLight-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2026E1BF5A00E9B5D0 /* Milliard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Black.otf"; sourceTree = "<group>"; };
+		E19F5C2126E1BF5A00E9B5D0 /* Milliard-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Medium-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2226E1BF5A00E9B5D0 /* Milliard-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Black-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2326E1BF5A00E9B5D0 /* Milliard-ExtraBold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-ExtraBold-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2426E1BF5A00E9B5D0 /* Milliard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Medium.otf"; sourceTree = "<group>"; };
+		E19F5C2526E1BF5A00E9B5D0 /* Milliard-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Bold-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2626E1BF5A00E9B5D0 /* Milliard-Heavy-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Heavy-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2726E1BF5A00E9B5D0 /* Milliard-SemiBold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-SemiBold-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2826E1BF5A00E9B5D0 /* Milliard-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Heavy.otf"; sourceTree = "<group>"; };
+		E19F5C2926E1BF5A00E9B5D0 /* Milliard-Book-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Book-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2A26E1BF5A00E9B5D0 /* Milliard-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Thin-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C2B26E1BF5A00E9B5D0 /* Milliard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Bold.otf"; sourceTree = "<group>"; };
+		E19F5C2C26E1BF5B00E9B5D0 /* Milliard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Thin.otf"; sourceTree = "<group>"; };
+		E19F5C2D26E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-ExtraBold.otf"; sourceTree = "<group>"; };
+		E19F5C2E26E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Milliard-Light-Italic.otf"; sourceTree = "<group>"; };
+		E19F5C4526E1C0E400E9B5D0 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		E19F5C4726E1C28700E9B5D0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		E19F5C4926E1C2D300E9B5D0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C4B26E1C50800E9B5D0 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C4F26E1C59C00E9B5D0 /* MyProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C5126E1C5A800E9B5D0 /* VideoUploadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C5326E1C5CE00E9B5D0 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C5726E1C62200E9B5D0 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C5926E1C69C00E9B5D0 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		E19F5C5B26E1C8DF00E9B5D0 /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
+		E19F5C5D26E1C91600E9B5D0 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		E19FF0B126E1433F00C96C38 /* tiktokclone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tiktokclone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19FF0B426E1433F00C96C38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E19FF0B626E1433F00C96C38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E19FF0B826E1433F00C96C38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E19FF0BB26E1433F00C96C38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E19FF0BD26E1434100C96C38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19FF0C026E1434100C96C38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,8 +192,273 @@
 				DC4656C44A719FC2C61EBFA3 /* Pods-tiktokclone.debug.xcconfig */,
 				8C1F36B5EF6D6B498979332F /* Pods-tiktokclone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E19F5BAC26E1B71400E9B5D0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */,
+				E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */,
+				E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */,
+				E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E19F5BB326E1B73100E9B5D0 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C5D26E1C91600E9B5D0 /* Resolver.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E19F5BB426E1B74700E9B5D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E19F5BB526E1B74C00E9B5D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BF726E1B97E00E9B5D0 /* Dictionary+Ext.swift */,
+				E19F5BFA26E1B97E00E9B5D0 /* Int+Ext.swift */,
+				E19F5BFD26E1B97F00E9B5D0 /* Localize+Ext.swift */,
+				E19F5BFC26E1B97E00E9B5D0 /* Observable+Operators.swift */,
+				E19F5BF826E1B97E00E9B5D0 /* String+Ext.swift */,
+				E19F5BFE26E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift */,
+				E19F5BFB26E1B97E00E9B5D0 /* UIImageView+Ext.swift */,
+				E19F5BF526E1B97E00E9B5D0 /* UIView+Ext.swift */,
+				E19F5BF926E1B97E00E9B5D0 /* WKWebView+Ext.swift */,
+				E19F5BF626E1B97E00E9B5D0 /* XCoordinator+Ext.swift */,
+				E19F5C5B26E1C8DF00E9B5D0 /* Optional+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E19F5BB626E1B75100E9B5D0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BB726E1B76400E9B5D0 /* RxMediaPicker */,
+				E19F5BB926E1B78300E9B5D0 /* ActivityIndicator.swift */,
+				E19F5BC126E1B78500E9B5D0 /* AppDialog.swift */,
+				E19F5BBA26E1B78400E9B5D0 /* LoadingView.swift */,
+				E19F5BBF26E1B78400E9B5D0 /* Logger.swift */,
+				E19F5BC026E1B78400E9B5D0 /* SwipeBackNavigationController.swift */,
+				E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */,
+				E19F5BBC26E1B78400E9B5D0 /* VideoCapture.swift */,
+				E19F5BBD26E1B78400E9B5D0 /* VideoProcessor.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E19F5BCC26E1B7BA00E9B5D0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BD426E1B82100E9B5D0 /* SettingsVC */,
+				E19F5BD326E1B81700E9B5D0 /* MyProfileVC */,
+				E19F5BD226E1B81200E9B5D0 /* ChatVC */,
+				E19F5BD126E1B7FB00E9B5D0 /* ChatListVC */,
+				E19F5BD026E1B7E300E9B5D0 /* VideoUploadVC */,
+				E19F5BCF26E1B7DC00E9B5D0 /* SearchVC */,
+				E19F5BCE26E1B7C900E9B5D0 /* HomeVC */,
+				E19F5BCD26E1B7C300E9B5D0 /* TabBarVC */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E19F5BCD26E1B7C300E9B5D0 /* TabBarVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BD526E1B86C00E9B5D0 /* TabBarVC.swift */,
+				E19F5BD626E1B86C00E9B5D0 /* TabBarVC.xib */,
+			);
+			path = TabBarVC;
+			sourceTree = "<group>";
+		};
+		E19F5BCE26E1B7C900E9B5D0 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BD926E1B87600E9B5D0 /* HomeVC.swift */,
+				E19F5BDA26E1B87600E9B5D0 /* HomeVC.xib */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		E19F5BCF26E1B7DC00E9B5D0 /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BDD26E1B88200E9B5D0 /* SearchVC.swift */,
+				E19F5BDE26E1B88200E9B5D0 /* SearchVC.xib */,
+			);
+			path = SearchVC;
+			sourceTree = "<group>";
+		};
+		E19F5BD026E1B7E300E9B5D0 /* VideoUploadVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BE126E1B89200E9B5D0 /* VideoUploadVC.swift */,
+				E19F5BE226E1B89200E9B5D0 /* VideoUploadVC.xib */,
+			);
+			path = VideoUploadVC;
+			sourceTree = "<group>";
+		};
+		E19F5BD126E1B7FB00E9B5D0 /* ChatListVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BE526E1B89C00E9B5D0 /* ChatListVC.swift */,
+				E19F5BE626E1B89C00E9B5D0 /* ChatListVC.xib */,
+			);
+			path = ChatListVC;
+			sourceTree = "<group>";
+		};
+		E19F5BD226E1B81200E9B5D0 /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BE926E1B8A700E9B5D0 /* ChatVC.swift */,
+				E19F5BEA26E1B8A700E9B5D0 /* ChatVC.xib */,
+			);
+			path = ChatVC;
+			sourceTree = "<group>";
+		};
+		E19F5BD326E1B81700E9B5D0 /* MyProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BED26E1B8B200E9B5D0 /* MyProfileVC.swift */,
+				E19F5BEE26E1B8B200E9B5D0 /* MyProfileVC.xib */,
+			);
+			path = MyProfileVC;
+			sourceTree = "<group>";
+		};
+		E19F5BD426E1B82100E9B5D0 /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5BF126E1B8BF00E9B5D0 /* SettingsVC.swift */,
+				E19F5BF226E1B8BF00E9B5D0 /* SettingsVC.xib */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		E19F5C0926E1BA8D00E9B5D0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C0A26E1BA9A00E9B5D0 /* TabBar */,
+				E19F5C0B26E1BAA400E9B5D0 /* Home */,
+				E19F5C0C26E1BAB600E9B5D0 /* Search */,
+				E19F5C0D26E1BAC900E9B5D0 /* VideoUpload */,
+				E19F5C0F26E1BAE600E9B5D0 /* MyProfile */,
+				E19F5C0E26E1BAE000E9B5D0 /* Chat */,
+				E19F5C1026E1BAEA00E9B5D0 /* Settings */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		E19F5C0A26E1BA9A00E9B5D0 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C5926E1C69C00E9B5D0 /* TabbarCoordinator.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E19F5C0B26E1BAA400E9B5D0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C4926E1C2D300E9B5D0 /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E19F5C0C26E1BAB600E9B5D0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C4B26E1C50800E9B5D0 /* SearchCoordinator.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E19F5C0D26E1BAC900E9B5D0 /* VideoUpload */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C5126E1C5A800E9B5D0 /* VideoUploadCoordinator.swift */,
+			);
+			path = VideoUpload;
+			sourceTree = "<group>";
+		};
+		E19F5C0E26E1BAE000E9B5D0 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C5326E1C5CE00E9B5D0 /* ChatCoordinator.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		E19F5C0F26E1BAE600E9B5D0 /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C4F26E1C59C00E9B5D0 /* MyProfileCoordinator.swift */,
+			);
+			path = MyProfile;
+			sourceTree = "<group>";
+		};
+		E19F5C1026E1BAEA00E9B5D0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C5726E1C62200E9B5D0 /* SettingsCoordinator.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E19F5C1126E1BB4800E9B5D0 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C1226E1BB5000E9B5D0 /* AppColors.swift */,
+				E19F5C1426E1BB8600E9B5D0 /* Text.swift */,
+				E19F5C4526E1C0E400E9B5D0 /* AppFont.swift */,
+				E19F5C4726E1C28700E9B5D0 /* FontManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		E19F5C1726E1BD8400E9B5D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E19FF0BD26E1434100C96C38 /* Assets.xcassets */,
+				E19F5C1826E1BDA100E9B5D0 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E19F5C1826E1BDA100E9B5D0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E19F5C2026E1BF5A00E9B5D0 /* Milliard-Black.otf */,
+				E19F5C2B26E1BF5A00E9B5D0 /* Milliard-Bold.otf */,
+				E19F5C1D26E1BF5900E9B5D0 /* Milliard-Book.otf */,
+				E19F5C2D26E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf */,
+				E19F5C1A26E1BF5900E9B5D0 /* Milliard-ExtraLight.otf */,
+				E19F5C1926E1BF5900E9B5D0 /* Milliard-Hairline.otf */,
+				E19F5C2826E1BF5A00E9B5D0 /* Milliard-Heavy.otf */,
+				E19F5C1E26E1BF5900E9B5D0 /* Milliard-Light.otf */,
+				E19F5C2426E1BF5A00E9B5D0 /* Milliard-Medium.otf */,
+				E19F5C1B26E1BF5900E9B5D0 /* Milliard-SemiBold.otf */,
+				E19F5C2C26E1BF5B00E9B5D0 /* Milliard-Thin.otf */,
+				E19F5C2226E1BF5A00E9B5D0 /* Milliard-Black-Italic.otf */,
+				E19F5C2526E1BF5A00E9B5D0 /* Milliard-Bold-Italic.otf */,
+				E19F5C2926E1BF5A00E9B5D0 /* Milliard-Book-Italic.otf */,
+				E19F5C2326E1BF5A00E9B5D0 /* Milliard-ExtraBold-Italic.otf */,
+				E19F5C1F26E1BF5900E9B5D0 /* Milliard-ExtraLight-Italic.otf */,
+				E19F5C1C26E1BF5900E9B5D0 /* Milliard-Hairline-Italic.otf */,
+				E19F5C2626E1BF5A00E9B5D0 /* Milliard-Heavy-Italic.otf */,
+				E19F5C2E26E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf */,
+				E19F5C2126E1BF5A00E9B5D0 /* Milliard-Medium-Italic.otf */,
+				E19F5C2726E1BF5A00E9B5D0 /* Milliard-SemiBold-Italic.otf */,
+				E19F5C2A26E1BF5A00E9B5D0 /* Milliard-Thin-Italic.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E19FF0A826E1433F00C96C38 = {
@@ -73,11 +482,17 @@
 		E19FF0B326E1433F00C96C38 /* tiktokclone */ = {
 			isa = PBXGroup;
 			children = (
+				E19F5C1726E1BD8400E9B5D0 /* Resources */,
+				E19F5C1126E1BB4800E9B5D0 /* Theme */,
+				E19F5BB626E1B75100E9B5D0 /* Utils */,
+				E19F5BB526E1B74C00E9B5D0 /* Extensions */,
+				E19F5BB326E1B73100E9B5D0 /* DI */,
+				E19F5BB426E1B74700E9B5D0 /* Models */,
+				E19F5BAC26E1B71400E9B5D0 /* Base */,
+				E19F5C0926E1BA8D00E9B5D0 /* Coordinators */,
+				E19F5BCC26E1B7BA00E9B5D0 /* Scenes */,
 				E19FF0B426E1433F00C96C38 /* AppDelegate.swift */,
-				E19FF0B626E1433F00C96C38 /* SceneDelegate.swift */,
-				E19FF0B826E1433F00C96C38 /* ViewController.swift */,
 				E19FF0BA26E1433F00C96C38 /* Main.storyboard */,
-				E19FF0BD26E1434100C96C38 /* Assets.xcassets */,
 				E19FF0BF26E1434100C96C38 /* LaunchScreen.storyboard */,
 				E19FF0C226E1434100C96C38 /* Info.plist */,
 			);
@@ -151,9 +566,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19F5C3326E1BF5B00E9B5D0 /* Milliard-Book.otf in Resources */,
+				E19F5C2F26E1BF5B00E9B5D0 /* Milliard-Hairline.otf in Resources */,
+				E19F5C3126E1BF5B00E9B5D0 /* Milliard-SemiBold.otf in Resources */,
 				E19FF0C126E1434100C96C38 /* LaunchScreen.storyboard in Resources */,
+				E19F5C3426E1BF5B00E9B5D0 /* Milliard-Light.otf in Resources */,
+				E19F5C3826E1BF5B00E9B5D0 /* Milliard-Black-Italic.otf in Resources */,
+				E19F5C3A26E1BF5B00E9B5D0 /* Milliard-Medium.otf in Resources */,
+				E19F5BF026E1B8B200E9B5D0 /* MyProfileVC.xib in Resources */,
+				E19F5BE026E1B88200E9B5D0 /* SearchVC.xib in Resources */,
+				E19F5BDC26E1B87600E9B5D0 /* HomeVC.xib in Resources */,
+				E19F5C3926E1BF5B00E9B5D0 /* Milliard-ExtraBold-Italic.otf in Resources */,
+				E19F5BB826E1B76400E9B5D0 /* RxMediaPicker in Resources */,
+				E19F5C4026E1BF5B00E9B5D0 /* Milliard-Thin-Italic.otf in Resources */,
+				E19F5C3726E1BF5B00E9B5D0 /* Milliard-Medium-Italic.otf in Resources */,
+				E19F5C4126E1BF5B00E9B5D0 /* Milliard-Bold.otf in Resources */,
+				E19F5BD826E1B86C00E9B5D0 /* TabBarVC.xib in Resources */,
+				E19F5C3D26E1BF5B00E9B5D0 /* Milliard-SemiBold-Italic.otf in Resources */,
+				E19F5C3026E1BF5B00E9B5D0 /* Milliard-ExtraLight.otf in Resources */,
 				E19FF0BE26E1434100C96C38 /* Assets.xcassets in Resources */,
+				E19F5C3E26E1BF5B00E9B5D0 /* Milliard-Heavy.otf in Resources */,
 				E19FF0BC26E1433F00C96C38 /* Main.storyboard in Resources */,
+				E19F5C3B26E1BF5B00E9B5D0 /* Milliard-Bold-Italic.otf in Resources */,
+				E19F5C4326E1BF5B00E9B5D0 /* Milliard-ExtraBold.otf in Resources */,
+				E19F5C4226E1BF5B00E9B5D0 /* Milliard-Thin.otf in Resources */,
+				E19F5BE826E1B89C00E9B5D0 /* ChatListVC.xib in Resources */,
+				E19F5C3C26E1BF5B00E9B5D0 /* Milliard-Heavy-Italic.otf in Resources */,
+				E19F5C3F26E1BF5B00E9B5D0 /* Milliard-Book-Italic.otf in Resources */,
+				E19F5BF426E1B8BF00E9B5D0 /* SettingsVC.xib in Resources */,
+				E19F5C3526E1BF5B00E9B5D0 /* Milliard-ExtraLight-Italic.otf in Resources */,
+				E19F5C3226E1BF5B00E9B5D0 /* Milliard-Hairline-Italic.otf in Resources */,
+				E19F5C3626E1BF5B00E9B5D0 /* Milliard-Black.otf in Resources */,
+				E19F5BEC26E1B8A700E9B5D0 /* ChatVC.xib in Resources */,
+				E19F5C4426E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf in Resources */,
+				E19F5BE426E1B89200E9B5D0 /* VideoUploadVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,9 +652,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E19FF0B926E1433F00C96C38 /* ViewController.swift in Sources */,
+				E19F5BC926E1B78500E9B5D0 /* SwipeBackNavigationController.swift in Sources */,
+				E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */,
+				E19F5C0126E1B97F00E9B5D0 /* Dictionary+Ext.swift in Sources */,
+				E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */,
+				E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */,
 				E19FF0B526E1433F00C96C38 /* AppDelegate.swift in Sources */,
-				E19FF0B726E1433F00C96C38 /* SceneDelegate.swift in Sources */,
+				E19F5BDB26E1B87600E9B5D0 /* HomeVC.swift in Sources */,
+				E19F5C0426E1B97F00E9B5D0 /* Int+Ext.swift in Sources */,
+				E19F5BC726E1B78500E9B5D0 /* BaseViewController.swift in Sources */,
+				E19F5C0326E1B97F00E9B5D0 /* WKWebView+Ext.swift in Sources */,
+				E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */,
+				E19F5BC326E1B78500E9B5D0 /* LoadingView.swift in Sources */,
+				E19F5BEF26E1B8B200E9B5D0 /* MyProfileVC.swift in Sources */,
+				E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */,
+				E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */,
+				E19F5C0526E1B97F00E9B5D0 /* UIImageView+Ext.swift in Sources */,
+				E19F5C5C26E1C8DF00E9B5D0 /* Optional+Ext.swift in Sources */,
+				E19F5C5226E1C5A800E9B5D0 /* VideoUploadCoordinator.swift in Sources */,
+				E19F5C5826E1C62200E9B5D0 /* SettingsCoordinator.swift in Sources */,
+				E19F5BFF26E1B97F00E9B5D0 /* UIView+Ext.swift in Sources */,
+				E19F5BE726E1B89C00E9B5D0 /* ChatListVC.swift in Sources */,
+				E19F5BDF26E1B88200E9B5D0 /* SearchVC.swift in Sources */,
+				E19F5C0226E1B97F00E9B5D0 /* String+Ext.swift in Sources */,
+				E19F5C0626E1B97F00E9B5D0 /* Observable+Operators.swift in Sources */,
+				E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */,
+				E19F5C0826E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift in Sources */,
+				E19F5BEB26E1B8A700E9B5D0 /* ChatVC.swift in Sources */,
+				E19F5C0026E1B97F00E9B5D0 /* XCoordinator+Ext.swift in Sources */,
+				E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */,
+				E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */,
+				E19F5C5A26E1C69C00E9B5D0 /* TabbarCoordinator.swift in Sources */,
+				E19F5C0726E1B97F00E9B5D0 /* Localize+Ext.swift in Sources */,
+				E19F5BD726E1B86C00E9B5D0 /* TabBarVC.swift in Sources */,
+				E19F5C5026E1C59C00E9B5D0 /* MyProfileCoordinator.swift in Sources */,
+				E19F5BF326E1B8BF00E9B5D0 /* SettingsVC.swift in Sources */,
+				E19F5C4A26E1C2D300E9B5D0 /* HomeCoordinator.swift in Sources */,
+				E19F5C1326E1BB5000E9B5D0 /* AppColors.swift in Sources */,
+				E19F5C4C26E1C50800E9B5D0 /* SearchCoordinator.swift in Sources */,
+				E19F5C4826E1C28700E9B5D0 /* FontManager.swift in Sources */,
+				E19F5C4626E1C0E400E9B5D0 /* AppFont.swift in Sources */,
+				E19F5C5426E1C5CE00E9B5D0 /* ChatCoordinator.swift in Sources */,
+				E19F5BCA26E1B78500E9B5D0 /* AppDialog.swift in Sources */,
+				E19F5C1526E1BB8600E9B5D0 /* Text.swift in Sources */,
+				E19F5BE326E1B89200E9B5D0 /* VideoUploadVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +844,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZCX458UUY2;
 				INFOPLIST_FILE = tiktokclone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,7 +865,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZCX458UUY2;
 				INFOPLIST_FILE = tiktokclone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
