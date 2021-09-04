@@ -17,7 +17,7 @@ open class AppDialog {
     /**
      * notify with alert
      */
-    public static func withOk(controller: UIViewController, title: String, message: String) {
+    public static func withOk(controller: UIViewController, title: String? = nil, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: Text.ok, style: UIAlertAction.Style.default, handler: nil))
         controller.present(alert, animated: true, completion: nil)

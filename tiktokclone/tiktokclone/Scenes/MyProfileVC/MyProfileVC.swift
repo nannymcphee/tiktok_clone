@@ -28,7 +28,7 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
     
     // MARK: - Variables
     private let viewDidLoadTrigger = PublishSubject<Void>()
-    private let logOutTrigger = PublishSubject<Void>()
+    private let settingsTrigger = PublishSubject<Void>()
     
     // MARK: - Overrides
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
     // MARK: - Private functions
     private func bindViewModel() {
         let input = Input(viewDidLoadTrigger: viewDidLoadTrigger,
-                          logOutTrigger: logOutTrigger,
+                          settingsTrigger: settingsTrigger,
                           registerTrigger: vNonLogin.registerTriggerObservable)
         let output = viewModel.transform(input: input)
         
@@ -80,16 +80,26 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
     }
     
     private func setUpUI() {
+        setUpTableViewContent()
         setUpNonLoginView()
         setUpUserInfoView()
         
         title = Text.myProfileScreenTitle
-        let btnLogout = getIconBarButtonItem(icon: R.image.ic_close())
-        btnLogout.tintColor = .white
-        btnLogout.rx.tap
-            .bind(to: logOutTrigger)
+        
+        let btnSettings = getIconBarButtonItem(icon: R.image.ic_menu())
+        btnSettings.tintColor = .white
+        btnSettings.rx.tap
+            .bind(to: settingsTrigger)
             .disposed(by: disposeBag)
-        navigationItem.setRightBarButton(btnLogout, animated: true)
+        navigationItem.setRightBarButton(btnSettings, animated: true)
+        
+        let btnAddFriend = getIconBarButtonItem(icon: R.image.ic_add_user())
+        btnAddFriend.tintColor = .white
+        navigationItem.setLeftBarButton(btnAddFriend, animated: true)
+    }
+    
+    private func setUpTableViewContent() {
+        
     }
     
     private func setUpNonLoginView() {

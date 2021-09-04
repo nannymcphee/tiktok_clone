@@ -13,7 +13,7 @@ final class MyProfileVM: BaseVM, ViewModelTransformable, EventPublisherType, Vie
     // MARK: - Input
     struct Input {
         let viewDidLoadTrigger: Observable<Void>
-        let logOutTrigger: Observable<Void>
+        let settingsTrigger: Observable<Void>
         let registerTrigger: Observable<Void>
     }
     
@@ -53,7 +53,7 @@ final class MyProfileVM: BaseVM, ViewModelTransformable, EventPublisherType, Vie
             .disposed(by: disposeBag)
         
         // Logout trigger
-        input.logOutTrigger
+        input.settingsTrigger
             .flatMapLatest(weakObj: self) { viewModel, _ in
                 viewModel.userRepo.signOut()
                     .trackError(viewModel.errorTracker, action: .alert)
@@ -78,9 +78,4 @@ final class MyProfileVM: BaseVM, ViewModelTransformable, EventPublisherType, Vie
         return Output(currentUser: currentUserRelay.unwrap().asDriverOnErrorJustComplete(),
                       isAuthenticated: isAuthenticated)
     }
-}
-
-// MARK: - Private functions
-private extension MyProfileVM {
-    
 }

@@ -19,7 +19,7 @@ class RegisterMethodCell: TableViewCell {
         lbTitle.textColor = .white
 
         vContent.backgroundColor = AppColors.secondaryBackground
-        vContent.customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
+        vContent.setTikTokButtonStyle()
     }
     
     override func reset() {

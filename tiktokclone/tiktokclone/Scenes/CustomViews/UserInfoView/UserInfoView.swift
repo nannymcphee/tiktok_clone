@@ -83,8 +83,8 @@ public class UserInfoView: BaseView {
         lbLikes.text = Text.likes
         
         ivAvatar.customBorder(cornerRadius: ivAvatar.frame.size.height / 2, borderWidth: 1, color: .clear)
-        btnEditProfile.customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
-        btnSaved.customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
+        btnEditProfile.setTikTokButtonStyle()
+        btnSaved.setTikTokButtonStyle()
     }
     
     private func bindingUI() {

@@ -5,8 +5,6 @@
 //  Created by Duy Nguyen on 03/09/2021.
 //
 
-import FirebaseFirestore
-
 public struct TTUser: Codable {
     var id: String
     var tiktokId: String
