@@ -8,7 +8,15 @@
 import RxSwift
 import RxSwiftExt
 
-class BaseViewController: UIViewController {    
+class BaseViewController: UIViewController, ErrorHandler {
+    private lazy var lbScreenTitle: UILabel = {
+        let lbTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
+        lbTitle.textColor = .white
+        lbTitle.font = R.font.milliardSemiBold(size: 18)
+        lbTitle.textAlignment = .center
+        return lbTitle
+    }()
+    
     var isSwipeBackEnabled: Bool = false {
         didSet {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = isSwipeBackEnabled
@@ -57,6 +65,15 @@ class BaseViewController: UIViewController {
     
     open func setUpLocalize() {}
     
+    func setScreenTitle(_ title: String,
+                        font: UIFont? = nil,
+                        textColor: UIColor = .white) {
+        lbScreenTitle.text = title
+        lbScreenTitle.font = font ?? R.font.milliardSemiBold(size: 18)
+        lbScreenTitle.textColor = textColor
+        navigationController?.navigationBar.topItem?.titleView = lbScreenTitle
+    }
+    
     func getIconBarButtonItem(icon: UIImage?,
                               target: UIViewController? = nil,
                               action: Selector? = nil) -> UIBarButtonItem {
@@ -68,4 +85,9 @@ class BaseViewController: UIViewController {
 
 extension Reactive where Base: BaseViewController {
     var isLoading: Binder<Bool> { Binder(base) { $1 ? $0.showLoading() : $0.hideLoading() }}
+    var error: Binder<(Error, ErrorAction)> {
+        Binder(base) { (base: Base, payload: (err: Error, action: ErrorAction)) in
+            base.handle(error: payload.err, action: payload.action)
+        }
+    }
 }

@@ -45,13 +45,13 @@ final class UserRepoImpl: UserRepo {
     }
         
     func getUserInfo() -> Single<TTUser?> {
-        if currentUser != nil {
-            return authRelay.asSingle()
-        }
-        
         guard let userId = currentUser?.id else { return .just(nil) }
         
         return authService.getUserInfo(userId: userId)
+            .do(onSuccess: { [weak self] user in
+                self?.userDefaults.user = user
+                self?.currentUser = user
+            })
     }
     
     func signInWithGoogle(presenting: UIViewController) -> Single<TTUser> {

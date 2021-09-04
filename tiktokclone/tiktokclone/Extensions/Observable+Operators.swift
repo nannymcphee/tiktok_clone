@@ -101,4 +101,9 @@ public extension ObservableType {
         return self.withUnretained(weakObj)
             .flatMapLatest(selector)
     }
+    
+    func flatMap<Object: AnyObject, Source: ObservableConvertibleType>(weakObj: Object, _ selector: @escaping ((Object, Element)) -> Source) -> Observable<Source.Element> {
+        return self.withUnretained(weakObj)
+            .flatMap(selector)
+    }
 }

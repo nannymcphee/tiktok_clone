@@ -42,7 +42,7 @@ class NonLoginView: BaseView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = AppColors.red
         button.titleLabel?.font = R.font.milliardMedium(size: 16)
-        button.customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
+        button.setTikTokButtonStyle()
         return button
     }()
     

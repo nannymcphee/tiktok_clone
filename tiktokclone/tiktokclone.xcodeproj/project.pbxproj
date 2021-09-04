@@ -29,10 +29,18 @@
 		E17580B026E227B60059A79B /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580AF26E227B60059A79B /* AuthUseCase.swift */; };
 		E17580B226E227E40059A79B /* TTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580B126E227E40059A79B /* TTUser.swift */; };
 		E17580B426E2280B0059A79B /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17580B326E2280B0059A79B /* RegisterVM.swift */; };
+		E19D969826E30020002437CC /* RxMediaPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D969626E30020002437CC /* RxMediaPickerDelegate.swift */; };
+		E19D969926E30020002437CC /* RxMediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D969726E30020002437CC /* RxMediaPicker.swift */; };
+		E19D969B26E3035C002437CC /* KMPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D969A26E3035C002437CC /* KMPlaceholderTextView.swift */; };
+		E19D969D26E306DE002437CC /* VideoThumbnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D969C26E306DE002437CC /* VideoThumbnailGenerator.swift */; };
+		E19D969F26E310F1002437CC /* TTVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D969E26E310F1002437CC /* TTVideo.swift */; };
+		E19D96A126E312E7002437CC /* StorageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D96A026E312E7002437CC /* StorageUseCase.swift */; };
+		E19D96A326E31815002437CC /* VideoRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D96A226E31815002437CC /* VideoRepo.swift */; };
+		E19D96A726E31ABC002437CC /* VideoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D96A626E31ABC002437CC /* VideoUseCase.swift */; };
+		E19D96A926E32E6B002437CC /* VideoUploadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D96A826E32E6B002437CC /* VideoUploadVM.swift */; };
 		E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */; };
 		E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */; };
 		E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */; };
-		E19F5BB826E1B76400E9B5D0 /* RxMediaPicker in Resources */ = {isa = PBXBuildFile; fileRef = E19F5BB726E1B76400E9B5D0 /* RxMediaPicker */; };
 		E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BB926E1B78300E9B5D0 /* ActivityIndicator.swift */; };
 		E19F5BC326E1B78500E9B5D0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBA26E1B78400E9B5D0 /* LoadingView.swift */; };
 		E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */; };
@@ -143,10 +151,18 @@
 		E17580AF26E227B60059A79B /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		E17580B126E227E40059A79B /* TTUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTUser.swift; sourceTree = "<group>"; };
 		E17580B326E2280B0059A79B /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		E19D969626E30020002437CC /* RxMediaPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMediaPickerDelegate.swift; sourceTree = "<group>"; };
+		E19D969726E30020002437CC /* RxMediaPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMediaPicker.swift; sourceTree = "<group>"; };
+		E19D969A26E3035C002437CC /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPlaceholderTextView.swift; sourceTree = "<group>"; };
+		E19D969C26E306DE002437CC /* VideoThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnailGenerator.swift; sourceTree = "<group>"; };
+		E19D969E26E310F1002437CC /* TTVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTVideo.swift; sourceTree = "<group>"; };
+		E19D96A026E312E7002437CC /* StorageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUseCase.swift; sourceTree = "<group>"; };
+		E19D96A226E31815002437CC /* VideoRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRepo.swift; sourceTree = "<group>"; };
+		E19D96A626E31ABC002437CC /* VideoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUseCase.swift; sourceTree = "<group>"; };
+		E19D96A826E32E6B002437CC /* VideoUploadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadVM.swift; sourceTree = "<group>"; };
 		E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelTransformable.swift; sourceTree = "<group>"; };
 		E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxBaseViewController.swift; sourceTree = "<group>"; };
-		E19F5BB726E1B76400E9B5D0 /* RxMediaPicker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RxMediaPicker; sourceTree = "<group>"; };
 		E19F5BB926E1B78300E9B5D0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		E19F5BBA26E1B78400E9B5D0 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
@@ -261,6 +277,7 @@
 				E1D21D1D26E26DA50083C70E /* UserInfoView */,
 				E1D21D1626E269E30083C70E /* NavigationHeader */,
 				E175809426E1E6E80059A79B /* NonLoginView.swift */,
+				E19D969A26E3035C002437CC /* KMPlaceholderTextView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -296,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				E17580B126E227E40059A79B /* TTUser.swift */,
+				E19D969E26E310F1002437CC /* TTVideo.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -304,8 +322,19 @@
 			isa = PBXGroup;
 			children = (
 				E17580AF26E227B60059A79B /* AuthUseCase.swift */,
+				E19D96A026E312E7002437CC /* StorageUseCase.swift */,
+				E19D96A626E31ABC002437CC /* VideoUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		E19D969526E30010002437CC /* RxMediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E19D969726E30020002437CC /* RxMediaPicker.swift */,
+				E19D969626E30020002437CC /* RxMediaPickerDelegate.swift */,
+			);
+			path = RxMediaPicker;
 			sourceTree = "<group>";
 		};
 		E19F5BAC26E1B71400E9B5D0 /* Base */ = {
@@ -364,7 +393,7 @@
 		E19F5BB626E1B75100E9B5D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E19F5BB726E1B76400E9B5D0 /* RxMediaPicker */,
+				E19D969526E30010002437CC /* RxMediaPicker */,
 				E19F5BB926E1B78300E9B5D0 /* ActivityIndicator.swift */,
 				E19F5BC126E1B78500E9B5D0 /* AppDialog.swift */,
 				E19F5BBA26E1B78400E9B5D0 /* LoadingView.swift */,
@@ -379,6 +408,7 @@
 				E17580A026E1FD8F0059A79B /* UITableView+Reusable.swift */,
 				E1D21D0F26E234420083C70E /* KeyValueStorageType.swift */,
 				E1D21D1926E26A3C0083C70E /* NibLoadable.swift */,
+				E19D969C26E306DE002437CC /* VideoThumbnailGenerator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -432,6 +462,7 @@
 			children = (
 				E19F5BE126E1B89200E9B5D0 /* VideoUploadVC.swift */,
 				E19F5BE226E1B89200E9B5D0 /* VideoUploadVC.xib */,
+				E19D96A826E32E6B002437CC /* VideoUploadVM.swift */,
 			);
 			path = VideoUploadVC;
 			sourceTree = "<group>";
@@ -622,13 +653,13 @@
 		E19FF0B326E1433F00C96C38 /* tiktokclone */ = {
 			isa = PBXGroup;
 			children = (
+				E19F5BB326E1B73100E9B5D0 /* DI */,
 				E1D21D1326E237470083C70E /* Repos */,
 				E17580AE26E227AF0059A79B /* UseCases */,
 				E19F5C1726E1BD8400E9B5D0 /* Resources */,
 				E19F5C1126E1BB4800E9B5D0 /* Theme */,
 				E19F5BB626E1B75100E9B5D0 /* Utils */,
 				E19F5BB526E1B74C00E9B5D0 /* Extensions */,
-				E19F5BB326E1B73100E9B5D0 /* DI */,
 				E19F5BB426E1B74700E9B5D0 /* Models */,
 				E19F5BAC26E1B71400E9B5D0 /* Base */,
 				E19F5C0926E1BA8D00E9B5D0 /* Coordinators */,
@@ -647,6 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				E1D21D1126E235240083C70E /* UserRepo.swift */,
+				E19D96A226E31815002437CC /* VideoRepo.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -748,7 +780,6 @@
 				E19F5BE026E1B88200E9B5D0 /* SearchVC.xib in Resources */,
 				E19F5BDC26E1B87600E9B5D0 /* HomeVC.xib in Resources */,
 				E19F5C3926E1BF5B00E9B5D0 /* Milliard-ExtraBold-Italic.otf in Resources */,
-				E19F5BB826E1B76400E9B5D0 /* RxMediaPicker in Resources */,
 				E19F5C4026E1BF5B00E9B5D0 /* Milliard-Thin-Italic.otf in Resources */,
 				E19F5C3726E1BF5B00E9B5D0 /* Milliard-Medium-Italic.otf in Resources */,
 				E19F5C4126E1BF5B00E9B5D0 /* Milliard-Bold.otf in Resources */,
@@ -853,6 +884,7 @@
 				E19F5BC926E1B78500E9B5D0 /* SwipeBackNavigationController.swift in Sources */,
 				E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */,
 				E19F5C0126E1B97F00E9B5D0 /* Dictionary+Ext.swift in Sources */,
+				E19D969826E30020002437CC /* RxMediaPickerDelegate.swift in Sources */,
 				E175809226E1E6860059A79B /* Device.swift in Sources */,
 				E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */,
 				E17580A926E20CA20059A79B /* ViewModelTrackable.swift in Sources */,
@@ -874,6 +906,7 @@
 				E175809926E1EECF0059A79B /* RegisterVC.swift in Sources */,
 				E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */,
 				E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */,
+				E19D969B26E3035C002437CC /* KMPlaceholderTextView.swift in Sources */,
 				E17580B026E227B60059A79B /* AuthUseCase.swift in Sources */,
 				E19F5C0526E1B97F00E9B5D0 /* UIImageView+Ext.swift in Sources */,
 				E19F5C5C26E1C8DF00E9B5D0 /* Optional+Ext.swift in Sources */,
@@ -881,6 +914,7 @@
 				E19F5C5226E1C5A800E9B5D0 /* VideoUploadCoordinator.swift in Sources */,
 				E1D21D1A26E26A3C0083C70E /* NibLoadable.swift in Sources */,
 				E19F5C5826E1C62200E9B5D0 /* SettingsCoordinator.swift in Sources */,
+				E19D96A926E32E6B002437CC /* VideoUploadVM.swift in Sources */,
 				E17580B226E227E40059A79B /* TTUser.swift in Sources */,
 				E175808C26E1DE850059A79B /* ErrorTracker.swift in Sources */,
 				E19F5BFF26E1B97F00E9B5D0 /* UIView+Ext.swift in Sources */,
@@ -889,10 +923,13 @@
 				E19F5BDF26E1B88200E9B5D0 /* SearchVC.swift in Sources */,
 				E19F5C0226E1B97F00E9B5D0 /* String+Ext.swift in Sources */,
 				E1D21D1826E269ED0083C70E /* NavigationHeader.swift in Sources */,
+				E19D969D26E306DE002437CC /* VideoThumbnailGenerator.swift in Sources */,
 				E19F5C0626E1B97F00E9B5D0 /* Observable+Operators.swift in Sources */,
 				E17580A526E1FDC60059A79B /* CollectionViewCell.swift in Sources */,
 				E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */,
+				E19D96A126E312E7002437CC /* StorageUseCase.swift in Sources */,
 				E19F5C0826E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift in Sources */,
+				E19D96A726E31ABC002437CC /* VideoUseCase.swift in Sources */,
 				E19F5BEB26E1B8A700E9B5D0 /* ChatVC.swift in Sources */,
 				E19F5C0026E1B97F00E9B5D0 /* XCoordinator+Ext.swift in Sources */,
 				E17580A326E1FDB90059A79B /* TableViewCell.swift in Sources */,
@@ -900,11 +937,14 @@
 				E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */,
 				E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */,
 				E17580B426E2280B0059A79B /* RegisterVM.swift in Sources */,
+				E19D969926E30020002437CC /* RxMediaPicker.swift in Sources */,
 				E19F5C5A26E1C69C00E9B5D0 /* TabbarCoordinator.swift in Sources */,
 				E175808826E1D6DB0059A79B /* ViewController.swift in Sources */,
 				E19F5C0726E1B97F00E9B5D0 /* Localize+Ext.swift in Sources */,
 				E19F5BD726E1B86C00E9B5D0 /* TabBarVC.swift in Sources */,
+				E19D96A326E31815002437CC /* VideoRepo.swift in Sources */,
 				E19F5C5026E1C59C00E9B5D0 /* MyProfileCoordinator.swift in Sources */,
+				E19D969F26E310F1002437CC /* TTVideo.swift in Sources */,
 				E1D21D1026E234420083C70E /* KeyValueStorageType.swift in Sources */,
 				E175809026E1E43B0059A79B /* BaseView.swift in Sources */,
 				E19F5BF326E1B8BF00E9B5D0 /* SettingsVC.swift in Sources */,

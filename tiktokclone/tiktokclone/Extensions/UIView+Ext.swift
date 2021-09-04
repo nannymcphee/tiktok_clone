@@ -134,4 +134,8 @@ extension UIView {
             self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
+    
+    func setTikTokButtonStyle() {
+        customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
+    }
 }

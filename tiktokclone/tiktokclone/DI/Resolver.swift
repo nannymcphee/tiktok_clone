@@ -12,7 +12,11 @@ extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         registerAuthService()
         registerKeyValueStoreService()
+        registerVideoThumbnailGenerator()
+        registerStorageUseCase()
+        registerVideoUseCase()
         registerUserRepo()
+        registerVideoRepo()
     }
 }
 
@@ -34,6 +38,34 @@ extension Resolver {
     private static func registerUserRepo() {
         register {
             UserRepoImpl() as UserRepo
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerVideoThumbnailGenerator() {
+        register {
+            VideoThumbnailGeneratorImpl() as VideoThumbnailGenerator
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerStorageUseCase() {
+        register {
+            StorageUseCaseImpl() as StorageUseCase
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerVideoUseCase() {
+        register {
+            VideoUseCaseImpl() as VideoUseCase
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerVideoRepo() {
+        register {
+            VideoRepoImpl() as VideoRepo
         }
         .scope(.cached)
     }
