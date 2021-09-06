@@ -20,7 +20,7 @@ class ChatListVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Messages"
+        title = Text.chatListScreenTitle
     }
     
     

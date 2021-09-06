@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ai7-4P-bRn" customClass="NavigationHeader" customModule="tiktokclone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvN-kF-rrf" userLabel="NaviContactView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DY-lO-bXJ">
+                            <rect key="frame" x="10" y="28" width="60" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="o99-4a-bhE"/>
+                                <constraint firstAttribute="width" constant="60" id="pf5-4q-JT1"/>
+                            </constraints>
+                            <state key="normal">
+                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJU-yp-Bad">
+                            <rect key="frame" x="100" y="39.5" width="214" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6a-7L-6yf">
+                            <rect key="frame" x="344" y="28" width="60" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Szs-kS-WdV"/>
+                                <constraint firstAttribute="width" constant="60" id="zIY-KA-HpO"/>
+                            </constraints>
+                            <state key="normal">
+                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="y6a-7L-6yf" firstAttribute="leading" secondItem="NJU-yp-Bad" secondAttribute="trailing" constant="30" id="4q4-dH-6RE"/>
+                        <constraint firstItem="NJU-yp-Bad" firstAttribute="leading" secondItem="8DY-lO-bXJ" secondAttribute="trailing" constant="30" id="V3Z-Hm-Yvl"/>
+                        <constraint firstItem="8DY-lO-bXJ" firstAttribute="leading" secondItem="yvN-kF-rrf" secondAttribute="leading" constant="10" id="jeF-s6-ZkS"/>
+                        <constraint firstItem="8DY-lO-bXJ" firstAttribute="centerY" secondItem="yvN-kF-rrf" secondAttribute="centerY" id="lpt-jb-wOZ"/>
+                        <constraint firstItem="NJU-yp-Bad" firstAttribute="centerY" secondItem="yvN-kF-rrf" secondAttribute="centerY" id="m8f-hr-wYZ"/>
+                        <constraint firstAttribute="trailing" secondItem="y6a-7L-6yf" secondAttribute="trailing" constant="10" id="mCE-zy-Rh0"/>
+                        <constraint firstItem="y6a-7L-6yf" firstAttribute="centerY" secondItem="yvN-kF-rrf" secondAttribute="centerY" id="tKP-4S-MlY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="yvN-kF-rrf" firstAttribute="leading" secondItem="ai7-4P-bRn" secondAttribute="leading" id="Eh6-Oe-zFr"/>
+                <constraint firstAttribute="trailing" secondItem="yvN-kF-rrf" secondAttribute="trailing" id="Gd3-Io-30M"/>
+                <constraint firstItem="yvN-kF-rrf" firstAttribute="centerX" secondItem="ai7-4P-bRn" secondAttribute="centerX" id="TTQ-Yo-6Bm"/>
+                <constraint firstAttribute="bottom" secondItem="yvN-kF-rrf" secondAttribute="bottom" id="VKu-iv-7j5"/>
+                <constraint firstItem="yvN-kF-rrf" firstAttribute="top" secondItem="ai7-4P-bRn" secondAttribute="top" id="WBx-MO-q6g"/>
+                <constraint firstItem="yvN-kF-rrf" firstAttribute="centerY" secondItem="ai7-4P-bRn" secondAttribute="centerY" id="gsJ-cu-Kpa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnLeft" destination="8DY-lO-bXJ" id="knR-ev-o04"/>
+                <outlet property="btnRight" destination="y6a-7L-6yf" id="Dbw-66-A7d"/>
+                <outlet property="lbTitle" destination="NJU-yp-Bad" id="u3q-3a-ekd"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="38"/>
+        </view>
+    </objects>
+</document>

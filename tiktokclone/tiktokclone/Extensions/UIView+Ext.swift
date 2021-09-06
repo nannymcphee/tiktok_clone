@@ -8,6 +8,15 @@
 import UIKit
 
 extension UIView {
+    func rotate() {
+        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.toValue = NSNumber(value: Double.pi * 2)
+        rotation.duration = 3
+        rotation.isCumulative = true
+        rotation.repeatCount = Float.greatestFiniteMagnitude
+        self.layer.add(rotation, forKey: "rotationAnimation")
+    }
+    
     func customBorder(cornerRadius: CGFloat, borderWidth: CGFloat, color: UIColor) {
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
@@ -133,5 +142,9 @@ extension UIView {
             self.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
+    }
+    
+    func setTikTokButtonStyle() {
+        customBorder(cornerRadius: 2, borderWidth: 1, color: .clear)
     }
 }

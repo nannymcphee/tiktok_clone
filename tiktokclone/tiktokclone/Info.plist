@@ -2,30 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-        <string>Milliard-Light.otf</string>
-        <string>Milliard-Medium.otf</string>
-        <string>Milliard-SemiBold.otf</string>
-        <string>Milliard-Thin.otf</string>
-		<string>Milliard-Black.otf</string>
-        <string>Milliard-Bold.otf</string>
-        <string>Milliard-Book.otf</string>
-        <string>Milliard-ExtraBold.otf</string>
-        <string>Milliard-ExtraLight.otf</string>
-        <string>Milliard-Hairline.otf</string>
-        <string>Milliard-Heavy.otf</string>
-        <string>Milliard-Thin-Italic.otf</string>
-        <string>Milliard-Black-Italic.otf</string>
-        <string>Milliard-Bold-Italic.otf</string>
-        <string>Milliard-ExtraBold-Italic.otf</string>
-        <string>Milliard-ExtraLight-Italic.otf</string>
-        <string>Milliard-Hairline-Italic.otf</string>
-        <string>Milliard-Heavy-Italic.otf</string>
-        <string>Milliard-Light-Italic.otf</string>
-        <string>Milliard-Medium-Italic.otf</string>
-        <string>Milliard-SemiBold-Italic.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -42,6 +18,17 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.142115567847-ggv28qvq0uic42kig4h2tfvf9aqc85aj</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -51,6 +38,34 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) needs to use your photo library to upload videos.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) needs to use your camera for recording videos.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Milliard-Light.otf</string>
+		<string>Milliard-Medium.otf</string>
+		<string>Milliard-SemiBold.otf</string>
+		<string>Milliard-Thin.otf</string>
+		<string>Milliard-Black.otf</string>
+		<string>Milliard-Bold.otf</string>
+		<string>Milliard-Book.otf</string>
+		<string>Milliard-ExtraBold.otf</string>
+		<string>Milliard-ExtraLight.otf</string>
+		<string>Milliard-Hairline.otf</string>
+		<string>Milliard-Heavy.otf</string>
+		<string>Milliard-Thin-Italic.otf</string>
+		<string>Milliard-Black-Italic.otf</string>
+		<string>Milliard-Bold-Italic.otf</string>
+		<string>Milliard-ExtraBold-Italic.otf</string>
+		<string>Milliard-ExtraLight-Italic.otf</string>
+		<string>Milliard-Hairline-Italic.otf</string>
+		<string>Milliard-Heavy-Italic.otf</string>
+		<string>Milliard-Light-Italic.otf</string>
+		<string>Milliard-Medium-Italic.otf</string>
+		<string>Milliard-SemiBold-Italic.otf</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
