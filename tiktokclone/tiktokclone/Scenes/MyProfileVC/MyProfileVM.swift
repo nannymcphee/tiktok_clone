@@ -42,7 +42,7 @@ final class MyProfileVM: BaseVM, ViewModelTransformable, EventPublisherType, Vie
         let userInfo = input.viewDidLoadTrigger
             .flatMapLatest(weakObj: self) { viewModel, _ in
                 return viewModel.userRepo
-                    .getUserInfo()
+                    .getCurrentUserInfo()
                     .trackError(viewModel.errorTracker, action: .alert)
                     .trackActivity(viewModel.loadingIndicator)
                     .catchErrorJustComplete()

@@ -15,6 +15,7 @@ enum VideoUploadError: Error {
 
 protocol VideoRepo {
     func uploadVideo(_ video: TTVideo) -> Single<Void>
+    func getVideos() -> Single<[TTVideo]>
 }
 
 final class VideoRepoImpl: VideoRepo {
@@ -49,5 +50,9 @@ final class VideoRepoImpl: VideoRepo {
                 guard let self = self else { return .error(VideoUploadError.invalidVideo) }
                 return self.videoService.saveVideo(video)
             }
+    }
+    
+    func getVideos() -> Single<[TTVideo]> {
+        return videoService.getVideos()
     }
 }

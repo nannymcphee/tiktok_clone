@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		69ED2275113DC74BF17DE4C4 /* Pods_tiktokclone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */; };
+		E108439B26E67B60005750D2 /* VideoCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108439A26E67B60005750D2 /* VideoCellVM.swift */; };
+		E108439D26E67C1F005750D2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108439C26E67C1F005750D2 /* HomeVM.swift */; };
+		E15536A826E60A4200A48DF3 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536A626E60A4200A48DF3 /* VideoCell.swift */; };
+		E15536A926E60A4200A48DF3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15536A726E60A4200A48DF3 /* VideoCell.xib */; };
+		E15536AB26E641F000A48DF3 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */; };
+		E15536AF26E6449300A48DF3 /* VideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15536AD26E6449300A48DF3 /* VideoPlayerView.xib */; };
+		E15536B026E6449300A48DF3 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536AE26E6449300A48DF3 /* VideoPlayerView.swift */; };
+		E15536B226E645C700A48DF3 /* VideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536B126E645C700A48DF3 /* VideoPlayerManager.swift */; };
 		E175808626E1D61A0059A79B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808526E1D61A0059A79B /* R.generated.swift */; };
 		E175808826E1D6DB0059A79B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175808726E1D6DB0059A79B /* ViewController.swift */; };
 		E175808A26E1D9990059A79B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E175808926E1D9990059A79B /* GoogleService-Info.plist */; };
@@ -130,6 +138,14 @@
 		16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tiktokclone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1F36B5EF6D6B498979332F /* Pods-tiktokclone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.release.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.release.xcconfig"; sourceTree = "<group>"; };
 		DC4656C44A719FC2C61EBFA3 /* Pods-tiktokclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.debug.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.debug.xcconfig"; sourceTree = "<group>"; };
+		E108439A26E67B60005750D2 /* VideoCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellVM.swift; sourceTree = "<group>"; };
+		E108439C26E67C1F005750D2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E15536A626E60A4200A48DF3 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		E15536A726E60A4200A48DF3 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		E15536AD26E6449300A48DF3 /* VideoPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayerView.xib; sourceTree = "<group>"; };
+		E15536AE26E6449300A48DF3 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		E15536B126E645C700A48DF3 /* VideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerManager.swift; sourceTree = "<group>"; };
 		E175808526E1D61A0059A79B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E175808726E1D6DB0059A79B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E175808926E1D9990059A79B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -271,13 +287,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E15536A526E60A2800A48DF3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E15536A626E60A4200A48DF3 /* VideoCell.swift */,
+				E15536A726E60A4200A48DF3 /* VideoCell.xib */,
+				E108439A26E67B60005750D2 /* VideoCellVM.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E15536AC26E6447600A48DF3 /* VideoPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				E15536AE26E6449300A48DF3 /* VideoPlayerView.swift */,
+				E15536AD26E6449300A48DF3 /* VideoPlayerView.xib */,
+			);
+			path = VideoPlayerView;
+			sourceTree = "<group>";
+		};
 		E175809326E1E6D40059A79B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E15536AC26E6447600A48DF3 /* VideoPlayerView */,
 				E1D21D1D26E26DA50083C70E /* UserInfoView */,
 				E1D21D1626E269E30083C70E /* NavigationHeader */,
 				E175809426E1E6E80059A79B /* NonLoginView.swift */,
 				E19D969A26E3035C002437CC /* KMPlaceholderTextView.swift */,
+				E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -409,6 +446,7 @@
 				E1D21D0F26E234420083C70E /* KeyValueStorageType.swift */,
 				E1D21D1926E26A3C0083C70E /* NibLoadable.swift */,
 				E19D969C26E306DE002437CC /* VideoThumbnailGenerator.swift */,
+				E15536B126E645C700A48DF3 /* VideoPlayerManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -442,8 +480,10 @@
 		E19F5BCE26E1B7C900E9B5D0 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				E15536A526E60A2800A48DF3 /* Cells */,
 				E19F5BD926E1B87600E9B5D0 /* HomeVC.swift */,
 				E19F5BDA26E1B87600E9B5D0 /* HomeVC.xib */,
+				E108439C26E67C1F005750D2 /* HomeVM.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -772,6 +812,7 @@
 				E19F5C3326E1BF5B00E9B5D0 /* Milliard-Book.otf in Resources */,
 				E19F5C2F26E1BF5B00E9B5D0 /* Milliard-Hairline.otf in Resources */,
 				E19F5C3126E1BF5B00E9B5D0 /* Milliard-SemiBold.otf in Resources */,
+				E15536AF26E6449300A48DF3 /* VideoPlayerView.xib in Resources */,
 				E19FF0C126E1434100C96C38 /* LaunchScreen.storyboard in Resources */,
 				E19F5C3426E1BF5B00E9B5D0 /* Milliard-Light.otf in Resources */,
 				E19F5C3826E1BF5B00E9B5D0 /* Milliard-Black-Italic.otf in Resources */,
@@ -784,6 +825,7 @@
 				E19F5C3726E1BF5B00E9B5D0 /* Milliard-Medium-Italic.otf in Resources */,
 				E19F5C4126E1BF5B00E9B5D0 /* Milliard-Bold.otf in Resources */,
 				E19F5BD826E1B86C00E9B5D0 /* TabBarVC.xib in Resources */,
+				E15536A926E60A4200A48DF3 /* VideoCell.xib in Resources */,
 				E19F5C3D26E1BF5B00E9B5D0 /* Milliard-SemiBold-Italic.otf in Resources */,
 				E19F5C3026E1BF5B00E9B5D0 /* Milliard-ExtraLight.otf in Resources */,
 				E1D21D2126E26DC90083C70E /* UserInfoView.xib in Resources */,
@@ -891,6 +933,7 @@
 				E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */,
 				E1D21D1526E256D20083C70E /* Encodable+Ext.swift in Sources */,
 				E19FF0B526E1433F00C96C38 /* AppDelegate.swift in Sources */,
+				E15536A826E60A4200A48DF3 /* VideoCell.swift in Sources */,
 				E19F5BDB26E1B87600E9B5D0 /* HomeVC.swift in Sources */,
 				E19F5C0426E1B97F00E9B5D0 /* Int+Ext.swift in Sources */,
 				E1D21D2926E285730083C70E /* MyProfileVM.swift in Sources */,
@@ -903,6 +946,7 @@
 				E19F5BEF26E1B8B200E9B5D0 /* MyProfileVC.swift in Sources */,
 				E17580AD26E20D1A0059A79B /* UtilityModel.swift in Sources */,
 				E17580A126E1FD8F0059A79B /* UITableView+Reusable.swift in Sources */,
+				E15536B026E6449300A48DF3 /* VideoPlayerView.swift in Sources */,
 				E175809926E1EECF0059A79B /* RegisterVC.swift in Sources */,
 				E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */,
 				E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */,
@@ -930,7 +974,9 @@
 				E19D96A126E312E7002437CC /* StorageUseCase.swift in Sources */,
 				E19F5C0826E1B97F00E9B5D0 /* UIEdgeInsets+Ext.swift in Sources */,
 				E19D96A726E31ABC002437CC /* VideoUseCase.swift in Sources */,
+				E108439D26E67C1F005750D2 /* HomeVM.swift in Sources */,
 				E19F5BEB26E1B8A700E9B5D0 /* ChatVC.swift in Sources */,
+				E15536B226E645C700A48DF3 /* VideoPlayerManager.swift in Sources */,
 				E19F5C0026E1B97F00E9B5D0 /* XCoordinator+Ext.swift in Sources */,
 				E17580A326E1FDB90059A79B /* TableViewCell.swift in Sources */,
 				E175808E26E1E0120059A79B /* ErrorHandler.swift in Sources */,
@@ -947,6 +993,7 @@
 				E19D969F26E310F1002437CC /* TTVideo.swift in Sources */,
 				E1D21D1026E234420083C70E /* KeyValueStorageType.swift in Sources */,
 				E175809026E1E43B0059A79B /* BaseView.swift in Sources */,
+				E108439B26E67B60005750D2 /* VideoCellVM.swift in Sources */,
 				E19F5BF326E1B8BF00E9B5D0 /* SettingsVC.swift in Sources */,
 				E1D21D1F26E26DBB0083C70E /* UserInfoView.swift in Sources */,
 				E175808626E1D61A0059A79B /* R.generated.swift in Sources */,
@@ -956,6 +1003,7 @@
 				E19F5C4C26E1C50800E9B5D0 /* SearchCoordinator.swift in Sources */,
 				E19F5C5426E1C5CE00E9B5D0 /* ChatCoordinator.swift in Sources */,
 				E19F5BCA26E1B78500E9B5D0 /* AppDialog.swift in Sources */,
+				E15536AB26E641F000A48DF3 /* HomeHeaderView.swift in Sources */,
 				E19F5C6126E1CCB200E9B5D0 /* AppCoordinator.swift in Sources */,
 				E19F5C1526E1BB8600E9B5D0 /* Text.swift in Sources */,
 				E19F5BE326E1B89200E9B5D0 /* VideoUploadVC.swift in Sources */,

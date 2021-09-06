@@ -13,7 +13,8 @@ protocol UserRepo {
     var authObservable: Observable<TTUser?> { get }
     var currentUser: TTUser? { get set }
     
-    func getUserInfo() -> Single<TTUser?>
+    func getCurrentUserInfo() -> Single<TTUser?>
+    func getUserInfo(userId: String) -> Single<TTUser?>
     func signInWithGoogle(presenting: UIViewController) -> Single<TTUser>
     func signOut() -> Single<Void>
 }
@@ -44,7 +45,7 @@ final class UserRepoImpl: UserRepo {
             .disposed(by: disposeBag)
     }
         
-    func getUserInfo() -> Single<TTUser?> {
+    func getCurrentUserInfo() -> Single<TTUser?> {
         guard let userId = currentUser?.id else { return .just(nil) }
         
         return authService.getUserInfo(userId: userId)
@@ -52,6 +53,10 @@ final class UserRepoImpl: UserRepo {
                 self?.userDefaults.user = user
                 self?.currentUser = user
             })
+    }
+    
+    func getUserInfo(userId: String) -> Single<TTUser?> {
+        return authService.getUserInfo(userId: userId)
     }
     
     func signInWithGoogle(presenting: UIViewController) -> Single<TTUser> {

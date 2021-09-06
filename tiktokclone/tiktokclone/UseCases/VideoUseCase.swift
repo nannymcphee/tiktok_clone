@@ -12,6 +12,7 @@ import Resolver
 
 protocol VideoUseCase {
     func saveVideo(_ video: TTVideo) -> Single<Void>
+    func getVideos() -> Single<[TTVideo]>
 }
 
 final class VideoUseCaseImpl: VideoUseCase {
@@ -37,6 +38,27 @@ final class VideoUseCaseImpl: VideoUseCase {
                 }
                 single(.failure(error))
             })
+            return Disposables.create()
+        }
+    }
+    
+    func getVideos() -> Single<[TTVideo]> {
+        return .create { [weak self] single in
+            guard let self = self else { return Disposables.create() }
+            
+            self.dbVideo
+                .order(by: "created_at", descending: true)
+                .getDocuments { snapshot, error in
+                    if let error = error {
+                        single(.failure(error))
+                    }
+                    
+                    if let snapshot = snapshot {
+                        let videos = snapshot.documents.map { TTVideo(dictionary: $0.data()) }
+                        single(.success(videos))
+                    }
+                }
+            
             return Disposables.create()
         }
     }

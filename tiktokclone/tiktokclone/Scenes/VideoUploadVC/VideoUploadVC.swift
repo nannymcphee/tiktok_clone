@@ -21,7 +21,7 @@ class VideoUploadVC: RxBaseViewController<VideoUploadVM> {
     private lazy var mediaPicker = RxMediaPicker(delegate: self)
     
     private let selectedVideoURL = PublishSubject<URL?>()
-    
+    private let viewWillAppearTrigger = PublishSubject<Void>()
     
     // MARK: - OVERRIDES
     override func viewDidLoad() {
@@ -29,6 +29,11 @@ class VideoUploadVC: RxBaseViewController<VideoUploadVM> {
         setUpUI()
         bindViewModel()
         bindingUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewWillAppearTrigger.onNext(())
     }
     
     override func setUpColors() {
@@ -46,7 +51,8 @@ class VideoUploadVC: RxBaseViewController<VideoUploadVM> {
     
     // MARK: - Private functions
     private func bindViewModel() {
-        let input = Input(selectedVideoURL: selectedVideoURL,
+        let input = Input(viewWillAppearTrigger: viewWillAppearTrigger,
+                          selectedVideoURL: selectedVideoURL,
                           videoDescription: tvDescription.rx.text.unwrap().asObservable(),
                           hashTags: tfTags.rx.text.unwrap().asObservable(),
                           uploadTrigger: btnUpload.rx.tap.asObservable())

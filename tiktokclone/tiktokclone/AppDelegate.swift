@@ -12,12 +12,12 @@ import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let router = AppCoordinator().strongRouter
+    let appCoordinator = AppCoordinator()
     private lazy var mainWindow = UIWindow()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        router.setRoot(for: mainWindow)
+        appCoordinator.strongRouter.setRoot(for: mainWindow)
         // Dependency Injection
         Resolver.registerAllServices()
         setUpTabBarTheme()

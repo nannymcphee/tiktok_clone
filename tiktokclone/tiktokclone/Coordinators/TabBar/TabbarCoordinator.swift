@@ -8,6 +8,15 @@
 import UIKit
 import XCoordinator
 import RxSwift
+import Resolver
+
+enum TabbarRoute: Route {
+    case home
+    case search
+    case videoUpload
+    case chat
+    case myProfile
+}
 
 class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
     // MARK: Stored properties
@@ -23,6 +32,8 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
     private let chatRouter: StrongRouter<ChatRoute>
     private let myProfileRouter: StrongRouter<MyProfileRoute>
     private let disposeBag = DisposeBag()
+    
+    @Injected private var userRepo: UserRepo
     
     // MARK: Initialization
     convenience init() {
@@ -50,11 +61,14 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
                   chatRouter: chatCoordinator.strongRouter,
                   myProfileRouter: myProfileCoordinator.strongRouter)
         
+        let animationDelegate = TabBarAnimationDelegate()
+        
         self.homeCoordinator = homeCoordinator
         self.searchCoordinator = searchCoordinator
         self.videoUploadCoordinator = videoUploadCoordinator
         self.chatCoordinator = chatCoordinator
         self.myProfileCoordinator = myProfileCoordinator
+        delegate = animationDelegate
         self.handleEvents()
     }
 
@@ -68,7 +82,8 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
         self.videoUploadRouter = videoUploadRouter
         self.chatRouter = chatRouter
         self.myProfileRouter = myProfileRouter
-        super.init(tabs: [homeRouter, searchRouter, videoUploadRouter, chatRouter, myProfileRouter], select: homeRouter)
+        super.init(tabs: [homeRouter, searchRouter, videoUploadRouter, chatRouter, myProfileRouter],
+                   select: 0)
     }
 
     // MARK: Overrides
@@ -79,6 +94,9 @@ class TabbarCoordinator: TabBarCoordinator<TabbarRoute> {
         case .search:
             return .select(searchRouter)
         case .videoUpload:
+            guard userRepo.currentUser != nil else {
+                return .select(myProfileRouter)
+            }
             return .select(videoUploadRouter)
         case .chat:
             return .select(chatRouter)

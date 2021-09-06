@@ -20,7 +20,7 @@ class VideoUploadCoordinator: NavigationCoordinator<VideoUploadRoute> {
     }
     
     private let disposeBag = DisposeBag()
-
+    
     // MARK: Overrides
     override func prepareTransition(for route: VideoUploadRoute) -> NavigationTransition {
         switch route {
@@ -35,6 +35,14 @@ class VideoUploadCoordinator: NavigationCoordinator<VideoUploadRoute> {
                     case .uploadVideoSuccess:
                         AppDialog.withOk(controller: vc, message: Text.uploadVideoSuccess)
                         vm.resetData()
+                        
+                    case .showLoginPopup:
+                        AppDialog.withOk(controller: vc,
+                                         title: Text.youAreNotLoggedIn,
+                                         message: Text.pleaseLoginToUploadVideo, ok: {
+                                            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                                            appDelegate.appCoordinator.tabBarRouter?.trigger(.myProfile)
+                                         })
                     }
                 }
                 .disposed(by: disposeBag)

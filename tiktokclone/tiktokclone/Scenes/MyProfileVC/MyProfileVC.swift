@@ -71,6 +71,7 @@ final class MyProfileVC: RxBaseViewController<MyProfileVM> {
         // Scrollview didScroll
         scvContent.rx.didScroll
             .withLatestFrom(scvContent.rx.contentOffset)
+            .observe(on: MainScheduler.asyncInstance)
             .map { $0.y > 0 ? AppColors.secondaryBackground : AppColors.primaryBackground }
             .asDriverOnErrorJustComplete()
             .drive(with: self, onNext: { viewController, color in

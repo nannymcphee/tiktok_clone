@@ -27,7 +27,7 @@ final class StorageUseCaseImpl: StorageUseCase {
             guard let self = self,
                   let userId = self.currentUserId,
                   let videoData = try? Data(contentsOf: url) else { return Disposables.create() }
-            let fileName = self.getFileName(userId: userId)
+            let fileName = self.getFileName(userId: userId, fileExtension: "mov")
             let videoRef = self.storage.child("videos").child(fileName)
             
             videoRef.putData(videoData, metadata: nil) { _, error in
@@ -57,7 +57,7 @@ final class StorageUseCaseImpl: StorageUseCase {
             guard let self = self,
                   let imageData = image.jpegData(compressionQuality: 0.8),
                   let userId = self.currentUserId else { return Disposables.create() }
-            let fileName = self.getFileName(userId: userId)
+            let fileName = self.getFileName(userId: userId, fileExtension: "jpg")
             let imageRef = self.storage.child("images").child(fileName)
             
             imageRef.putData(imageData, metadata: nil) { _, error in
@@ -84,8 +84,8 @@ final class StorageUseCaseImpl: StorageUseCase {
 }
 
 private extension StorageUseCase {
-    func getFileName(userId: String) -> String {
-        return "\(userId)_\(Date().timeIntervalSince1970.toInt)"
+    func getFileName(userId: String, fileExtension: String) -> String {
+        return "\(userId)_\(Date().timeIntervalSince1970.toInt).\(fileExtension)"
     }
 }
 

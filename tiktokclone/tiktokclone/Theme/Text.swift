@@ -40,4 +40,7 @@ class Text {
     static var descriptionPlaceholder = "Enter description..."
     static var hashTagPlaceholder = "vietnam, fyp,..."
     static var uploadVideoSuccess = "Upload video success!"
+    static var youAreNotLoggedIn = "You are not logged in"
+    static var pleaseLoginToUploadVideo = "Please login to upload video"
+    static var forYou = "For you"
 }

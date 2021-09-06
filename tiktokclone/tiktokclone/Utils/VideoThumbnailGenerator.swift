@@ -16,7 +16,7 @@ protocol VideoThumbnailGenerator {
 final class VideoThumbnailGeneratorImpl: VideoThumbnailGenerator {
     func getThumbnailFromVideo(_ url: URL) -> Single<UIImage> {
         .create { single in
-            let thumnailTime = CMTimeMake(value: 2, timescale: 1)
+            let thumnailTime = CMTimeMake(value: 1, timescale: 1)
             let asset = AVAsset(url: url)
             let avAssetImageGenerator = AVAssetImageGenerator(asset: asset)
             avAssetImageGenerator.appliesPreferredTrackTransform = true

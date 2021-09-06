@@ -12,6 +12,7 @@ import Resolver
 final class VideoUploadVM: BaseVM, ViewModelTransformable, ViewModelTrackable, EventPublisherType {
     // MARK: - Input
     struct Input {
+        let viewWillAppearTrigger: Observable<Void>
         let selectedVideoURL: Observable<URL?>
         let videoDescription: Observable<String>
         let hashTags: Observable<String>
@@ -27,6 +28,7 @@ final class VideoUploadVM: BaseVM, ViewModelTransformable, ViewModelTrackable, E
     
     // MARK: - Event
     enum Event {
+        case showLoginPopup
         case uploadVideoSuccess
     }
     
@@ -49,6 +51,14 @@ final class VideoUploadVM: BaseVM, ViewModelTransformable, ViewModelTrackable, E
     
     // MARK: - Public functions
     func transform(input: Input) -> Output {
+        // In case user is not logged in
+        input.viewWillAppearTrigger
+            .withLatestFrom(userRepo.authObservable)
+            .filter { $0 == nil }
+            .map { _ in Event.showLoginPopup }
+            .bind(to: eventPublisher)
+            .disposed(by: disposeBag)
+        
         // Process selected video
         input.selectedVideoURL
             .unwrap()
@@ -89,7 +99,7 @@ final class VideoUploadVM: BaseVM, ViewModelTransformable, ViewModelTrackable, E
                     .replacingOccurrences(of: " ", with: "")
                     .trimmingCharacters(in: .whitespacesAndNewlines)
                     .components(separatedBy: ",")
-                return TTVideo(description: data.1,
+                return TTVideo(description: data.1.trimmingCharacters(in: .whitespacesAndNewlines),
                                tags: hashTags,
                                videoURL: data.0,
                                thumbnailImage: viewModel.videoThumbnailRelay.value,

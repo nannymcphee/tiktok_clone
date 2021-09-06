@@ -17,6 +17,30 @@ class BaseViewController: UIViewController, ErrorHandler {
         return lbTitle
     }()
     
+    var topSafeArea: CGFloat = 0
+    var statusBarHeight: CGFloat = 0
+    var bottomSafeArea: CGFloat = 0
+    var tabBarHeight: CGFloat {
+        self.tabBarController?.tabBar.frame.size.height ?? 49
+    }
+    var keyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .compactMap {$0 as? UIWindowScene }
+            .first?.windows
+            .filter(\.isKeyWindow).first
+    }
+    
+    var topBarHeight: CGFloat {
+        if #available(iOS 13.0, *) {
+            return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) +
+                (self.navigationController?.navigationBar.frame.height ?? 0.0)
+        } else {
+            return UIApplication.shared.statusBarFrame.size.height +
+                (self.navigationController?.navigationBar.frame.height ?? 0.0)
+        }
+    }
+    
     var isSwipeBackEnabled: Bool = false {
         didSet {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = isSwipeBackEnabled
@@ -32,6 +56,15 @@ class BaseViewController: UIViewController, ErrorHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            topSafeArea = keyWindow?.safeAreaInsets.top ?? 0
+            bottomSafeArea = keyWindow?.safeAreaInsets.bottom ?? 0
+            statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            statusBarHeight = UIApplication.shared.statusBarFrame.height
+            bottomSafeArea = bottomLayoutGuide.length
+            topSafeArea = topLayoutGuide.length
+        }
         setUpColors()
     }
     

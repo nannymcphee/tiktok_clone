@@ -18,20 +18,14 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         super.init(initialRoute: .tabBar)
     }
     
+    var tabBarRouter: StrongRouter<TabbarRoute>?
+    
     // MARK: Overrides
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
         case .tabBar:
-            let tabBarRouter = TabbarCoordinator().strongRouter
-            return .presentFullScreen(tabBarRouter)
+            tabBarRouter = TabbarCoordinator().strongRouter
+            return .presentFullScreen(tabBarRouter!)
         }
     }
-}
-
-enum TabbarRoute: Route {
-    case home
-    case search
-    case videoUpload
-    case chat
-    case myProfile
 }

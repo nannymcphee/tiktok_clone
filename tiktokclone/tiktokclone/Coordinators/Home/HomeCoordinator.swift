@@ -22,7 +22,8 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
     override func prepareTransition(for route: HomeRoute) -> NavigationTransition {
         switch route {
         case .main:
-            let viewController = HomeVC()
+            let vm = HomeVM()
+            let viewController = HomeVC(viewModel: vm)
             return .push(viewController)
         }
     }
