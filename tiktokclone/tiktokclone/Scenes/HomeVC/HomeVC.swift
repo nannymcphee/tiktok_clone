@@ -12,6 +12,7 @@ class HomeVC: RxBaseViewController<HomeVM> {
     // MARK: - IBOutlets
     @IBOutlet weak var cvVideos: UICollectionView!
     @IBOutlet weak var vNavigationContainer: UIView!
+    @IBOutlet weak var cvVideosBottomConstraint: NSLayoutConstraint!
     
     private lazy var vHeader: HomeHeaderView = {
         let view = HomeHeaderView(frame: CGRect(x: 0, y: 0,
@@ -21,8 +22,10 @@ class HomeVC: RxBaseViewController<HomeVM> {
     }()
     
     // MARK: - Variables
+    private lazy var bottomBarHeight: CGFloat = tabBarHeight
     private let videoPlayer = VideoPlayerManager()
     private let viewDidLoadTrigger = PublishSubject<Void>()
+    private let videoCellEventTrigger = PublishSubject<VideoCell.Event>()
     
     // MARK: - OVERRIDES
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -60,34 +63,24 @@ class HomeVC: RxBaseViewController<HomeVM> {
     // MARK: - Private functions
     private func bindViewModel() {
         let input = Input(viewDidLoadTrigger: viewDidLoadTrigger,
-                          refreshTrigger: refreshTrigger)
+                          refreshTrigger: refreshTrigger,
+                          videoCellEvent: videoCellEventTrigger)
         let output = viewModel.transform(input: input)
         
         // Videos
         output.videos
             .drive(cvVideos.rx.items(cellIdentifier: VideoCell.reuseIdentifier, cellType: VideoCell.self)) { [weak self] _, video, cell in
                 guard let self = self else { return }
-                cell.populateData(with: video, tabBarHeight: self.tabBarHeight)
+                cell.populateData(with: video)
                 cell.eventPublisher
-                    .asDriverOnErrorJustComplete()
-                    .drive(onNext: { event in
-                        switch event {
-                        case .didTapAvatar(let user):
-                            Logger.d("didTapAvatar \(user)")
-                        case .didTapFollow(let user):
-                            Logger.d("didTapFollow \(user)")
-                        case .didTapLike(let video):
-                            Logger.d("didTapLike \(video)")
-                        case .didTapComment(let video):
-                            Logger.d("didTapComment \(video)")
-                        case .didTapShare(let video):
-                            Logger.d("didTapShare \(video)")
-                        case .didTapMore(let video):
-                            Logger.d("didTapMore \(video)")
-                        }
-                    })
+                    .bind(to: self.videoCellEventTrigger)
                     .disposed(by: self.disposeBag)
             }
+            .disposed(by: disposeBag)
+        
+        // Current playbackState
+        output.currenPlayerPlaybackState
+            .drive(with: self, onNext: { $0.handlePlaybackState($1) })
             .disposed(by: disposeBag)
         
         // Error tracker
@@ -118,13 +111,6 @@ class HomeVC: RxBaseViewController<HomeVM> {
             }
             .disposed(by: disposeBag)
         
-        // Begin scrolling
-        cvVideos.rx.didScroll
-            .subscribe(with: self) { viewController, _ in
-                viewController.videoPlayer.pauseVideo()
-            }
-            .disposed(by: disposeBag)
-        
         // Scrolling ended
         Observable.merge(cvVideos.rx.didEndDecelerating.mapToVoid(),
                          cvVideos.rx.didEndScrollingAnimation.mapToVoid())
@@ -141,6 +127,10 @@ class HomeVC: RxBaseViewController<HomeVM> {
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(50)
         }
+        
+        cvVideosBottomConstraint.constant = bottomBarHeight
+        cvVideos.backgroundColor = .clear
+        view.backgroundColor = AppColors.primaryBackground
     }
     
     private func setUpCollectionView() {
@@ -168,5 +158,12 @@ class HomeVC: RxBaseViewController<HomeVM> {
         }
         
         return cvVideos.cellForItem(at: visibleIndexPath) as? VideoCell
+    }
+    
+    
+    private func handlePlaybackState(_ state: VideoPlayerView.PlayerPlaybackState) {
+        if case .finished = state {
+            videoPlayer.replayVideo()
+        }
     }
 }

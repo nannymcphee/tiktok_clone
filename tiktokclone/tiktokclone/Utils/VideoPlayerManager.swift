@@ -90,6 +90,15 @@ public class VideoPlayerManager: NSObject {
         state = .playing
     }
     
+    func replayVideo() {
+        guard let cell = playingCell else {
+            stopAnyOngoingPlaying()
+            return
+        }
+        cell.replayVideo()
+        state = .playing
+    }
+    
     // MARK: - Private Methods
     private func setSessionPlayerOn() {
         let session = AVAudioSession.sharedInstance()
