@@ -30,7 +30,6 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     @IBOutlet weak var lbSongName: UILabel!
     @IBOutlet weak var ivMusicNote: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
-    @IBOutlet weak var ivMusicNoteBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Event
     enum Event {
@@ -40,6 +39,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         case didTapComment(TTVideo)
         case didTapShare(TTVideo)
         case didTapMore(TTVideo)
+        case didUpdatePlaybackState(VideoPlayerView.PlayerPlaybackState)
     }
     
     // MARK: - Variables
@@ -56,7 +56,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     private var isLiked: Bool = false
     private var currentVideoRelay = BehaviorRelay<TTVideo?>(value: nil)
     private var videoAuthorRelay = BehaviorRelay<TTUser?>(value: nil)
-    private var currentPlaybackState: VideoPlayerView.PlayerPlaybackState = .stopped
+    private var currentPlaybackState = BehaviorRelay<VideoPlayerView.PlayerPlaybackState>(value: .unknown)
     
     // MARK: - Overrides
     override func awakeFromNib() {
@@ -65,6 +65,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     }
     
     override func reset() {
+        currentPlaybackState.accept(.unknown)
         currentVideoRelay.accept(nil)
         viewModel = nil
         isLiked = false
@@ -82,15 +83,19 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         ivSongCover.layer.removeAllAnimations()
         ivSongCover.transform = .identity
         setInitialStateBtnPlay()
+        videoPlayerView?.delegate = nil
+        stopVideo()
+        resetPlayerView()
         super.reset()
     }
     
     // MARK: - Public functions
-    func populateData(with data: TTVideo, tabBarHeight: CGFloat) {
+    func populateData(with data: TTVideo) {
         let viewModel = VideoCellVM()
         let input = VideoCellVM.Input(video: data)
         let output = viewModel.transform(input: input)
         self.viewModel = viewModel
+        videoPlayerView?.delegate = self
         
         // Binding video
         output.video
@@ -119,7 +124,6 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             })
             .disposed(by: disposeBag)
         
-        ivMusicNoteBottomConstraint.constant = tabBarHeight + 10
         lbSongName.text = "Some song name...\t- Author name..."
         ivSongCover.image = R.image.ic_avatar_placeholder()
         ivSongCover.rotate()
@@ -127,7 +131,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     }
     
     func playVideo(with url: URL) {
-        guard currentPlaybackState != .paused else {
+        guard currentPlaybackState.value != .paused else {
             resumeVideo()
             return
         }
@@ -141,7 +145,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             return
         }
         
-        guard currentPlaybackState != .paused else {
+        guard currentPlaybackState.value != .paused else {
             resumeVideo()
             return
         }
@@ -150,14 +154,17 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     }
     
     func pauseVideo() {
+        guard currentPlaybackState.value == .playing else { return }
         videoPlayerView?.pause()
     }
     
     func resumeVideo() {
+        guard currentPlaybackState.value == .paused else { return }
         videoPlayerView?.resume()
     }
     
     func stopVideo() {
+        guard currentPlaybackState.value == .playing else { return }
         videoPlayerView?.stop()
     }
     
@@ -214,7 +221,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         })
         .when(.recognized)
         .subscribe(with: self, onNext: { cell, _ in
-            switch cell.currentPlaybackState {
+            switch cell.currentPlaybackState.value {
             case .playing:
                 cell.pauseVideo()
                 cell.animatePlayButton(isHidden: false)
@@ -305,6 +312,12 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             .map { Event.didTapShare($0) }
             .bind(to: eventPublisher)
             .disposed(by: disposeBag)
+        
+        // Did update playbackState
+        currentPlaybackState
+            .map { Event.didUpdatePlaybackState($0) }
+            .bind(to: eventPublisher)
+            .disposed(by: disposeBag)
     }
     
     private func setInitialStateBtnPlay() {
@@ -334,9 +347,6 @@ extension VideoCell: VideoPlayerViewDelegate {
             ivThumbnail.isHidden = false
             setInitialStateBtnPlay()
             
-        case .finished:
-            replayVideo()
-            
         case .paused:
             playerView.isHidden = false
             ivThumbnail.isHidden = true
@@ -349,7 +359,7 @@ extension VideoCell: VideoPlayerViewDelegate {
             break
         }
         
-        currentPlaybackState = playbackState
+        currentPlaybackState.accept(playbackState)
     }
     
     func playerView(_ playerView: VideoPlayerView,

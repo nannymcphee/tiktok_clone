@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="tiktokclone" customModuleProvider="target">
             <connections>
                 <outlet property="cvVideos" destination="gsR-wl-pWp" id="ZdF-e3-jJN"/>
+                <outlet property="cvVideosBottomConstraint" destination="5qo-OS-YcK" id="t1A-nx-rdd"/>
                 <outlet property="vNavigationContainer" destination="Pd0-8P-X6g" id="Cd9-QV-cq9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

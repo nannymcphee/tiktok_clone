@@ -14,11 +14,13 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable {
     struct Input {
         let viewDidLoadTrigger: Observable<Void>
         let refreshTrigger: Observable<Void>
+        let videoCellEvent: Observable<VideoCell.Event>
     }
     
     // MARK: - Output
     struct Output {
         let videos: Driver<[TTVideo]>
+        let currenPlayerPlaybackState: Driver<VideoPlayerView.PlayerPlaybackState>
     }
     
     // MARK: - Variables
@@ -27,6 +29,7 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable {
     
     @Injected private var videoRepo: VideoRepo
     private let videosRelay = BehaviorRelay<[TTVideo]>(value: [])
+    private let currentPlaybackStateRelay = BehaviorRelay<VideoPlayerView.PlayerPlaybackState>(value: .unknown)
     
     // MARK: - Public functions
     func transform(input: Input) -> Output {
@@ -42,6 +45,28 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable {
             .bind(to: videosRelay)
             .disposed(by: disposeBag)
         
-        return Output(videos: videosRelay.asDriverOnErrorJustComplete())
+        input.videoCellEvent
+            .subscribe(with: self) { viewModel, event in
+                switch event {
+                case .didTapAvatar(let user):
+                    Logger.d("didTapAvatar \(user)")
+                case .didTapFollow(let user):
+                    Logger.d("didTapFollow \(user)")
+                case .didTapLike(let video):
+                    Logger.d("didTapLike \(video)")
+                case .didTapComment(let video):
+                    Logger.d("didTapComment \(video)")
+                case .didTapShare(let video):
+                    Logger.d("didTapShare \(video)")
+                case .didTapMore(let video):
+                    Logger.d("didTapMore \(video)")
+                case .didUpdatePlaybackState(let playbackState):
+                    viewModel.currentPlaybackStateRelay.accept(playbackState)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        return Output(videos: videosRelay.asDriverOnErrorJustComplete(),
+                      currenPlayerPlaybackState: currentPlaybackStateRelay.asDriverOnErrorJustComplete())
     }
 }

@@ -25,7 +25,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="k6x-hG-UyV">
-                                <rect key="frame" x="356" y="443" width="50" height="282"/>
+                                <rect key="frame" x="356" y="433" width="50" height="282"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDb-N5-XL5" userLabel="vAvatar">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
@@ -179,14 +179,14 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_avatar_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="yGb-dA-v3B" userLabel="ivSongCover">
-                                <rect key="frame" x="356" y="740" width="50" height="50"/>
+                                <rect key="frame" x="356" y="730" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7Mw-mH-mXO"/>
                                     <constraint firstAttribute="width" secondItem="yGb-dA-v3B" secondAttribute="height" multiplier="1:1" id="VbI-vq-6Ac"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YG8-QL-Zed">
-                                <rect key="frame" x="10" y="691.5" width="316" height="71"/>
+                                <rect key="frame" x="10" y="681.5" width="316" height="71"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OJ-hJ-YmP">
                                         <rect key="frame" x="0.0" y="0.0" width="316" height="17"/>
@@ -209,13 +209,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBu-JR-JLr" userLabel="lbSongName">
-                                <rect key="frame" x="36" y="772.5" width="207" height="17"/>
+                                <rect key="frame" x="36" y="762.5" width="207" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_music_note" translatesAutoresizingMaskIntoConstraints="NO" id="yE5-5d-u0i" userLabel="ivMusicNote">
-                                <rect key="frame" x="10" y="774" width="16" height="16"/>
+                                <rect key="frame" x="10" y="764" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yE5-5d-u0i" secondAttribute="height" multiplier="1:1" id="ZCj-4z-yjZ"/>
                                     <constraint firstAttribute="width" constant="16" id="eey-nI-2rM"/>
@@ -240,7 +240,7 @@
                             <constraint firstItem="yE5-5d-u0i" firstAttribute="bottom" secondItem="yGb-dA-v3B" secondAttribute="bottom" id="Ix8-Uv-ONt"/>
                             <constraint firstItem="yGb-dA-v3B" firstAttribute="top" secondItem="k6x-hG-UyV" secondAttribute="bottom" constant="15" id="LN5-KM-6Zo"/>
                             <constraint firstItem="IBu-JR-JLr" firstAttribute="firstBaseline" secondItem="yE5-5d-u0i" secondAttribute="firstBaseline" constant="12" id="Ljf-TO-Jba"/>
-                            <constraint firstAttribute="bottom" secondItem="yE5-5d-u0i" secondAttribute="bottom" constant="10" id="ScM-0s-LlZ"/>
+                            <constraint firstAttribute="bottom" secondItem="yE5-5d-u0i" secondAttribute="bottom" constant="20" id="ScM-0s-LlZ"/>
                             <constraint firstItem="sa7-a6-sXE" firstAttribute="top" secondItem="hvK-fp-jIc" secondAttribute="top" id="Uyv-op-GY0"/>
                             <constraint firstItem="NFj-pm-KJA" firstAttribute="centerY" secondItem="sa7-a6-sXE" secondAttribute="centerY" id="W0n-59-Mcl"/>
                             <constraint firstItem="yGb-dA-v3B" firstAttribute="leading" secondItem="YG8-QL-Zed" secondAttribute="trailing" constant="30" id="dyg-jB-Wr3"/>
@@ -271,7 +271,6 @@
                 <outlet property="btnPlay" destination="NFj-pm-KJA" id="71Y-dr-akI"/>
                 <outlet property="btnShare" destination="k5J-9a-6LF" id="Ftg-rq-65Z"/>
                 <outlet property="ivMusicNote" destination="yE5-5d-u0i" id="DKz-46-5Fn"/>
-                <outlet property="ivMusicNoteBottomConstraint" destination="ScM-0s-LlZ" id="WSh-hz-Jj2"/>
                 <outlet property="ivSongCover" destination="yGb-dA-v3B" id="fTu-ID-WjK"/>
                 <outlet property="ivThumbnail" destination="sa7-a6-sXE" id="jyh-ro-rlq"/>
                 <outlet property="lbCommentCount" destination="9gF-wv-ypA" id="xym-Ex-L4D"/>
