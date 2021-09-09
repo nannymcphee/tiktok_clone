@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsVC: BaseViewController {
+class SettingsVC: BaseVC {
     // MARK: - IBOutlets
     
     

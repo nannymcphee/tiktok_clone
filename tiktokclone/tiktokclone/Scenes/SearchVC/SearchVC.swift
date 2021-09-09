@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchVC: BaseViewController {
+class SearchVC: BaseVC {
     // MARK: - IBOutlets
     
     

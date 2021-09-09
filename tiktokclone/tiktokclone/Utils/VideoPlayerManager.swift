@@ -23,6 +23,14 @@ public class VideoPlayerManager: NSObject {
     /// The `VideoCell` that is currently playing video
     weak var playingCell: VideoCell?
     
+    /// Keeps only 1 instance of VideoPlayerView
+    private lazy var videoPlayerView: VideoPlayerView = {
+        let view = VideoPlayerView.instance(with: nil)
+        view.backgroundColor = .clear
+        view.isHidden = true
+        return view
+    }()
+    
     /// Specify if current video controller state: playing, in pause or none
     var state: PlayerState = .stopped
 
@@ -50,52 +58,62 @@ public class VideoPlayerManager: NSObject {
     ///   - videoCell: The `VideoCell` that needs to be updated while video is playing.
     func playVideo(in videoCell: VideoCell) {
         guard playingCell != videoCell else {
-            videoCell.resumeVideo()
+            videoPlayerView.resume()
+            return
+        }
+        
+        guard let urlString = videoCell.currentVideo?.videoURL,
+              let videoURL = URL(string: urlString) else {
+            Logger.e("Invalid video url")
             return
         }
         
         stopAnyOngoingPlaying()
-        videoCell.playVideo()
+        videoCell.insertPlayerView(videoPlayerView)
+        videoPlayerView.play(with: videoURL)
         state = .playing
         playingCell = videoCell
     }
     
     func pauseVideo() {
-        guard let cell = playingCell else { return }
-        cell.pauseVideo()
+        guard playingCell != nil else { return }
+        videoPlayerView.pause()
         state = .paused
     }
     
     /// Stops any ongoing audio playing if exists
     func stopAnyOngoingPlaying() {
-        guard let cell = playingCell else { return }
-        cell.stopVideo()
+        guard playingCell != nil else { return }
+        videoPlayerView.resetPlayer()
+        videoPlayerView.delegate = nil
+        videoPlayerView.removeFromSuperview()
+        playingCell?.setInitialUI()
         playingCell = nil
         state = .stopped
     }
     
     func resetVideoPlayer() {
-        guard let cell = playingCell else { return }
-        cell.resetPlayerView()
+        guard playingCell != nil else { return }
+        videoPlayerView.resetPlayer()
         state = .paused
     }
     
     /// Resume a currently pause audio sound
     func resumeVideo() {
-        guard let cell = playingCell else {
+        guard playingCell != nil else {
             stopAnyOngoingPlaying()
             return
         }
-        cell.resumeVideo()
+        videoPlayerView.resume()
         state = .playing
     }
     
     func replayVideo() {
-        guard let cell = playingCell else {
+        guard playingCell != nil else {
             stopAnyOngoingPlaying()
             return
         }
-        cell.replayVideo()
+        videoPlayerView.replayVideo()
         state = .playing
     }
     

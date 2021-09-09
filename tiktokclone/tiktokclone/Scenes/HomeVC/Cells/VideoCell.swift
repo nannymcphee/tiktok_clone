@@ -27,12 +27,13 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     @IBOutlet weak var lbUsername: UILabel!
     @IBOutlet weak var lbDescription: UILabel!
     @IBOutlet weak var lbHashTags: UILabel!
-    @IBOutlet weak var lbSongName: UILabel!
+    @IBOutlet weak var lbSongName: MarqueeLabel!
     @IBOutlet weak var ivMusicNote: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
     
     // MARK: - Event
     enum Event {
+        case didToggleVideo(isPlay: Bool)
         case didTapAvatar(TTUser)
         case didTapFollow(TTUser)
         case didTapLike(TTVideo)
@@ -49,6 +50,9 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     }
     var playerItem: AVPlayerItem? {
         return videoPlayerView?.playerItem
+    }
+    var currentVideo: TTVideo? {
+        return currentVideoRelay.value
     }
     let eventPublisher = PublishSubject<Event>()
     
@@ -84,8 +88,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         ivSongCover.transform = .identity
         setInitialStateBtnPlay()
         videoPlayerView?.delegate = nil
-        stopVideo()
-        resetPlayerView()
+        ivSongCover.layer.removeAllAnimations()
         super.reset()
     }
     
@@ -103,6 +106,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
                 cell.currentVideoRelay.accept(video)
                 cell.ivThumbnail.setImage(url: video.thumbnailURL)
                 cell.lbDescription.text = video.description
+                cell.lbLikeCount.text = "\(video.likedIds.count)"
                 cell.lbHashTags.text = video.tags.map { "#" + $0 }.joined(separator: " ")
             })
             .disposed(by: disposeBag)
@@ -126,54 +130,19 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         
         lbSongName.text = "Some song name...\t- Author name..."
         ivSongCover.image = R.image.ic_avatar_placeholder()
-        ivSongCover.rotate()
+        startAnimations()
         bindingUI()
     }
     
-    func playVideo(with url: URL) {
-        guard currentPlaybackState.value != .paused else {
-            resumeVideo()
-            return
-        }
-        
-        videoPlayerView?.play(with: url)
+    func setInitialUI() {
+        ivThumbnail.isHidden = false
+        setInitialStateBtnPlay()
     }
     
-    func playVideo() {
-        guard let video = currentVideoRelay.value, let url = URL(string: video.videoURL) else {
-            Logger.e("Unable to play video")
-            return
-        }
-        
-        guard currentPlaybackState.value != .paused else {
-            resumeVideo()
-            return
-        }
-        
-        videoPlayerView?.play(with: url)
-    }
-    
-    func pauseVideo() {
-        guard currentPlaybackState.value == .playing else { return }
-        videoPlayerView?.pause()
-    }
-    
-    func resumeVideo() {
-        guard currentPlaybackState.value == .paused else { return }
-        videoPlayerView?.resume()
-    }
-    
-    func stopVideo() {
-        guard currentPlaybackState.value == .playing else { return }
-        videoPlayerView?.stop()
-    }
-    
-    func resetPlayerView() {
-        videoPlayerView?.resetPlayer()
-    }
-    
-    func replayVideo() {
-        videoPlayerView?.replayVideo()
+    func insertPlayerView(_ videoPlayerView: VideoPlayerView) {
+        videoPlayerView.frame = bounds
+        videoPlayerView.delegate = self
+        insertSubview(videoPlayerView, at: 0)
     }
     
     // MARK: - Private functions
@@ -201,21 +170,21 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         lbHashTags.font = R.font.milliardSemiBold(size: 14)
         lbSongName.font = R.font.milliardLight(size: 13)
         
-        videoPlayerView = VideoPlayerView.instance(with: self)
-        videoPlayerView?.frame = bounds
-        videoPlayerView?.backgroundColor = .clear
-        videoPlayerView?.isHidden = true
-        insertSubview(videoPlayerView!, at: 0)
+        lbSongName.fadeLength = 10
     }
     
     private func bindingUI() {
         // Cell tapped
         rx.tapGesture(configuration: { gestureRecognizer, delegate in
             delegate.otherFailureRequirementPolicy = .custom { gestureRecognizer, otherGestureRecognizer in
-                if let otherGesture = otherGestureRecognizer as? UITapGestureRecognizer,
-                   otherGesture.numberOfTapsRequired == 2 {
+                if let otherGesture = otherGestureRecognizer as? UITapGestureRecognizer, otherGesture.numberOfTapsRequired == 2 {
                     return true
                 }
+                
+                if otherGestureRecognizer is UILongPressGestureRecognizer {
+                    return true
+                }
+                
                 return false
             }
         })
@@ -223,10 +192,12 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         .subscribe(with: self, onNext: { cell, _ in
             switch cell.currentPlaybackState.value {
             case .playing:
-                cell.pauseVideo()
+//                cell.pauseVideo()
+                cell.eventPublisher.onNext(.didToggleVideo(isPlay: false))
                 cell.animatePlayButton(isHidden: false)
             case .paused, .stopped:
-                cell.playVideo()
+//                cell.playVideo()
+                cell.eventPublisher.onNext(.didToggleVideo(isPlay: true))
                 cell.animatePlayButton(isHidden: true)
             default:
                 break
@@ -260,11 +231,11 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             .disposed(by: disposeBag)
         
         // Avatar button tap
-        Observable.merge(btnAvatar.rx.tap.mapToVoid(), lbUsername.rx.tapGesture().mapToVoid())
+        btnAvatar.rx.tap.mapToVoid()
             .withLatestFrom(videoAuthorRelay)
             .unwrap()
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
-            .map { Event.didTapFollow($0) }
+            .map { Event.didTapAvatar($0) }
             .bind(to: eventPublisher)
             .disposed(by: disposeBag)
         
@@ -318,6 +289,14 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             .map { Event.didUpdatePlaybackState($0) }
             .bind(to: eventPublisher)
             .disposed(by: disposeBag)
+        
+        // Application willEnterForeground
+        UIApplication.rx.willEnterForeground
+            .asDriverOnErrorJustComplete()
+            .drive(with: self) { cell, _ in
+                cell.startAnimations()
+            }
+            .disposed(by: disposeBag)
     }
     
     private func setInitialStateBtnPlay() {
@@ -337,6 +316,11 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             }
         })
     }
+    
+    private func startAnimations() {
+        ivSongCover.rotate()
+        lbSongName.type = .continuous
+    }
 }
 
 extension VideoCell: VideoPlayerViewDelegate {
@@ -344,8 +328,7 @@ extension VideoCell: VideoPlayerViewDelegate {
         switch playbackState {
         case .stopped, .failed:
             playerView.isHidden = true
-            ivThumbnail.isHidden = false
-            setInitialStateBtnPlay()
+            setInitialUI()
             
         case .paused:
             playerView.isHidden = false

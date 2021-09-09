@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarVC: BaseViewController {
+class TabBarVC: BaseVC {
     // MARK: - IBOutlets
     
     
