@@ -13,6 +13,7 @@ import Resolver
 protocol VideoUseCase {
     func saveVideo(_ video: TTVideo) -> Single<Void>
     func getVideos() -> Single<[TTVideo]>
+    func toggleLikeVideo(videoId: String, userId: String, isLike: Bool) -> Single<Void>
 }
 
 final class VideoUseCaseImpl: VideoUseCase {
@@ -43,7 +44,7 @@ final class VideoUseCaseImpl: VideoUseCase {
     }
     
     func getVideos() -> Single<[TTVideo]> {
-        return .create { [weak self] single in
+        .create { [weak self] single in
             guard let self = self else { return Disposables.create() }
             
             self.dbVideo
@@ -57,6 +58,28 @@ final class VideoUseCaseImpl: VideoUseCase {
                         let videos = snapshot.documents.map { TTVideo(dictionary: $0.data()) }
                         single(.success(videos))
                     }
+                }
+            
+            return Disposables.create()
+        }
+    }
+    
+    func toggleLikeVideo(videoId: String, userId: String, isLike: Bool) -> Single<Void> {
+        .create { [weak self] single in
+            guard let self = self else { return Disposables.create() }
+            
+            let fields: [String: Any] = [
+                "liked_ids": isLike ? FieldValue.arrayUnion([userId]) : FieldValue.arrayRemove([userId]),
+            ]
+            
+            self.dbVideo.document(videoId)
+                .updateData(fields) { error in
+                    guard let error = error else {
+                        single(.success(()))
+                        return
+                    }
+                    
+                    single(.failure(error))
                 }
             
             return Disposables.create()

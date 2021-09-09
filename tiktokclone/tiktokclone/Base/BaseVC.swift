@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  BaseVC.swift
 //  Object Detector
 //
 //  Created by Duy Nguyen on 21/08/2021.
@@ -8,7 +8,7 @@
 import RxSwift
 import RxSwiftExt
 
-class BaseViewController: UIViewController, ErrorHandler {
+class BaseVC: UIViewController, ErrorHandler {
     private lazy var lbScreenTitle: UILabel = {
         let lbTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
         lbTitle.textColor = .white
@@ -116,7 +116,7 @@ class BaseViewController: UIViewController, ErrorHandler {
     }
 }
 
-extension Reactive where Base: BaseViewController {
+extension Reactive where Base: BaseVC {
     var isLoading: Binder<Bool> { Binder(base) { $1 ? $0.showLoading() : $0.hideLoading() }}
     var error: Binder<(Error, ErrorAction)> {
         Binder(base) { (base: Base, payload: (err: Error, action: ErrorAction)) in

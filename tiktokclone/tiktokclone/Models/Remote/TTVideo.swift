@@ -13,9 +13,7 @@ public struct TTVideo: Codable {
     var `description`: String
     var thumbnailURL: String
     var videoURL: String
-    var likeCount: Int
     var commentCount: Int
-    var shareCount: Int
     var createdAt: Int
     var likedIds: [String]
     var tags: [String]
@@ -29,9 +27,7 @@ public struct TTVideo: Codable {
         case `description` = "description"
         case thumbnailURL = "thumbnail_url"
         case videoURL = "video_url"
-        case likeCount = "like_count"
         case commentCount = "comment_count"
-        case shareCount = "share_count"
         case likedIds = "liked_ids"
         case createdAt = "created_at"
     }
@@ -42,9 +38,7 @@ public struct TTVideo: Codable {
         self.description = dictionary[CodingKeys.description.rawValue] as? String ?? ""
         self.thumbnailURL = dictionary[CodingKeys.thumbnailURL.rawValue] as? String ?? ""
         self.videoURL = dictionary[CodingKeys.videoURL.rawValue] as? String ?? ""
-        self.likeCount = dictionary[CodingKeys.likeCount.rawValue] as? Int ?? 0
         self.commentCount = dictionary[CodingKeys.commentCount.rawValue] as? Int ?? 0
-        self.shareCount = dictionary[CodingKeys.shareCount.rawValue] as? Int ?? 0
         self.createdAt = dictionary[CodingKeys.createdAt.rawValue] as? Int ?? 0
         self.likedIds = dictionary[CodingKeys.likedIds.rawValue] as? [String] ?? []
         self.tags = dictionary[CodingKeys.tags.rawValue] as? [String] ?? []
@@ -60,11 +54,14 @@ public struct TTVideo: Codable {
         self.id = ""
         self.videoURL = ""
         self.thumbnailURL = ""
-        self.likeCount = 0
         self.commentCount = 0
-        self.shareCount = 0
         self.createdAt = 0
         self.likedIds = []
     }
 }
   
+extension TTVideo: Equatable {
+    public static func ==(lhs: TTVideo, rhs: TTVideo) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

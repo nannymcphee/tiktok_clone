@@ -10,6 +10,7 @@
 		69ED2275113DC74BF17DE4C4 /* Pods_tiktokclone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */; };
 		E108439B26E67B60005750D2 /* VideoCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108439A26E67B60005750D2 /* VideoCellVM.swift */; };
 		E108439D26E67C1F005750D2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108439C26E67C1F005750D2 /* HomeVM.swift */; };
+		E154C81926E70C5600567B31 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E154C81826E70C5600567B31 /* MarqueeLabel.swift */; };
 		E15536A826E60A4200A48DF3 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536A626E60A4200A48DF3 /* VideoCell.swift */; };
 		E15536A926E60A4200A48DF3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15536A726E60A4200A48DF3 /* VideoCell.xib */; };
 		E15536AB26E641F000A48DF3 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */; };
@@ -54,7 +55,7 @@
 		E19F5BC426E1B78500E9B5D0 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */; };
 		E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBC26E1B78400E9B5D0 /* VideoCapture.swift */; };
 		E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBD26E1B78400E9B5D0 /* VideoProcessor.swift */; };
-		E19F5BC726E1B78500E9B5D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */; };
+		E19F5BC726E1B78500E9B5D0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBE26E1B78400E9B5D0 /* BaseVC.swift */; };
 		E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BBF26E1B78400E9B5D0 /* Logger.swift */; };
 		E19F5BC926E1B78500E9B5D0 /* SwipeBackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BC026E1B78400E9B5D0 /* SwipeBackNavigationController.swift */; };
 		E19F5BCA26E1B78500E9B5D0 /* AppDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5BC126E1B78500E9B5D0 /* AppDialog.swift */; };
@@ -140,6 +141,7 @@
 		DC4656C44A719FC2C61EBFA3 /* Pods-tiktokclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.debug.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.debug.xcconfig"; sourceTree = "<group>"; };
 		E108439A26E67B60005750D2 /* VideoCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellVM.swift; sourceTree = "<group>"; };
 		E108439C26E67C1F005750D2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E154C81826E70C5600567B31 /* MarqueeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
 		E15536A626E60A4200A48DF3 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		E15536A726E60A4200A48DF3 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
@@ -184,7 +186,7 @@
 		E19F5BBB26E1B78400E9B5D0 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
 		E19F5BBC26E1B78400E9B5D0 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		E19F5BBD26E1B78400E9B5D0 /* VideoProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProcessor.swift; sourceTree = "<group>"; };
-		E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E19F5BBE26E1B78400E9B5D0 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		E19F5BBF26E1B78400E9B5D0 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E19F5BC026E1B78400E9B5D0 /* SwipeBackNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBackNavigationController.swift; sourceTree = "<group>"; };
 		E19F5BC126E1B78500E9B5D0 /* AppDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDialog.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				E175809426E1E6E80059A79B /* NonLoginView.swift */,
 				E19D969A26E3035C002437CC /* KMPlaceholderTextView.swift */,
 				E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */,
+				E154C81826E70C5600567B31 /* MarqueeLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -380,7 +383,7 @@
 				E19F5BAD26E1B72D00E9B5D0 /* BaseVM.swift */,
 				E19F5BAF26E1B72D00E9B5D0 /* RxBaseViewController.swift */,
 				E19F5BAE26E1B72D00E9B5D0 /* ViewModelTransformable.swift */,
-				E19F5BBE26E1B78400E9B5D0 /* BaseViewController.swift */,
+				E19F5BBE26E1B78400E9B5D0 /* BaseVC.swift */,
 				E175808F26E1E43B0059A79B /* BaseView.swift */,
 				E17580A226E1FDB90059A79B /* TableViewCell.swift */,
 				E17580A426E1FDC60059A79B /* CollectionViewCell.swift */,
@@ -930,6 +933,7 @@
 				E175809226E1E6860059A79B /* Device.swift in Sources */,
 				E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */,
 				E17580A926E20CA20059A79B /* ViewModelTrackable.swift in Sources */,
+				E154C81926E70C5600567B31 /* MarqueeLabel.swift in Sources */,
 				E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */,
 				E1D21D1526E256D20083C70E /* Encodable+Ext.swift in Sources */,
 				E19FF0B526E1433F00C96C38 /* AppDelegate.swift in Sources */,
@@ -937,7 +941,7 @@
 				E19F5BDB26E1B87600E9B5D0 /* HomeVC.swift in Sources */,
 				E19F5C0426E1B97F00E9B5D0 /* Int+Ext.swift in Sources */,
 				E1D21D2926E285730083C70E /* MyProfileVM.swift in Sources */,
-				E19F5BC726E1B78500E9B5D0 /* BaseViewController.swift in Sources */,
+				E19F5BC726E1B78500E9B5D0 /* BaseVC.swift in Sources */,
 				E1D21D1226E235240083C70E /* UserRepo.swift in Sources */,
 				E19F5C0326E1B97F00E9B5D0 /* WKWebView+Ext.swift in Sources */,
 				E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */,

@@ -83,6 +83,18 @@ class HomeVC: RxBaseViewController<HomeVM> {
             .drive(with: self, onNext: { $0.handlePlaybackState($1) })
             .disposed(by: disposeBag)
         
+        // Play/pause video
+        output.playVideo
+            .drive(with: self, onNext: { viewController, isPlay in
+                guard let cell = viewController.getCurrentVisibleCell() else { return }
+                if isPlay {
+                    viewController.videoPlayer.playVideo(in: cell)
+                } else {
+                    viewController.videoPlayer.pauseVideo()
+                }
+            })
+            .disposed(by: disposeBag)
+        
         // Error tracker
         viewModel.errorTracker
             .drive(rx.error)
@@ -118,6 +130,13 @@ class HomeVC: RxBaseViewController<HomeVM> {
                 guard let cell = viewController.getCurrentVisibleCell() else { return }
                 viewController.videoPlayer.playVideo(in: cell)
             }
+            .disposed(by: disposeBag)
+        
+        // On pull to refresh
+        refreshTrigger
+            .subscribe(with: self, onNext: { viewController, _ in
+                viewController.videoPlayer.stopAnyOngoingPlaying()
+            })
             .disposed(by: disposeBag)
     }
     

@@ -11,21 +11,18 @@ import Resolver
 
 enum VideoUploadError: Error {
     case invalidVideo
+    case invalidUserId
 }
 
 protocol VideoRepo {
     func uploadVideo(_ video: TTVideo) -> Single<Void>
     func getVideos() -> Single<[TTVideo]>
+    func toggleLikeVideo(videoId: String, userId: String, isLike: Bool) -> Single<Void>
 }
 
 final class VideoRepoImpl: VideoRepo {
-    @Injected private var userRepo: UserRepo
     @Injected private var storageService: StorageUseCase
     @Injected private var videoService: VideoUseCase
-
-    private var currentUserId: String? {
-        return userRepo.currentUser?.id
-    }
     
     func uploadVideo(_ video: TTVideo) -> Single<Void> {
         guard let videoURL = video.selectedVideoURL,
@@ -54,5 +51,9 @@ final class VideoRepoImpl: VideoRepo {
     
     func getVideos() -> Single<[TTVideo]> {
         return videoService.getVideos()
+    }
+    
+    func toggleLikeVideo(videoId: String, userId: String, isLike: Bool) -> Single<Void> {
+        return videoService.toggleLikeVideo(videoId: videoId, userId: userId, isLike: isLike)
     }
 }

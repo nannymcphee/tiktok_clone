@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class RxBaseViewController<T: ViewModelTransformable>: BaseViewController {
+class RxBaseViewController<T: ViewModelTransformable>: BaseVC {
     typealias Input = T.Input
     
     let viewModel: T

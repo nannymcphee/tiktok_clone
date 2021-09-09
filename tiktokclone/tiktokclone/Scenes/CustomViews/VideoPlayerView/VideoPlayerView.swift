@@ -181,7 +181,6 @@ class VideoPlayerView: BaseView {
     }
     
     func stop() {
-        guard playerPlaybackState != .stopped else { return }
         player?.pause()
         player?.seek(to: CMTime.zero)
         playerPlaybackState = .stopped
@@ -200,6 +199,7 @@ class VideoPlayerView: BaseView {
         self.pause()
         self.player?.seek(to: CMTime.zero)
         self.player?.isMuted = self.isMuted
+        self.player?.replaceCurrentItem(with: nil)
     }
     
     func showLoading() {

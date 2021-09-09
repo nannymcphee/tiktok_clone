@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatVC: BaseViewController {
+class ChatVC: BaseVC {
     // MARK: - IBOutlets
     
     
