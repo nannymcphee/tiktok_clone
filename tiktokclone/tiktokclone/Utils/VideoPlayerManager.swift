@@ -22,6 +22,15 @@ public enum PlayerState {
 public class VideoPlayerManager: NSObject {
     /// The `VideoCell` that is currently playing video
     weak var playingCell: VideoCell?
+    var playingVideo: TTVideo? {
+        return playingCell?.currentVideo
+    }
+    var currentVideoDuration: Double {
+        return videoPlayerView.videoDuration
+    }
+    var currentVideoDurationText: String {
+        return videoPlayerView.videoDurationText
+    }
     
     /// Keeps only 1 instance of VideoPlayerView
     private lazy var videoPlayerView: VideoPlayerView = {
@@ -115,6 +124,15 @@ public class VideoPlayerManager: NSObject {
         }
         videoPlayerView.replayVideo()
         state = .playing
+    }
+    
+    func seekVideo(with value: Float) {
+        guard playingCell != nil else { return }
+        videoPlayerView.seekVideo(with: value)
+    }
+    
+    func configureVideoCellWhileSeeking(_ isSeeking: Bool) {
+        playingCell?.animateViewWhileSeeking(isSeeking)
     }
     
     // MARK: - Private Methods

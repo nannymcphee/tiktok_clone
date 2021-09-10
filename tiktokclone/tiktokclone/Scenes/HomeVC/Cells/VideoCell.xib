@@ -280,10 +280,17 @@
                 <outlet property="lbShareCount" destination="D9i-zU-8kT" id="DAv-E4-wOx"/>
                 <outlet property="lbSongName" destination="PCL-Mv-mGe" id="0dL-J0-fJK"/>
                 <outlet property="lbUsername" destination="5OJ-hJ-YmP" id="jBj-Do-YEA"/>
+                <outlet property="svButtons" destination="k6x-hG-UyV" id="YAf-Rj-Mh0"/>
+                <outlet property="svLabels" destination="YG8-QL-Zed" id="W0R-KP-cce"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
         </collectionViewCell>
     </objects>
+    <designables>
+        <designable name="PCL-Mv-mGe">
+            <size key="intrinsicContentSize" width="34.5" height="12"/>
+        </designable>
+    </designables>
     <resources>
         <image name="icPlay" width="50" height="50"/>
         <image name="ic_avatar_placeholder" width="60" height="60"/>

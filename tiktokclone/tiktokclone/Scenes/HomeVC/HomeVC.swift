@@ -13,6 +13,16 @@ class HomeVC: RxBaseViewController<HomeVM> {
     @IBOutlet weak var cvVideos: UICollectionView!
     @IBOutlet weak var vNavigationContainer: UIView!
     @IBOutlet weak var cvVideosBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lbVideoDuration: UILabel!
+    
+    private lazy var slProgress: UISlider = {
+        let slider = UISlider()
+        slider.minimumTrackTintColor = .white
+        slider.maximumTrackTintColor = AppColors.lightGray
+        slider.setThumbImage(R.image.ic_slider_thumb(), for: .normal)
+        slider.setThumbImage(R.image.ic_slider_thumb(), for: .highlighted)
+        return slider
+    }()
     
     private lazy var vHeader: HomeHeaderView = {
         let view = HomeHeaderView(frame: CGRect(x: 0, y: 0,
@@ -22,7 +32,9 @@ class HomeVC: RxBaseViewController<HomeVM> {
     }()
     
     // MARK: - Variables
+    private lazy var appDelegate = UIApplication.shared.delegate as? AppDelegate
     private lazy var bottomBarHeight: CGFloat = tabBarHeight
+    private var isSeeking: Bool = false
     private let videoPlayer = VideoPlayerManager()
     private let viewDidLoadTrigger = PublishSubject<Void>()
     private let videoCellEventTrigger = PublishSubject<VideoCell.Event>()
@@ -53,6 +65,11 @@ class HomeVC: RxBaseViewController<HomeVM> {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         videoPlayer.pauseVideo()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        appDelegate?.appCoordinator.tabBarRouter?.viewController.view.bringSubviewToFront(slProgress)
     }
     
     override func setUpColors() {
@@ -95,6 +112,25 @@ class HomeVC: RxBaseViewController<HomeVM> {
             })
             .disposed(by: disposeBag)
         
+        // Update slider value
+        output.sliderValueUpdated
+            .drive(with: self, onNext: { viewController, data in
+                guard viewController.videoPlayer.playingVideo == data.video,
+                      viewController.videoPlayer.state == .playing,
+                      !viewController.isSeeking else { return }
+                viewController.slProgress.value = data.progress
+            })
+            .disposed(by: disposeBag)
+        
+        // Played time updated
+        output.playedTimeUpdated
+            .drive(with: self, onNext: { viewController, data in
+                guard viewController.videoPlayer.playingVideo == data.video else { return }
+                let currentVideoDurationText = viewController.videoPlayer.currentVideoDurationText
+                viewController.lbVideoDuration.text = "\(data.playedTimeText) / \(currentVideoDurationText)"
+            })
+            .disposed(by: disposeBag)
+        
         // Error tracker
         viewModel.errorTracker
             .drive(rx.error)
@@ -123,13 +159,37 @@ class HomeVC: RxBaseViewController<HomeVM> {
             }
             .disposed(by: disposeBag)
         
+        // Begin dragging
+        cvVideos.rx.willBeginDragging
+            .asDriver()
+            .drive(with: self, onNext: { viewController, _ in
+                viewController.slProgress.isHidden = true
+            })
+            .disposed(by: disposeBag)
+        
         // Scrolling ended
         Observable.merge(cvVideos.rx.didEndDecelerating.mapToVoid(),
                          cvVideos.rx.didEndScrollingAnimation.mapToVoid())
             .subscribe(with: self) { viewController, _ in
                 guard let cell = viewController.getCurrentVisibleCell() else { return }
+                if viewController.videoPlayer.playingCell != cell {
+                    viewController.slProgress.value = 0
+                }
+                viewController.slProgress.isHidden = false
                 viewController.videoPlayer.playVideo(in: cell)
             }
+            .disposed(by: disposeBag)
+        
+        // Seek video with UISlider
+        slProgress.rx.controlEvent(.valueChanged)
+            .withLatestFrom(slProgress.rx.value)
+            .asDriverOnErrorJustComplete()
+            .drive(with: self, onNext: { viewController, value in
+                viewController.videoPlayer.seekVideo(with: value)
+                viewController.videoPlayer.configureVideoCellWhileSeeking(viewController.slProgress.isTracking)
+                viewController.isSeeking = viewController.slProgress.isTracking
+                viewController.lbVideoDuration.isHidden = !viewController.slProgress.isTracking
+            })
             .disposed(by: disposeBag)
         
         // On pull to refresh
@@ -150,6 +210,18 @@ class HomeVC: RxBaseViewController<HomeVM> {
         cvVideosBottomConstraint.constant = bottomBarHeight
         cvVideos.backgroundColor = .clear
         view.backgroundColor = AppColors.primaryBackground
+        
+        lbVideoDuration.font = R.font.milliardBold(size: 28)
+        lbVideoDuration.textColor = .white
+        lbVideoDuration.isHidden = true
+        
+        let tabBarVC = appDelegate?.appCoordinator.tabBarRouter?.viewController
+        tabBarVC?.view.addSubview(slProgress)
+        slProgress.snp.makeConstraints { [weak self] make in
+            guard let self = self else { return }
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(self.tabBarHeight - 8)
+        }
     }
     
     private func setUpCollectionView() {

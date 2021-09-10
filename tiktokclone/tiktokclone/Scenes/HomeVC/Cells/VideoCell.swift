@@ -30,6 +30,8 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     @IBOutlet weak var lbSongName: MarqueeLabel!
     @IBOutlet weak var ivMusicNote: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var svButtons: UIStackView!
+    @IBOutlet weak var svLabels: UIStackView!
     
     // MARK: - Event
     enum Event {
@@ -41,6 +43,8 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         case didTapShare(TTVideo)
         case didTapMore(TTVideo)
         case didUpdatePlaybackState(VideoPlayerView.PlayerPlaybackState)
+        case didUpdatePlaybackProgress((video: TTVideo, progress: Float))
+        case didUpdatePlayedTime((video: TTVideo, playedTimeText: String))
     }
     
     // MARK: - Variables
@@ -145,6 +149,18 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         insertSubview(videoPlayerView, at: 0)
     }
     
+    func animateViewWhileSeeking(_ isSeeking: Bool) {
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            guard let self = self else { return }
+            
+            self.svLabels.alpha = isSeeking ? 0 : 1
+            self.svButtons.alpha = isSeeking ? 0 : 1
+            self.ivMusicNote.alpha = isSeeking ? 0 : 1
+            self.lbSongName.alpha = isSeeking ? 0 : 1
+            self.ivSongCover.alpha = isSeeking ? 0 : 1
+        })
+    }
+    
     // MARK: - Private functions
     private func setUpUI() {
         setInitialStateBtnPlay()
@@ -192,11 +208,9 @@ class VideoCell: CollectionViewCell, EventPublisherType {
         .subscribe(with: self, onNext: { cell, _ in
             switch cell.currentPlaybackState.value {
             case .playing:
-//                cell.pauseVideo()
                 cell.eventPublisher.onNext(.didToggleVideo(isPlay: false))
                 cell.animatePlayButton(isHidden: false)
             case .paused, .stopped:
-//                cell.playVideo()
                 cell.eventPublisher.onNext(.didToggleVideo(isPlay: true))
                 cell.animatePlayButton(isHidden: true)
             default:
@@ -305,7 +319,7 @@ class VideoCell: CollectionViewCell, EventPublisherType {
     }
     
     private func animatePlayButton(isHidden: Bool) {
-        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.btnPlay.alpha = isHidden ? 0 : 1
             if !isHidden {
                 self?.btnPlay.transform = .identity
@@ -324,6 +338,17 @@ class VideoCell: CollectionViewCell, EventPublisherType {
 }
 
 extension VideoCell: VideoPlayerViewDelegate {
+    func playerView(_ playerView: VideoPlayerView, didUpdate playbackProgress: Float) {
+        guard let video = currentVideo else { return }
+        eventPublisher.onNext(.didUpdatePlaybackProgress((video: video, progress: playbackProgress)))
+    }
+    
+    func playerView(_ playerView: VideoPlayerView, didUpdatePlaybackTime time: Double) {
+        guard let video = currentVideo else { return }
+        let playedTime = CMTime(seconds: time, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        eventPublisher.onNext(.didUpdatePlayedTime((video: video, playedTimeText: playedTime.durationFormatted())))
+    }
+    
     func playerView(_ playerView: VideoPlayerView, didUpdate playbackState: VideoPlayerView.PlayerPlaybackState) {
         switch playbackState {
         case .stopped, .failed:
@@ -337,6 +362,7 @@ extension VideoCell: VideoPlayerViewDelegate {
         case .playing:
             playerView.isHidden = false
             ivThumbnail.isHidden = true
+            animatePlayButton(isHidden: true)
             
         default:
             break
