@@ -13,6 +13,7 @@ protocol VideoPlayerViewDelegate: AnyObject {
     func playerView(_ playerView: VideoPlayerView, didUpdatePlaybackTime time: Double)
     func playerView(_ playerView: VideoPlayerView, didUpdate status: AVPlayerItem.Status)
     func playerView(_ playerView: VideoPlayerView, didUpdate playbackState: VideoPlayerView.PlayerPlaybackState)
+    func playerView(_ playerView: VideoPlayerView, didUpdate playbackProgress: Float)
     func playerView(_ playerView: VideoPlayerView, didFinishConfiguring asset: AVAsset, playerLayer: AVPlayerLayer)
 }
 
@@ -20,6 +21,7 @@ extension VideoPlayerViewDelegate {
     func playerView(_ playerView: VideoPlayerView, didUpdatePlaybackTime time: Double) {}
     func playerView(_ playerView: VideoPlayerView, didUpdate status: AVPlayerItem.Status) {}
     func playerView(_ playerView: VideoPlayerView, didUpdate playbackState: VideoPlayerView.PlayerPlaybackState) {}
+    func playerView(_ playerView: VideoPlayerView, didUpdate playbackProgress: Float) {}
     func playerView(_ playerView: VideoPlayerView, didFinishConfiguring asset: AVAsset, playerLayer: AVPlayerLayer) {}
 }
 
@@ -73,7 +75,7 @@ class VideoPlayerView: BaseView {
     public var playerItem: AVPlayerItem?
     private var playerPlaybackState = PlayerPlaybackState.paused {
         didSet {
-            handlePlayerPlaybackState(playerPlaybackState)
+//            handlePlayerPlaybackState(playerPlaybackState)
             delegate?.playerView(self, didUpdate: playerPlaybackState)
         }
     }
@@ -83,6 +85,10 @@ class VideoPlayerView: BaseView {
     var viewFrame = CGRect.zero
     var videoDuration: Double {
         return CMTimeGetSeconds(self.player?.currentItem?.asset.duration ?? .zero)
+    }
+    var videoDurationText: String {
+        guard asset != nil else { return "00:00" }
+        return asset.duration.durationFormatted()
     }
 
     deinit {
@@ -187,7 +193,7 @@ class VideoPlayerView: BaseView {
     }
     
     func replayVideo() {
-        stopPlayingAndSeekSmoothlyToTime(newChaseTime: CMTime.zero, isReplay: true)
+        stopPlayingAndSeekSmoothlyToTime(newChaseTime: CMTime.zero, shouldResume: true)
     }
     
     func toggleMute(isMuted: Bool) {
@@ -195,9 +201,18 @@ class VideoPlayerView: BaseView {
         self.isMuted = isMuted
     }
     
+    /// Used for seeking forward/backward with UISlider
+    func seekVideo(with value: Float) {
+        if let duration = playerItem?.duration {
+            let totalSeconds = CMTimeGetSeconds(duration)
+            let value = Float64(value) * totalSeconds
+            let newChaseTime = CMTime(value: Int64(value), timescale: 1)
+            stopPlayingAndSeekSmoothlyToTime(newChaseTime: newChaseTime, shouldResume: true)
+        }
+    }
+    
     func resetPlayer() {
-        self.pause()
-        self.player?.seek(to: CMTime.zero)
+        self.stopPlayingAndSeekSmoothlyToTime(newChaseTime: .zero, shouldResume: false)
         self.player?.isMuted = self.isMuted
         self.player?.replaceCurrentItem(with: nil)
     }
@@ -261,6 +276,14 @@ class VideoPlayerView: BaseView {
 
         timeObserverToken = player?.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
             guard let self = self else { return }
+            
+            if let duration = self.playerItem?.duration {
+                let durationSeconds = CMTimeGetSeconds(duration)
+                let timePlayedSeconds = CMTimeGetSeconds(time)
+                let progress = Float(timePlayedSeconds / durationSeconds)
+                self.delegate?.playerView(self, didUpdate: progress)
+            }
+                
             self.delegate?.playerView(self, didUpdatePlaybackTime: time.seconds)
         }
     }
@@ -291,38 +314,38 @@ class VideoPlayerView: BaseView {
         }
     }
     
-    private func stopPlayingAndSeekSmoothlyToTime(newChaseTime: CMTime, isReplay: Bool) {
+    private func stopPlayingAndSeekSmoothlyToTime(newChaseTime: CMTime, shouldResume: Bool) {
         self.pause()
         
-        if CMTimeCompare(newChaseTime, chaseTime) != 0 || isReplay {
+        if CMTimeCompare(newChaseTime, chaseTime) != 0 || shouldResume {
             chaseTime = newChaseTime;
             
             if !isSeekInProgress {
-                trySeekToChaseTime(isReplay: isReplay)
+                trySeekToChaseTime(shouldResume: shouldResume)
             }
         }
     }
     
-    private func trySeekToChaseTime(isReplay: Bool) {
+    private func trySeekToChaseTime(shouldResume: Bool) {
         if currentPlayerStatus == .unknown {
             // wait until item becomes ready (KVO player.currentItem.status)
         } else if currentPlayerStatus == .readyToPlay {
-            actuallySeekToTime(isReplay: isReplay)
+            actuallySeekToTime(shouldResume: shouldResume)
         }
     }
     
-    private func actuallySeekToTime(isReplay: Bool) {
+    private func actuallySeekToTime(shouldResume: Bool) {
         isSeekInProgress = true
         let seekTimeInProgress = chaseTime
         player?.seek(to: seekTimeInProgress, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero, completionHandler: { [weak self] (isFinished) in
             guard let self = self else { return }
             if CMTimeCompare(seekTimeInProgress, self.chaseTime) == 0 {
-                if isReplay {
+                if shouldResume {
                     self.resume()
                 }
                 self.isSeekInProgress = false
             } else {
-                self.trySeekToChaseTime(isReplay: isReplay)
+                self.trySeekToChaseTime(shouldResume: shouldResume)
             }
         })
     }

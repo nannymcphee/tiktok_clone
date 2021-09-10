@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="cvVideos" destination="gsR-wl-pWp" id="ZdF-e3-jJN"/>
                 <outlet property="cvVideosBottomConstraint" destination="5qo-OS-YcK" id="t1A-nx-rdd"/>
+                <outlet property="lbVideoDuration" destination="PWO-eu-9cC" id="vU5-I7-vST"/>
                 <outlet property="vNavigationContainer" destination="Pd0-8P-X6g" id="Cd9-QV-cq9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,6 +33,12 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWO-eu-9cC">
+                    <rect key="frame" x="207" y="782" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pd0-8P-X6g">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,9 +52,11 @@
             <constraints>
                 <constraint firstItem="gsR-wl-pWp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3bl-5c-TG6"/>
                 <constraint firstAttribute="bottom" secondItem="gsR-wl-pWp" secondAttribute="bottom" id="5qo-OS-YcK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PWO-eu-9cC" secondAttribute="bottom" constant="80" id="5w8-bb-COF"/>
                 <constraint firstItem="Pd0-8P-X6g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9cd-0M-Han"/>
                 <constraint firstItem="gsR-wl-pWp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9e5-EI-Z6O"/>
                 <constraint firstAttribute="trailing" secondItem="gsR-wl-pWp" secondAttribute="trailing" id="QvS-x5-i6V"/>
+                <constraint firstItem="PWO-eu-9cC" firstAttribute="centerX" secondItem="gsR-wl-pWp" secondAttribute="centerX" id="WOr-6o-A5p"/>
                 <constraint firstItem="Pd0-8P-X6g" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="f7g-sb-NwA"/>
                 <constraint firstItem="Pd0-8P-X6g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ush-sh-v2Z"/>
             </constraints>

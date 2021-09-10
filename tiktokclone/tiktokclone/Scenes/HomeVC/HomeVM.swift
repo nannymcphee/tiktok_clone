@@ -22,6 +22,8 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable, EventPub
         let videos: Driver<[TTVideo]>
         let currenPlayerPlaybackState: Driver<VideoPlayerView.PlayerPlaybackState>
         let playVideo: Driver<Bool>
+        let sliderValueUpdated: Driver<(video: TTVideo, progress: Float)>
+        let playedTimeUpdated: Driver<(video: TTVideo, playedTimeText: String)>
     }
     
     // MARK: - Event
@@ -40,7 +42,9 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable, EventPub
     private let videosRelay = BehaviorRelay<[TTVideo]>(value: [])
     private let currentPlaybackStateRelay = BehaviorRelay<VideoPlayerView.PlayerPlaybackState>(value: .unknown)
     private let playVideoSubject = PublishSubject<Bool>()
-    
+    private let sliderValueUpdateSubject = PublishSubject<(video: TTVideo, progress: Float)>()
+    private let playedTimeUpdateSubject = PublishSubject<(video: TTVideo, playedTimeText: String)>()
+
     // MARK: - Public functions
     func transform(input: Input) -> Output {
         // Initial load
@@ -74,6 +78,10 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable, EventPub
                     Logger.d("didTapMore \(video)")
                 case .didUpdatePlaybackState(let playbackState):
                     viewModel.currentPlaybackStateRelay.accept(playbackState)
+                case let .didUpdatePlaybackProgress((video, progress)):
+                    viewModel.sliderValueUpdateSubject.onNext((video: video, progress: progress))
+                case let .didUpdatePlayedTime((video, playedTimeText)):
+                    viewModel.playedTimeUpdateSubject.onNext((video: video, playedTimeText: playedTimeText))
                 case .didToggleVideo(let isPlay):
                     viewModel.playVideoSubject.onNext(isPlay)
                 }
@@ -82,7 +90,9 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable, EventPub
         
         return Output(videos: videosRelay.asDriverOnErrorJustComplete(),
                       currenPlayerPlaybackState: currentPlaybackStateRelay.asDriverOnErrorJustComplete(),
-                      playVideo: playVideoSubject.asDriverOnErrorJustComplete())
+                      playVideo: playVideoSubject.asDriverOnErrorJustComplete(),
+                      sliderValueUpdated: sliderValueUpdateSubject.asDriverOnErrorJustComplete(),
+                      playedTimeUpdated: playedTimeUpdateSubject.asDriverOnErrorJustComplete())
     }
 }
 
