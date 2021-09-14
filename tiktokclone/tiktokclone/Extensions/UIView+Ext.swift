@@ -17,10 +17,16 @@ extension UIView {
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
     
-    func customBorder(cornerRadius: CGFloat, borderWidth: CGFloat, color: UIColor) {
+    func customBorder(cornerRadius: CGFloat, borderWidth: CGFloat = 1.0, color: UIColor = .clear) {
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = color.cgColor
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+    }
+    
+    func setRounded() {
+        self.layer.cornerRadius = frame.size.height / 2
         self.layer.masksToBounds = true
         self.clipsToBounds = true
     }
@@ -36,6 +42,24 @@ extension UIView {
         UIView.animate(withDuration: 0.25) { [weak self] in
             guard let self = self else { return }
             self.transform = .identity
+        }
+    }
+    
+    func doZoomBounceAnimation() {
+        self.transform = CGAffineTransform.identity.scaledBy(x: 0.001, y: 0.001)
+        UIView.animate(withDuration: 0.3 / 1.5, animations: { [weak self] in
+            guard let self = self else { return }
+            self.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+        }) { finished in
+            UIView.animate(withDuration: 0.3 / 2, animations: { [weak self] in
+                guard let self = self else { return }
+                self.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
+            }) { finished in
+                UIView.animate(withDuration: 0.3 / 2, animations: { [weak self] in
+                    guard let self = self else { return }
+                    self.transform = CGAffineTransform.identity
+                })
+            }
         }
     }
     

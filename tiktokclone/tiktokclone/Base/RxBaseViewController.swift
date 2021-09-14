@@ -30,6 +30,21 @@ class RxBaseViewController<T: ViewModelTransformable>: BaseVC {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func keyboardHeight() -> Observable<(height: CGFloat, notification: Notification)> {
+        return Observable
+            .merge([
+                NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+                    .map { notification -> (height: CGFloat, notification: Notification) in
+                        let height = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height ?? 0
+                        return (height: height, notification: notification)
+                    },
+                NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+                    .map { notification -> (height: CGFloat, notification: Notification) in
+                        return (height: 0, notification: notification)
+                    }
+            ])
+    }
+    
     private func initRefreshControl() {
         refreshControl.rx
             .controlEvent(.valueChanged)

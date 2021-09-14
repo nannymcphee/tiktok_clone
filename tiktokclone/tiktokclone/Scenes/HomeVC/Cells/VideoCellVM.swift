@@ -21,6 +21,7 @@ final class VideoCellVM: BaseVM, ViewModelTransformable, EventPublisherType {
         let video: Driver<TTVideo>
         let videoAuthor: Driver<TTUser>
         let isLiked: Driver<Bool>
+        let commentCount: Driver<Int>
     }
     
     // MARK: - Event
@@ -37,6 +38,7 @@ final class VideoCellVM: BaseVM, ViewModelTransformable, EventPublisherType {
     let eventPublisher = PublishSubject<Event>()
     
     @Injected private var userRepo: UserRepo
+    @Injected private var commentRepo: CommentRepo
     
     private let videoRelay = BehaviorRelay<TTVideo?>(value: nil)
     private let authorRelay = BehaviorRelay<TTUser?>(value: nil)
@@ -57,10 +59,15 @@ final class VideoCellVM: BaseVM, ViewModelTransformable, EventPublisherType {
         if let userId = userRepo.currentUser?.id, input.video.likedIds.contains(userId) {
             isLikedRelay.accept(true)
         }
+        
+        let commentCountObservable = commentRepo
+            .getCommentsCount(videoId: input.video.id)
+            .asObservable()
             
         return Output(video: Driver.just(input.video),
                       videoAuthor: authorRelay.unwrap().asDriverOnErrorJustComplete(),
-                      isLiked: isLikedRelay.asDriverOnErrorJustComplete())
+                      isLiked: isLikedRelay.asDriverOnErrorJustComplete(),
+                      commentCount: commentCountObservable.asDriverOnErrorJustComplete())
     }
     
     func updateIsLiked(_ isLiked: Bool) {

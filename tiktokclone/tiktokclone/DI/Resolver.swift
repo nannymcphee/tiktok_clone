@@ -15,8 +15,11 @@ extension Resolver: ResolverRegistering {
         registerVideoThumbnailGenerator()
         registerStorageUseCase()
         registerVideoUseCase()
+        registerCommentUseCase()
         registerUserRepo()
         registerVideoRepo()
+        registerCommentRepo()
+        registerTimeFormatter()
     }
 }
 
@@ -66,6 +69,27 @@ extension Resolver {
     private static func registerVideoRepo() {
         register {
             VideoRepoImpl() as VideoRepo
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerCommentUseCase() {
+        register {
+            CommentUseCaseImpl() as CommentUseCase
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerCommentRepo() {
+        register {
+            CommentRepoImpl() as CommentRepo
+        }
+        .scope(.cached)
+    }
+    
+    private static func registerTimeFormatter() {
+        register {
+            TimeFormaterImpl() as TimeFormatter
         }
         .scope(.cached)
     }

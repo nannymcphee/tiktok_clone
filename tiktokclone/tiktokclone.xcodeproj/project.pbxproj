@@ -10,6 +10,17 @@
 		69ED2275113DC74BF17DE4C4 /* Pods_tiktokclone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16510C2A4E8F47DF43D9AFCA /* Pods_tiktokclone.framework */; };
 		E108439B26E67B60005750D2 /* VideoCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108439A26E67B60005750D2 /* VideoCellVM.swift */; };
 		E108439D26E67C1F005750D2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108439C26E67C1F005750D2 /* HomeVM.swift */; };
+		E12C0BD726EDD92600ED6158 /* DatabaseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BD626EDD92600ED6158 /* DatabaseTable.swift */; };
+		E12C0BD926EDD93E00ED6158 /* TTComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BD826EDD93E00ED6158 /* TTComment.swift */; };
+		E12C0BDB26EDD95800ED6158 /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BDA26EDD95800ED6158 /* CommentUseCase.swift */; };
+		E12C0BDD26EDDAF400ED6158 /* CommentRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BDC26EDDAF400ED6158 /* CommentRepo.swift */; };
+		E12C0BE126EDE34A00ED6158 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BDF26EDE34A00ED6158 /* CommentCell.swift */; };
+		E12C0BE226EDE34A00ED6158 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12C0BE026EDE34A00ED6158 /* CommentCell.xib */; };
+		E12C0BE426EDE4A600ED6158 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BE326EDE4A600ED6158 /* UIButton+Ext.swift */; };
+		E12C0BE626EDE59D00ED6158 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BE526EDE59D00ED6158 /* PaddingLabel.swift */; };
+		E12C0BE826EDE68D00ED6158 /* TextCheckingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BE726EDE68D00ED6158 /* TextCheckingType.swift */; };
+		E12C0BEA26EDE6A200ED6158 /* RegexPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BE926EDE6A200ED6158 /* RegexPatterns.swift */; };
+		E12C0BEC26EE197A00ED6158 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C0BEB26EE197A00ED6158 /* TimeFormatter.swift */; };
 		E154C81926E70C5600567B31 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E154C81826E70C5600567B31 /* MarqueeLabel.swift */; };
 		E15536A826E60A4200A48DF3 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15536A626E60A4200A48DF3 /* VideoCell.swift */; };
 		E15536A926E60A4200A48DF3 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15536A726E60A4200A48DF3 /* VideoCell.xib */; };
@@ -134,6 +145,17 @@
 		E1D21D2126E26DC90083C70E /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D21D2026E26DC90083C70E /* UserInfoView.xib */; };
 		E1D21D2726E282F70083C70E /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D2626E282F70083C70E /* UINavigationController+Ext.swift */; };
 		E1D21D2926E285730083C70E /* MyProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D21D2826E285730083C70E /* MyProfileVM.swift */; };
+		E1EB96F726F0A6320026C004 /* CommentReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EB96F526F0A6320026C004 /* CommentReplyCell.swift */; };
+		E1EB96F826F0A6320026C004 /* CommentReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1EB96F626F0A6320026C004 /* CommentReplyCell.xib */; };
+		E1EB96FA26F0BA230026C004 /* CommentCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EB96F926F0BA230026C004 /* CommentCellVM.swift */; };
+		E1FF71A926ED06D4000F39F1 /* FittetSheet+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF71A826ED06D4000F39F1 /* FittetSheet+Ext.swift */; };
+		E1FF71AD26ED0792000F39F1 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF71AB26ED0792000F39F1 /* CommentsVC.swift */; };
+		E1FF71AE26ED0792000F39F1 /* CommentsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1FF71AC26ED0792000F39F1 /* CommentsVC.xib */; };
+		E1FF71B026ED107E000F39F1 /* InsetTextFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF71AF26ED107E000F39F1 /* InsetTextFIeld.swift */; };
+		E1FF71B226ED26ED000F39F1 /* CommentsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF71B126ED26ED000F39F1 /* CommentsVM.swift */; };
+		E1FF71B426ED3B71000F39F1 /* EmojiInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF71B326ED3B71000F39F1 /* EmojiInputAccessoryView.swift */; };
+		E1FF71B926ED3F09000F39F1 /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF71B726ED3F09000F39F1 /* EmojiCell.swift */; };
+		E1FF71BA26ED3F09000F39F1 /* EmojiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1FF71B826ED3F09000F39F1 /* EmojiCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +164,17 @@
 		DC4656C44A719FC2C61EBFA3 /* Pods-tiktokclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiktokclone.debug.xcconfig"; path = "Target Support Files/Pods-tiktokclone/Pods-tiktokclone.debug.xcconfig"; sourceTree = "<group>"; };
 		E108439A26E67B60005750D2 /* VideoCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellVM.swift; sourceTree = "<group>"; };
 		E108439C26E67C1F005750D2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E12C0BD626EDD92600ED6158 /* DatabaseTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTable.swift; sourceTree = "<group>"; };
+		E12C0BD826EDD93E00ED6158 /* TTComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTComment.swift; sourceTree = "<group>"; };
+		E12C0BDA26EDD95800ED6158 /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
+		E12C0BDC26EDDAF400ED6158 /* CommentRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepo.swift; sourceTree = "<group>"; };
+		E12C0BDF26EDE34A00ED6158 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		E12C0BE026EDE34A00ED6158 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		E12C0BE326EDE4A600ED6158 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		E12C0BE526EDE59D00ED6158 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		E12C0BE726EDE68D00ED6158 /* TextCheckingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCheckingType.swift; sourceTree = "<group>"; };
+		E12C0BE926EDE6A200ED6158 /* RegexPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexPatterns.swift; sourceTree = "<group>"; };
+		E12C0BEB26EE197A00ED6158 /* TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
 		E154C81826E70C5600567B31 /* MarqueeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
 		E15536A626E60A4200A48DF3 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		E15536A726E60A4200A48DF3 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
@@ -268,6 +301,17 @@
 		E1D21D2026E26DC90083C70E /* UserInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
 		E1D21D2626E282F70083C70E /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		E1D21D2826E285730083C70E /* MyProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVM.swift; sourceTree = "<group>"; };
+		E1EB96F526F0A6320026C004 /* CommentReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyCell.swift; sourceTree = "<group>"; };
+		E1EB96F626F0A6320026C004 /* CommentReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentReplyCell.xib; sourceTree = "<group>"; };
+		E1EB96F926F0BA230026C004 /* CommentCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellVM.swift; sourceTree = "<group>"; };
+		E1FF71A826ED06D4000F39F1 /* FittetSheet+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FittetSheet+Ext.swift"; sourceTree = "<group>"; };
+		E1FF71AB26ED0792000F39F1 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
+		E1FF71AC26ED0792000F39F1 /* CommentsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsVC.xib; sourceTree = "<group>"; };
+		E1FF71AF26ED107E000F39F1 /* InsetTextFIeld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextFIeld.swift; sourceTree = "<group>"; };
+		E1FF71B126ED26ED000F39F1 /* CommentsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVM.swift; sourceTree = "<group>"; };
+		E1FF71B326ED3B71000F39F1 /* EmojiInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiInputAccessoryView.swift; sourceTree = "<group>"; };
+		E1FF71B726ED3F09000F39F1 /* EmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		E1FF71B826ED3F09000F39F1 /* EmojiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +333,18 @@
 				8C1F36B5EF6D6B498979332F /* Pods-tiktokclone.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E12C0BDE26EDE32400ED6158 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E12C0BDF26EDE34A00ED6158 /* CommentCell.swift */,
+				E12C0BE026EDE34A00ED6158 /* CommentCell.xib */,
+				E1EB96F526F0A6320026C004 /* CommentReplyCell.swift */,
+				E1EB96F626F0A6320026C004 /* CommentReplyCell.xib */,
+				E1EB96F926F0BA230026C004 /* CommentCellVM.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E15536A526E60A2800A48DF3 /* Cells */ = {
@@ -313,6 +369,7 @@
 		E175809326E1E6D40059A79B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E1FF71B526ED3EDF000F39F1 /* EmojiInputAccessoryView */,
 				E15536AC26E6447600A48DF3 /* VideoPlayerView */,
 				E1D21D1D26E26DA50083C70E /* UserInfoView */,
 				E1D21D1626E269E30083C70E /* NavigationHeader */,
@@ -320,6 +377,8 @@
 				E19D969A26E3035C002437CC /* KMPlaceholderTextView.swift */,
 				E15536AA26E641F000A48DF3 /* HomeHeaderView.swift */,
 				E154C81826E70C5600567B31 /* MarqueeLabel.swift */,
+				E1FF71AF26ED107E000F39F1 /* InsetTextFIeld.swift */,
+				E12C0BE526EDE59D00ED6158 /* PaddingLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -356,6 +415,7 @@
 			children = (
 				E17580B126E227E40059A79B /* TTUser.swift */,
 				E19D969E26E310F1002437CC /* TTVideo.swift */,
+				E12C0BD826EDD93E00ED6158 /* TTComment.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -366,6 +426,8 @@
 				E17580AF26E227B60059A79B /* AuthUseCase.swift */,
 				E19D96A026E312E7002437CC /* StorageUseCase.swift */,
 				E19D96A626E31ABC002437CC /* VideoUseCase.swift */,
+				E12C0BD626EDD92600ED6158 /* DatabaseTable.swift */,
+				E12C0BDA26EDD95800ED6158 /* CommentUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -429,6 +491,8 @@
 				E1D21D1426E256D20083C70E /* Encodable+Ext.swift */,
 				E1D21D2626E282F70083C70E /* UINavigationController+Ext.swift */,
 				E17BCD6726EB183D00B115ED /* CMTime+Ext.swift */,
+				E1FF71A826ED06D4000F39F1 /* FittetSheet+Ext.swift */,
+				E12C0BE326EDE4A600ED6158 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +517,8 @@
 				E1D21D1926E26A3C0083C70E /* NibLoadable.swift */,
 				E19D969C26E306DE002437CC /* VideoThumbnailGenerator.swift */,
 				E15536B126E645C700A48DF3 /* VideoPlayerManager.swift */,
+				E12C0BE726EDE68D00ED6158 /* TextCheckingType.swift */,
+				E12C0BE926EDE6A200ED6158 /* RegexPatterns.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -460,6 +526,7 @@
 		E19F5BCC26E1B7BA00E9B5D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E1FF71AA26ED0780000F39F1 /* CommentsVC */,
 				E175809326E1E6D40059A79B /* CustomViews */,
 				E175809626E1EEB00059A79B /* RegisterVC */,
 				E19F5BD426E1B82100E9B5D0 /* SettingsVC */,
@@ -725,6 +792,8 @@
 			children = (
 				E1D21D1126E235240083C70E /* UserRepo.swift */,
 				E19D96A226E31815002437CC /* VideoRepo.swift */,
+				E12C0BDC26EDDAF400ED6158 /* CommentRepo.swift */,
+				E12C0BEB26EE197A00ED6158 /* TimeFormatter.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -745,6 +814,35 @@
 				E1D21D2026E26DC90083C70E /* UserInfoView.xib */,
 			);
 			path = UserInfoView;
+			sourceTree = "<group>";
+		};
+		E1FF71AA26ED0780000F39F1 /* CommentsVC */ = {
+			isa = PBXGroup;
+			children = (
+				E12C0BDE26EDE32400ED6158 /* Cells */,
+				E1FF71AB26ED0792000F39F1 /* CommentsVC.swift */,
+				E1FF71AC26ED0792000F39F1 /* CommentsVC.xib */,
+				E1FF71B126ED26ED000F39F1 /* CommentsVM.swift */,
+			);
+			path = CommentsVC;
+			sourceTree = "<group>";
+		};
+		E1FF71B526ED3EDF000F39F1 /* EmojiInputAccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				E1FF71B326ED3B71000F39F1 /* EmojiInputAccessoryView.swift */,
+				E1FF71B626ED3EEE000F39F1 /* Cells */,
+			);
+			path = EmojiInputAccessoryView;
+			sourceTree = "<group>";
+		};
+		E1FF71B626ED3EEE000F39F1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E1FF71B726ED3F09000F39F1 /* EmojiCell.swift */,
+				E1FF71B826ED3F09000F39F1 /* EmojiCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F83940BBD61E0F9A502DABE0 /* Frameworks */ = {
@@ -817,6 +915,7 @@
 			files = (
 				E19F5C3326E1BF5B00E9B5D0 /* Milliard-Book.otf in Resources */,
 				E19F5C2F26E1BF5B00E9B5D0 /* Milliard-Hairline.otf in Resources */,
+				E1FF71AE26ED0792000F39F1 /* CommentsVC.xib in Resources */,
 				E19F5C3126E1BF5B00E9B5D0 /* Milliard-SemiBold.otf in Resources */,
 				E15536AF26E6449300A48DF3 /* VideoPlayerView.xib in Resources */,
 				E19FF0C126E1434100C96C38 /* LaunchScreen.storyboard in Resources */,
@@ -825,6 +924,7 @@
 				E19F5C3A26E1BF5B00E9B5D0 /* Milliard-Medium.otf in Resources */,
 				E19F5BF026E1B8B200E9B5D0 /* MyProfileVC.xib in Resources */,
 				E19F5BE026E1B88200E9B5D0 /* SearchVC.xib in Resources */,
+				E12C0BE226EDE34A00ED6158 /* CommentCell.xib in Resources */,
 				E19F5BDC26E1B87600E9B5D0 /* HomeVC.xib in Resources */,
 				E19F5C3926E1BF5B00E9B5D0 /* Milliard-ExtraBold-Italic.otf in Resources */,
 				E19F5C4026E1BF5B00E9B5D0 /* Milliard-Thin-Italic.otf in Resources */,
@@ -846,12 +946,14 @@
 				E19F5C4226E1BF5B00E9B5D0 /* Milliard-Thin.otf in Resources */,
 				E19F5BE826E1B89C00E9B5D0 /* ChatListVC.xib in Resources */,
 				E19F5C3C26E1BF5B00E9B5D0 /* Milliard-Heavy-Italic.otf in Resources */,
+				E1FF71BA26ED3F09000F39F1 /* EmojiCell.xib in Resources */,
 				E19F5C3F26E1BF5B00E9B5D0 /* Milliard-Book-Italic.otf in Resources */,
 				E175808A26E1D9990059A79B /* GoogleService-Info.plist in Resources */,
 				E19F5BF426E1B8BF00E9B5D0 /* SettingsVC.xib in Resources */,
 				E19F5C3526E1BF5B00E9B5D0 /* Milliard-ExtraLight-Italic.otf in Resources */,
 				E19F5C3226E1BF5B00E9B5D0 /* Milliard-Hairline-Italic.otf in Resources */,
 				E19F5C3626E1BF5B00E9B5D0 /* Milliard-Black.otf in Resources */,
+				E1EB96F826F0A6320026C004 /* CommentReplyCell.xib in Resources */,
 				E19F5BEC26E1B8A700E9B5D0 /* ChatVC.xib in Resources */,
 				E19F5C4426E1BF5B00E9B5D0 /* Milliard-Light-Italic.otf in Resources */,
 				E19F5BE426E1B89200E9B5D0 /* VideoUploadVC.xib in Resources */,
@@ -930,11 +1032,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19F5BC926E1B78500E9B5D0 /* SwipeBackNavigationController.swift in Sources */,
+				E12C0BD926EDD93E00ED6158 /* TTComment.swift in Sources */,
+				E12C0BDB26EDD95800ED6158 /* CommentUseCase.swift in Sources */,
 				E19F5BB026E1B72D00E9B5D0 /* BaseVM.swift in Sources */,
 				E19F5C0126E1B97F00E9B5D0 /* Dictionary+Ext.swift in Sources */,
 				E19D969826E30020002437CC /* RxMediaPickerDelegate.swift in Sources */,
 				E175809226E1E6860059A79B /* Device.swift in Sources */,
 				E19F5C5E26E1C91600E9B5D0 /* Resolver.swift in Sources */,
+				E1FF71B026ED107E000F39F1 /* InsetTextFIeld.swift in Sources */,
 				E17580A926E20CA20059A79B /* ViewModelTrackable.swift in Sources */,
 				E154C81926E70C5600567B31 /* MarqueeLabel.swift in Sources */,
 				E19F5BC626E1B78500E9B5D0 /* VideoProcessor.swift in Sources */,
@@ -947,13 +1052,18 @@
 				E19F5BC726E1B78500E9B5D0 /* BaseVC.swift in Sources */,
 				E1D21D1226E235240083C70E /* UserRepo.swift in Sources */,
 				E19F5C0326E1B97F00E9B5D0 /* WKWebView+Ext.swift in Sources */,
+				E12C0BDD26EDDAF400ED6158 /* CommentRepo.swift in Sources */,
 				E19F5BC226E1B78500E9B5D0 /* ActivityIndicator.swift in Sources */,
+				E12C0BE426EDE4A600ED6158 /* UIButton+Ext.swift in Sources */,
+				E1EB96F726F0A6320026C004 /* CommentReplyCell.swift in Sources */,
 				E175809526E1E6E80059A79B /* NonLoginView.swift in Sources */,
 				E19F5BC326E1B78500E9B5D0 /* LoadingView.swift in Sources */,
 				E19F5BEF26E1B8B200E9B5D0 /* MyProfileVC.swift in Sources */,
 				E17580AD26E20D1A0059A79B /* UtilityModel.swift in Sources */,
 				E17580A126E1FD8F0059A79B /* UITableView+Reusable.swift in Sources */,
 				E15536B026E6449300A48DF3 /* VideoPlayerView.swift in Sources */,
+				E1FF71B426ED3B71000F39F1 /* EmojiInputAccessoryView.swift in Sources */,
+				E12C0BEC26EE197A00ED6158 /* TimeFormatter.swift in Sources */,
 				E175809926E1EECF0059A79B /* RegisterVC.swift in Sources */,
 				E19F5BC526E1B78500E9B5D0 /* VideoCapture.swift in Sources */,
 				E19F5BC826E1B78500E9B5D0 /* Logger.swift in Sources */,
@@ -965,6 +1075,7 @@
 				E19F5C5226E1C5A800E9B5D0 /* VideoUploadCoordinator.swift in Sources */,
 				E1D21D1A26E26A3C0083C70E /* NibLoadable.swift in Sources */,
 				E19F5C5826E1C62200E9B5D0 /* SettingsCoordinator.swift in Sources */,
+				E1EB96FA26F0BA230026C004 /* CommentCellVM.swift in Sources */,
 				E19D96A926E32E6B002437CC /* VideoUploadVM.swift in Sources */,
 				E17580B226E227E40059A79B /* TTUser.swift in Sources */,
 				E175808C26E1DE850059A79B /* ErrorTracker.swift in Sources */,
@@ -972,6 +1083,7 @@
 				E17580A726E20C870059A79B /* EventPublisherType.swift in Sources */,
 				E19F5BE726E1B89C00E9B5D0 /* ChatListVC.swift in Sources */,
 				E19F5BDF26E1B88200E9B5D0 /* SearchVC.swift in Sources */,
+				E1FF71B226ED26ED000F39F1 /* CommentsVM.swift in Sources */,
 				E19F5C0226E1B97F00E9B5D0 /* String+Ext.swift in Sources */,
 				E1D21D1826E269ED0083C70E /* NavigationHeader.swift in Sources */,
 				E19D969D26E306DE002437CC /* VideoThumbnailGenerator.swift in Sources */,
@@ -986,13 +1098,19 @@
 				E15536B226E645C700A48DF3 /* VideoPlayerManager.swift in Sources */,
 				E19F5C0026E1B97F00E9B5D0 /* XCoordinator+Ext.swift in Sources */,
 				E17580A326E1FDB90059A79B /* TableViewCell.swift in Sources */,
+				E12C0BE826EDE68D00ED6158 /* TextCheckingType.swift in Sources */,
+				E1FF71A926ED06D4000F39F1 /* FittetSheet+Ext.swift in Sources */,
+				E1FF71AD26ED0792000F39F1 /* CommentsVC.swift in Sources */,
 				E175808E26E1E0120059A79B /* ErrorHandler.swift in Sources */,
+				E12C0BE126EDE34A00ED6158 /* CommentCell.swift in Sources */,
 				E19F5BB126E1B72D00E9B5D0 /* ViewModelTransformable.swift in Sources */,
 				E19F5BB226E1B72D00E9B5D0 /* RxBaseViewController.swift in Sources */,
 				E17580B426E2280B0059A79B /* RegisterVM.swift in Sources */,
 				E19D969926E30020002437CC /* RxMediaPicker.swift in Sources */,
 				E19F5C5A26E1C69C00E9B5D0 /* TabbarCoordinator.swift in Sources */,
 				E175808826E1D6DB0059A79B /* ViewController.swift in Sources */,
+				E12C0BD726EDD92600ED6158 /* DatabaseTable.swift in Sources */,
+				E12C0BEA26EDE6A200ED6158 /* RegexPatterns.swift in Sources */,
 				E19F5C0726E1B97F00E9B5D0 /* Localize+Ext.swift in Sources */,
 				E19F5BD726E1B86C00E9B5D0 /* TabBarVC.swift in Sources */,
 				E19D96A326E31815002437CC /* VideoRepo.swift in Sources */,
@@ -1005,6 +1123,7 @@
 				E1D21D1F26E26DBB0083C70E /* UserInfoView.swift in Sources */,
 				E175808626E1D61A0059A79B /* R.generated.swift in Sources */,
 				E19F5C4A26E1C2D300E9B5D0 /* HomeCoordinator.swift in Sources */,
+				E12C0BE626EDE59D00ED6158 /* PaddingLabel.swift in Sources */,
 				E17BCD6826EB183D00B115ED /* CMTime+Ext.swift in Sources */,
 				E19F5C1326E1BB5000E9B5D0 /* AppColors.swift in Sources */,
 				E175809E26E1FC4B0059A79B /* RegisterMethodCell.swift in Sources */,
@@ -1014,6 +1133,7 @@
 				E15536AB26E641F000A48DF3 /* HomeHeaderView.swift in Sources */,
 				E19F5C6126E1CCB200E9B5D0 /* AppCoordinator.swift in Sources */,
 				E19F5C1526E1BB8600E9B5D0 /* Text.swift in Sources */,
+				E1FF71B926ED3F09000F39F1 /* EmojiCell.swift in Sources */,
 				E19F5BE326E1B89200E9B5D0 /* VideoUploadVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

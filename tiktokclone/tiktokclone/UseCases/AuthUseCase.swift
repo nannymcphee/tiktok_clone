@@ -33,7 +33,7 @@ final class AuthUseCaseImpl: AuthUseCase {
     private var clientId: String? {
         return FirebaseApp.app()?.options.clientID
     }
-    private lazy var dbUser = Firestore.firestore().collection("Users")
+    private lazy var dbUser = Firestore.firestore().collection(DatabaseTable.users.rawValue)
     
     func signInWithGoogle(presenting: UIViewController) -> Single<TTUser> {
         return _signInWithGoogle(presenting: presenting)

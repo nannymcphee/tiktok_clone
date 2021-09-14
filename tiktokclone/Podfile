@@ -11,6 +11,8 @@ target 'tiktokclone' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Kingfisher', '6.3.1'
   pod 'Localize-Swift', '~> 3.2'
+  pod 'FittedSheets', '~> 2.4.2'
+  pod 'ISEmojiView', '0.2.6'
 
   # Rx Pods
   pod 'RxSwift', '6.2.0'
