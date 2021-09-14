@@ -132,6 +132,12 @@ class VideoCell: CollectionViewCell, EventPublisherType {
             })
             .disposed(by: disposeBag)
         
+        // Comments count
+        output.commentCount
+            .map { "\($0)" }
+            .drive(lbCommentCount.rx.text)
+            .disposed(by: disposeBag)
+        
         lbSongName.text = "Some song name...\t- Author name..."
         ivSongCover.image = R.image.ic_avatar_placeholder()
         startAnimations()

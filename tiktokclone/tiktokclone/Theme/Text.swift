@@ -43,4 +43,12 @@ class Text {
     static var youAreNotLoggedIn = "You are not logged in"
     static var pleaseLoginToUploadVideo = "Please login to upload video"
     static var forYou = "For you"
+    static var addComments = "Add comments..."
+    static var viewReplies = "View replies"
+    static var reply = "Reply"
+    static var likedByAuthor = "Liked by author"
+    static var hide = "Hide"
+    static func replyTo(_ s: String) -> String {
+        return "Reply to \(s)"
+    }
 }

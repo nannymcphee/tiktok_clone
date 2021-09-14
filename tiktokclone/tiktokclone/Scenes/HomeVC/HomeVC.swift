@@ -17,9 +17,9 @@ class HomeVC: RxBaseViewController<HomeVM> {
     
     private lazy var slProgress: UISlider = {
         let slider = UISlider()
-        slider.minimumTrackTintColor = .white
-        slider.maximumTrackTintColor = AppColors.lightGray
-        slider.setThumbImage(R.image.ic_slider_thumb(), for: .normal)
+        slider.setMinimumTrackImage(UIImage(color: .white), for: .normal)
+        slider.setMaximumTrackImage(UIImage(color: AppColors.lightGray), for: .normal)
+        slider.setThumbImage(R.image.ic_slider_thumb_8(), for: .normal)
         slider.setThumbImage(R.image.ic_slider_thumb(), for: .highlighted)
         return slider
     }()
@@ -55,6 +55,7 @@ class HomeVC: RxBaseViewController<HomeVM> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         videoPlayer.resumeVideo()
+        slProgress.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,6 +66,7 @@ class HomeVC: RxBaseViewController<HomeVM> {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         videoPlayer.pauseVideo()
+        slProgress.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -219,8 +221,9 @@ class HomeVC: RxBaseViewController<HomeVM> {
         tabBarVC?.view.addSubview(slProgress)
         slProgress.snp.makeConstraints { [weak self] make in
             guard let self = self else { return }
-            make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(self.tabBarHeight - 8)
+            make.left.equalToSuperview().offset(-1)
+            make.right.equalToSuperview().offset(1)
+            make.bottom.equalToSuperview().inset(self.tabBarHeight - 4)
         }
     }
     

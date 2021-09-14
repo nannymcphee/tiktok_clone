@@ -18,7 +18,7 @@ protocol VideoUseCase {
 
 final class VideoUseCaseImpl: VideoUseCase {
     @Injected private var userRepo: UserRepo
-    private lazy var dbVideo = Firestore.firestore().collection("Videos")
+    private lazy var dbVideo = Firestore.firestore().collection(DatabaseTable.videos.rawValue)
     private var currentUserId: String? {
         userRepo.currentUser?.id
     }

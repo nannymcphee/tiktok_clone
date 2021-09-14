@@ -7,11 +7,12 @@
 
 import UIKit
 import RxSwift
+import FittedSheets
 import XCoordinator
 
 enum HomeRoute: Route {
     case main
-    case comment
+    case comments(TTVideo)
 }
 
 class HomeCoordinator: NavigationCoordinator<HomeRoute> {
@@ -34,18 +35,34 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
                 .drive(with: self, onNext: { owner, event in
                     switch event {
                     case .didTapComment(let video):
-                        Logger.d("didTapComment \(video)")
-                        owner.trigger(.comment)
+                        owner.trigger(.comments(video))
                     }
                 })
                 .disposed(by: disposeBag)
             
             return .push(viewController)
             
-        case .comment:
-            let vc = UIViewController()
-            vc.view.backgroundColor = .white
-            return .present(vc)
+        case .comments(let video):
+            let vm = CommentsVM(video: video)
+            let vc = CommentsVC(viewModel: vm)
+            let sheetVC = SheetViewController(controller: vc, sizes: [.percent(0.75)], options: .tikTokDefault)
+            sheetVC.overlayColor = .clear
+            sheetVC.allowPullingPastMaxHeight = false
+            sheetVC.autoAdjustToKeyboard = false
+            sheetVC.contentBackgroundColor = AppColors.primaryBackground
+            sheetVC.handleScrollView(vc.tbComments)
+            
+            vm.eventPublisher
+                .asDriverOnErrorJustComplete()
+                .drive(with: self, onNext: { owner, event in
+                    switch event {
+                    case .dismiss:
+                        sheetVC.dismiss(animated: true, completion: nil)
+                    }
+                })
+                .disposed(by: disposeBag)
+            
+            return .present(sheetVC)
         }
     }
 }
