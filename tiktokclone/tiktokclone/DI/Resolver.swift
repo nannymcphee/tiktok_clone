@@ -21,6 +21,10 @@ extension Resolver: ResolverRegistering {
         registerCommentRepo()
         registerTimeFormatter()
     }
+    
+    public static func registerMockServices() {
+        registerMockVideoRepo()
+    }
 }
 
 extension Resolver {
@@ -92,5 +96,14 @@ extension Resolver {
             TimeFormaterImpl() as TimeFormatter
         }
         .scope(.cached)
+    }
+}
+
+extension Resolver {
+    private static func registerMockVideoRepo() {
+        register {
+            VideoRepoMock() as VideoRepo
+        }
+        .scope(.unique)
     }
 }
