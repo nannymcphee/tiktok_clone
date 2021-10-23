@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator.strongRouter.setRoot(for: mainWindow)
         // Dependency Injection
         Resolver.registerAllServices()
+        Resolver.registerMockServices()
         setUpTabBarTheme()
         setUpNavigationBarTheme()
         return true

@@ -86,3 +86,14 @@ final class VideoUseCaseImpl: VideoUseCase {
         }
     }
 }
+
+extension Collection where Iterator.Element == [String: Any] {
+    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> NSString {
+        if let arr = self as? [[String:Any]],
+           let data = try? JSONSerialization.data(withJSONObject: arr, options: options),
+           let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+            return str
+        }
+        return "[]"
+    }
+}

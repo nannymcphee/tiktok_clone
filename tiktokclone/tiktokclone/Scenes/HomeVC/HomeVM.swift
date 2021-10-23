@@ -49,7 +49,7 @@ final class HomeVM: BaseVM, ViewModelTransformable, ViewModelTrackable, EventPub
     func transform(input: Input) -> Output {
         // Initial load
         Observable.merge(input.viewDidLoadTrigger, input.refreshTrigger)
-            .flatMap(weakObj: self) { viewModel, _ in
+            .flatMapLatest(weakObj: self) { viewModel, _ in
                 viewModel.videoRepo
                     .getVideos()
                     .trackError(viewModel.errorTracker, action: .alert)
